@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+            
+
+{% block jumbotron %}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div>
+      <div class="container">
+        <p>&nbsp</p>
+        <p>&nbsp</p>
+        <h1>Supervisor Dashboard</h1>
+        <p>You are on the main page of your supervisor dashboard.  The features on this page will help you to organize your supervision tools, develop new tools, and monitor the performance of your current supervisees. </p>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+ <div class="col-md-3">
+          <h3>Assessment and Contract Development</h3>
+          <hr />
+          <p>Provide your supervisees with ongoing knowledge assessments from this menu.  You can also access and edit contracts, job models, and supervision feedback forms.  </p>
+          <div class="btn-group-vertical">
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "knowledgequiz" %}'>Foundational Knowledge Quiz &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "samplecontracts" %}'>Sample Contracts &raquo;</a></button>
+<<<<<<< HEAD
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "jobmodel" %}'>Job Model &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "skills" %}'>Skills Checklist &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "supervisionfeedback" %}'>Supervision Feedback <br />and Goal Setting Form &raquo;</a></button>
+=======
+          <button type="button" class="btn btn-default" href="#" role="button">Job Model &raquo;</button>
+          <button type="button" class="btn btn-default" href="#" role="button"><a href='{% url "supervisionfeedback" %}'>Supervision Feedback <br />and Goal Setting Form &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "skills" %}'>Skills &raquo;</a></button>
+>>>>>>> 0c05fc049fe7fb891e31ef6648e0e80683aa69b1
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h3>Training <br />Development</h3>
+          <hr />
+          <p>Access your tools that will assist you in developing training materials.</p>
+          <div class="btn-group-vertical">
+<<<<<<< HEAD
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "taskanalysis" %}'>Task Analysis &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "storyboard" %}'>Training Storyboard <br />and Goal Setting Form &raquo;</a></button>          
+=======
+          <button type="button" class="btn btn-default" href="#" role="button">Task Analysis &raquo;</button>
+          <button type="button" class="btn btn-default" href="#" role="button"><a href='{% url "storyboard" %}'>Training Storyboard <br />and Goal Setting Form &raquo;</a></button>          
+>>>>>>> 0c05fc049fe7fb891e31ef6648e0e80683aa69b1
+          </div>
+       </div>
+        <div class="col-md-3">
+          <h3>Performance <br />Monitoring</h3>
+          <hr />
+          <p>Access templates for supervision feedback forms, goal setting forms, and other performance monitoring tools in order to track your supervisees’ progress.</p>
+          <div class="btn-group-vertical">
+<<<<<<< HEAD
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "experiencesupervisionform" %}'>BACB Supervision Form &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "supervisionfeedback" %}'>Supervision Feedback <br />and Goal Setting Form &raquo;</a></button>
+=======
+          <button type="button" class="btn btn-default" href="#" role="button">BACB Supervision Form &raquo;</button>
+          <button type="button" class="btn btn-default" href="#" role="button"><a href='{% url "supervisionfeedback" %}'>Supervision Feedback <br />and Goal Setting Form &raquo;</a></button>
+>>>>>>> 0c05fc049fe7fb891e31ef6648e0e80683aa69b1
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <h3>Evaluation and Prof. Development</h3>
+          <hr />
+          <p>Supervisee and supervisor assessments are located here.  You can use these forms to periodically evaluate your supervisees in order to track progress, as well as assess and get feedback on your own supervision skills and services. </p>
+          <div class="btn-group-vertical">
+<<<<<<< HEAD
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "selfassessmentview" %}'>Supervisee Assessment of Supervision &raquo;</a></button>
+          <button type="button" class="btn btn-default" role="button"><a href='{% url "selfassessment" %}'>Supervisor Self Assessment &raquo;</a></button>
+=======
+          <button type="button" class="btn btn-default" href="#" role="button">Supervisee Assessment of Supervision &raquo;</button>
+          <button type="button" class="btn btn-default" href="#" role="button">Supervisor Self Assessment &raquo;</button>
+>>>>>>> 0c05fc049fe7fb891e31ef6648e0e80683aa69b1
+          </div>
+        </div>
+</div>
+
+<div class="container">
+<div class="col-md-6">
+
+<h3>Supervisees</h3>
+{% include 'superviseeview.html' %}
+</div>
+<div class="col-md-6">
+<h3>Resources</h3>
+<ul>
+  <li>
+    <a href="#">Skills Hierarchy</a>
+  </li>
+</ul>
+</div>
+</div>
+
+{% endblock %}

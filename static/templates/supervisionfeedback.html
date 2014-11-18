@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+<h2>Supervision Feedback and Goal Setting Form</h2>
+Etiam laoreet tempus rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas et euismod massa, ac congue neque. Vestibulum bibendum, justo quis cursus semper, mi quam aliquet lectus, ac finibus nisl nunc et mi. Integer nec tortor vulputate enim feugiat ornare vitae non odio. Aenean consequat vel risus sollicitudin tincidunt.<br />
+<hr />
+
+<form method='POST' action=''> {% csrf_token %}
+<table width="100%" border="0" cellpadding="5" class="table">
+  <tbody>
+    <tr>
+      <td><strong>Supervisee:</strong>
+        <input type="text" name="supervisee_name"></td>
+      <td><strong>Supervisor:</strong>
+        <input type="text" name="supervisor_name"></td>
+    </tr>
+    <tr>
+      <td><strong>Setting:</strong>
+        <input type="text" name="setting"></td>
+      <td><strong>Date:</strong>
+        <input type="text" name="date" id="date"><br />
+        <strong>Time:
+          <input name="date2" type="text" size="2">
+        :
+        <input name="date3" type="text" size="2"> 
+        to 
+        <input name="date4" type="text" size="2">
+        : 
+        <input name="date5" type="text" size="2">
+        </strong></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Overall Assessment Results:</h3>
+<table width="100%" border="0" cellpadding="5" class="table">
+  <tbody class="borderless">
+    <tr>
+      <td>Can’t Do Yet: <input name="textfield" type="text" id="textfield" size="3">%</td>
+      <td>Can Do w/ Coaching: <input name="textfield2" type="text" id="textfield2" size="3">%</td>
+      <td>Can Do w/o Coaching: <input name="textfield3" type="text" id="textfield3" size="3">%</td>
+      <td>Can Coach Others: <input name="textfield4" type="text" id="textfield4" size="3">%</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Job Performance:</h3>
+  <table width="80%" border="0" cellpadding="15" class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="17%" valign="top">Current Level:</td>
+        <td width="83%"><input type="checkbox" name="CheckboxGroup1_3" value="no_knowledge" id="CheckboxGroup1_0">
+no/limited&nbsp;&nbsp;&nbsp;
+   <input type="checkbox" name="CheckboxGroup1_4" value="with_coaching" id="CheckboxGroup1_1">
+can do w/ coaching&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="CheckboxGroup1_5" value="without_coaching" id="CheckboxGroup1_2">
+can do w/o coaching&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="CheckboxGroup1" value="can_coach" id="CheckboxGroup1_3">
+can coach others</td>
+      </tr>
+      <tr>
+        <td valign="top">Feedback:</td>
+        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+      </tr>
+      <tr>
+        <td valign="top">Goals: </td>
+        <td><input type="checkbox" name="CheckboxGroup2_4" value="train" id="CheckboxGroup2_1">
+train&nbsp;&nbsp;&nbsp;
+  <input type="checkbox" name="CheckboxGroup2_5" value="generalize" id="CheckboxGroup2_2">
+generalize&nbsp;&nbsp;&nbsp;
+  <input type="checkbox" name="CheckboxGroup2_6" value="monitor" id="CheckboxGroup2_3">
+  monitor&nbsp;&nbsp;&nbsp;
+  <input type="checkbox" name="CheckboxGroup2_" value="lead_train_others" id="CheckboxGroup2_4">
+lead/train others</td>
+      </tr>
+      <tr>
+        <td valign="top">Action Plan: </td>
+        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Job Performance:</h3>
+  <table width="80%" border="0" cellpadding="15" class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="17%" valign="top">Current Level:</td>
+        <td width="83%"><input type="checkbox" name="CheckboxGroup1_" value="no_knowledge" id="CheckboxGroup1_4">
+          no/limited&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup1_" value="with_coaching" id="CheckboxGroup1_5">
+          can do w/ coaching&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="CheckboxGroup1_" value="without_coaching" id="CheckboxGroup1_6">
+          can do w/o coaching&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="CheckboxGroup1_" value="can_coach" id="CheckboxGroup1_7">
+          can coach others</td>
+      </tr>
+      <tr>
+        <td valign="top">Feedback:</td>
+        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+      </tr>
+      <tr>
+        <td valign="top">Goals: </td>
+        <td><input type="checkbox" name="CheckboxGroup2_2" value="train" id="CheckboxGroup2_5">
+          train&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup2_2" value="generalize" id="CheckboxGroup2_6">
+          generalize&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup2_2" value="monitor" id="CheckboxGroup2_7">
+            monitor&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup2_2" value="lead_train_others" id="CheckboxGroup2_8">
+            lead/train others</td>
+      </tr>
+      <tr>
+        <td valign="top">Action Plan: </td>
+        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Job Performance:</h3>
+  <table width="80%" border="0" cellpadding="15" class="table table-bordered">
+    <tbody>
+      <tr>
+        <td width="17%" valign="top">Current Level:</td>
+        <td width="83%"><input type="checkbox" name="CheckboxGroup1_2" value="no_knowledge" id="CheckboxGroup1_8">no/limited&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup1_2" value="with_coaching" id="CheckboxGroup1_9">
+          can do w/ coaching&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="CheckboxGroup1_2" value="without_coaching" id="CheckboxGroup1_10">
+          can do w/o coaching&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="CheckboxGroup1_2" value="can_coach" id="CheckboxGroup1_11">
+          can coach others</td>
+      </tr>
+      <tr>
+        <td valign="top">Feedback:</td>
+        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+      </tr>
+      <tr>
+        <td valign="top">Goals: </td>
+        <td><input type="checkbox" name="CheckboxGroup2_3" value="train" id="CheckboxGroup2_9">
+          train&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="CheckboxGroup2_3" value="generalize" id="CheckboxGroup2_10">
+          generalize&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup2_3" value="monitor" id="CheckboxGroup2_11">
+            monitor&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="CheckboxGroup2_3" value="lead_train_others" id="CheckboxGroup2_12">
+            lead/train others</td>
+      </tr>
+      <tr>
+        <td valign="top">Action Plan: </td>
+        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Professionalism</h3>
+<p>(timeliness, completion of work, attire)/Ethics (BACB Guidelines for Responsible Conduct)</p>
+<table border="0" cellpadding="15" class="table table-bordered">
+    <tbody>
+    <tr>
+    	<td>Strengths:</td>
+    	<td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+    </tr>
+    <tr>
+    	<td>Suggestions:</td>
+    	<td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+    </tr>
+    <tr>
+    	<td>General Comments:</td>
+    	<td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+    </tr>
+    </tbody>
+    </table>
+  <h3>Next Focus</h3>
+  <p>(indicate 1-3 areas for the student to concentrate on for their next supervision meeting):</p>
+  
+<table border="0" cellpadding="15" class="table table-bordered">
+<tbody>
+<tr>
+	<td>1.</td>
+	<td><input type="text" name="textfield12" id="textfield14" size="75"></td>
+</tr>
+<tr>
+	<td>2.</td>
+	<td><input type="text" name="textfield13" id="textfield15" size="75"></td>
+</tr>
+<tr>
+	<td>3.</td> 
+    <td><input type="text" name="textfield14" id="textfield16" size="75"></td>
+</tr>
+</tbody>
+</table>
+
+
+<br />
+<p><input type='submit' class='btn btn-success'></p>
+</form>
+
+</div>
+</div>
+
+{% endblock %}            
+
+{% block content %}
+<!-- <h1>Heading</h1> -->
+
+{% endblock %}

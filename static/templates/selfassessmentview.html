@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+<div class="jumbotron">
+<h2>Completed Supervisor Assessments</h2>
+text<br /><br />
+<div class="container">
+<div class="col-md-10">
+
+
+<ul>
+<li><a href='{% url "superviseeassessmentresults" %}'>Assessment Results 1</a></li>
+<li><a href='{% url "superviseeassessmentresults" %}'>Assessment Results 2</a></li>
+</ul>
+
+
+
+
+<br />
+<br />
+</div>
+
+{% endblock %}            
+
+{% block content %}
+
+
+{% endblock %}

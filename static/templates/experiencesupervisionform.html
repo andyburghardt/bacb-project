@@ -1,0 +1,389 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+  <script type="text/javascript">
+function findTotal(){
+    var arr = document.getElementsByName('qty');
+    var tot=0;
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].value))
+            tot += parseInt(arr[i].value);
+    }
+    document.getElementById('total').value = tot;
+}
+
+    </script>
+
+<div class="jumbotron">
+<h2>BACB Experience Supervision Form</h2>
+<em>This form must be completed at least once during each supervisory period.</em><br /><br />
+<div class="container">
+<div class="col-md-10">
+<form method='POST' action=''> {% csrf_token %}
+<br>
+Supervisee:<u>                                                            </u> <br>
+  Supervisor:<u>                                                      ___</u> <br>
+  Supervisory Meeting Date(s) &amp; Duration(s):<u>            __________________________________________</u><br>
+  Supervisory Meeting Format (check all that apply):     <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0"> individual                  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0">  group <br>
+  This document covers the supervisory period from <u>         </u>/<u>        </u>/<u>        </u> to <u>     </u>/<u>           </u>/<u>           </u><br>
+
+<table class="table">
+<tbody>
+<tr>
+<td colspan="2">
+  <br /><strong>Experience Hours Accumulated During This Supervisory Period (complete all four lines)</strong>
+  </td>
+  </tr>
+<tr>
+<td>A) Number of independent experience hours accumulated:</td>
+<td><input onblur="findTotal()" type="text" name="qty" id="qty2" size="2"/></td>
+</tr>
+<tr>
+<td>B) Number of individual supervision hours accumulated:</td>
+<td><input onblur="findTotal()" type="text" name="qty" id="qty3" size="2"/></td>
+</tr>
+<tr>
+<td>C) Number of small-group supervision hours accumulated:</td>
+<td><input onblur="findTotal()" type="text" name="qty" id="qty4" size="2"/></td>
+</tr>
+<tr>
+<td>D) Total experience hours accumulated:</td>
+<td><input type="text" name="total" readonly id="total" size="3"/></td>
+</tr>
+<br />
+</tbody>
+</table>
+
+<strong>Characteristics of Supervision Conducted During This Supervisory Period (check all that apply)</strong> <br>
+  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0"> BACB Task List skills covered (list Task numbers): ________________________________<br>
+  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0">
+Specific client(s) discussed<br>
+  <input type="checkbox" name="characteristics_of_supervision_2" value="checkbox" id="characteristics_of_supervision_1">
+Client privacy protected<br>
+  <input type="checkbox" name="characteristics_of_supervision_3" value="checkbox" id="characteristics_of_supervision_2">
+Observation of supervisee (video)<br>
+  <input type="checkbox" name="characteristics_of_supervision_4" value="checkbox" id="characteristics_of_supervision_3">
+Observation of supervisee (in-person)<br>
+ <input type="checkbox" name="characteristics_of_supervision_5" value="checkbox" id="characteristics_of_supervision_5">
+Supervisory discussion &amp; feedback (in-person)<br>
+ <input type="checkbox" name="characteristics_of_supervision" value="checkbox" id="characteristics_of_supervision_4">
+Supervisory discussion &amp; feedback (remote)<br>
+  <input type="checkbox" name="characteristics_of_supervision_6" value="checkbox" id="characteristics_of_supervision_6">
+Readings: ______________________________________________________________________
+
+<br /><br />
+
+<strong>Evaluation of Supervisee Performance:</strong><br />
+<strong>S </strong>– satisfactory       <strong>NI </strong>- needs improvement        <strong>U </strong>- unsatisfactory        <strong>N/A </strong>– not applicable
+<br />
+
+<table cellspacing="0" cellpadding="15" class="table table-bordered">
+<tbody>
+  <tr>
+    <td valign="top"></td>
+    <td valign="top">S</td>
+    <td valign="top">NI</td>
+    <td valign="top">U</td>
+    <td valign="top">N/A</td>
+  </tr>
+  <tr>
+    <td valign="top">Arrives on time for supervision</td>
+    <td valign="top">
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Maintains professional and courteous interactions with:</td>
+    <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Clients/consumers</td>
+  <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Other service providers</p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Coworkers </p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Maintains appropriate attire &amp; demeanor</p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Initiates professional self-improvement</p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Accepts supervisory feedback appropriately</p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Seeks supervision appropriately</p></td>
+        <td valign="top">
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Timely submission of written reports</p></td>
+    <td valign="top">
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Communicates effectively</p></td>
+        <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Written </p></td>
+    <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Oral </p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Demonstrates appropriate sensitivity to nonbehavioral providers</p></td>
+      <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Supervisee   self-detects personal limitations</p></td>
+  <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Supervisee   self-detects professional limitations</p></td>
+  <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">Acquisition of target behavior-analytic skills</p></td>
+  <td valign="top">
+      
+        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+      
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+    </td>
+    <td valign="top">
+      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+</td></tr>
+</tbody>
+</table>
+
+If unsatisfactory performance is noted in 2 or more different areas during the same evaluation period and/or the same over two consecutive evaluations, the supervisor will contact the practicum professor and the student must meet with the practicum professor to complete an intervention plan prior to returning to the practicum site.  Hours accumulated during this evaluation period will be excluded from the student&rsquo;s total hours toward supervised experience for the BACB and hours can only recommence accumulation once the meeting with the practicum professor has occurred. <strong>Overall evaluation </strong>of supervisee performance during this period (choose one):   S                                                                 NI  U</p>
+Supervisee signature: <u>                                                          </u>   Date: <u>  ________________________________</u><br>
+  Supervisor signature: ___________________________       Date: <u>  ________________________________</u></p>
+
+
+<p align="center"><input type='submit' class='btn btn-success'></p>
+</form>
+</div>
+</div>
+
+{% endblock %}            
+
+{% block content %}
+
+{% endblock %}

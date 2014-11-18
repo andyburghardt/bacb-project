@@ -1,0 +1,40 @@
+
+
+.container {
+  display: table;
+  padding: 10px;
+}
+
+.row {
+  display: table-row;
+}
+
+.column {
+  display: table-cell;
+  padding: 3px;
+    border: solid;
+  border-color: #BFBFBF;
+  border-width: .5px;
+}
+
+.borderless td {
+    border: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/*
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    background-image: url(/media/pdf.png);
+    background-repeat: no-repeat;
+    background-position: 0px 5px; 
+    padding-left: 30px; 
+}*/

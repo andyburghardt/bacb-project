@@ -1,0 +1,992 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+        
+Ethics and Professional Conduct are subsumed within each section of the task list. The BACB Professional Disciplinary and Ethical Standards and Guidelines for Responsible Conduct for Behavior Analysts are essential companion documents to the task list. BACB certificants must practice in compliance with the professional disciplinary and ethical standards and should structure their practices in accordance with the conduct guidelines. Candidates are expected to have a complete understanding of these documents, including, but not limited to, the importance of ethical conduct as it relates to professional practice of the tasks identified in the Fourth Edition Task List. As a result, questions addressing ethical issues related to specific tasks will appear on the examination.
+<br />
+<hr />
+<form method='POST' action=''> {% csrf_token %}
+
+<strong>Choose your supervisee</strong><br />
+<select name="supervisee_name"><br />
+<option value="1">Jane Doe</option>
+<option value="2">John Doe</option>
+<option value="3">Kyle Doe</option>
+<option value="4">Kylie Doe</option>
+</select>
+<br /><br />Or<br /><br />
+<strong>Add a supervisee</strong><br />
+First name: <input type="text" name="firstname"><br />
+Last name: <input type="text" name="lastname">
+
+<h2>Section 1 - Basic Behavior-Analytic Skills</h2>
+
+<h3>A. Measurement</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="A-01"></td>
+    <td>A-01</td>
+    <td>Measure frequency (i.e., count).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-02"></td>
+    <td>A-02</td>
+    <td>Measure rate (i.e., count per unit time).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-03"></td>
+    <td>A-03</td>
+    <td>Measure duration.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-04"></td>
+    <td>A-04</td>
+    <td>Measure latency.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-05"></td>
+    <td>A-05</td>
+    <td>Measure interresponse time (IRT).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-06"></td>
+    <td>A-06</td>
+    <td>Measure percent of occurrence.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-07"></td>
+    <td>A-07</td>
+    <td>Measure trials to criterion.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-08"></td>
+    <td>A-08</td>
+    <td>Assess and interpret interobserver agreement.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-09"></td>
+    <td>A-09</td>
+    <td>Evaluate the accuracy and reliability of measurement procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-10"></td>
+    <td>A-10</td>
+    <td>Design, plot, and interpret data using equal-interval graphs.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-11"></td>
+    <td>A-11</td>
+    <td>Design, plot, and interpret data using a cumulative record to display data.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-12"></td>
+    <td>A-12</td>
+    <td>Design and implement continuous measurement procedures (e.g., event recording).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-13"></td>
+    <td>A-13</td>
+    <td>Design and implement discontinuous measurement procedures (e.g., partial &amp; whole interval, momentary time sampling).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="A-14"></td>
+    <td>A-14</td>
+    <td>Design and implement choice measures.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>B. Experimental Design</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="B-01"></td>
+    <td>B-01</td>
+    <td>Use the dimensions of applied behavior analysis (Baer, Wolf, &amp; Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-02"></td>
+    <td>B-02</td>
+    <td>Review and interpret articles from the behavior-analytic literature.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-03"></td>
+    <td>B-03</td>
+    <td>Systematically arrange independent variables to demonstrate their effects on dependent variables.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-04"></td>
+    <td>B-04</td>
+    <td>Use withdrawal/reversal designs.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-05"></td>
+    <td>B-05</td>
+    <td>Use alternating treatments (i.e., multielement) designs.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-06"></td>
+    <td>B-06</td>
+    <td>Use changing criterion designs.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-07"></td>
+    <td>B-07</td>
+    <td>Use multiple baseline designs.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-08"></td>
+    <td>B-08</td>
+    <td>Use multiple probe designs.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-09"></td>
+    <td>B-09</td>
+    <td>Use combinations of design elements.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-10"></td>
+    <td>B-10</td>
+    <td>Conduct a component analysis to determine the effective components of an intervention package.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="B-11"></td>
+    <td>B-11</td>
+    <td>Conduct a parametric analysis to determine the effective values of an independent variable.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>C. Behavior-Change Considerations</h3> 
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cC-01"></td>
+    <td>C-01</td>
+    <td>State and plan for the possible unwanted effects of reinforcement.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cC-02"></td>
+    <td>C-02</td>
+    <td>State and plan for the possible unwanted effects of punishment.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cC-03"></td>
+    <td>C-03</td>
+    <td>State and plan for the possible unwanted effects of extinction.</td>
+</tr>
+</tbody>
+</table>
+</div>
+         
+<h3>D. Fundamental Elements of Behavior Change</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cD-01"></td>
+    <td>D-01</td>
+    <td>Use positive and negative reinforcement.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-02"></td>
+    <td>D-02</td>
+    <td>Use appropriate parameters and schedules of reinforcement.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-03"></td>
+    <td>D-03</td>
+    <td>Use prompts and prompt fading.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-04"></td>
+    <td>D-04</td>
+    <td>Use modeling and imitation training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-05"></td>
+    <td>D-05</td>
+    <td>Use shaping.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-06"></td>
+    <td>D-06</td>
+    <td>Use chaining.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-07"></td>
+    <td>D-07</td>
+    <td>Conduct task analyses.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-08"></td>
+    <td>D-08</td>
+    <td>Use discrete-trial and free-operant arrangements.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-09"></td>
+    <td>D-09</td>
+    <td>Use the verbal operants as a basis for language assessment.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-10"></td>
+    <td>D-10</td>
+    <td>Use echoic training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-11"></td>
+    <td>D-11</td>
+    <td>Use mand training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-12"></td>
+    <td>D-12</td>
+    <td>Use tact training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-13"></td>
+    <td>D-13</td>
+    <td>Use intraverbal training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-14"></td>
+    <td>D-14</td>
+    <td>Use listener training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-15"></td>
+    <td>D-15</td>
+    <td>Identify punishers.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-16"></td>
+    <td>D-16</td>
+    <td>Use positive and negative punishment.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-17"></td>
+    <td>D-17</td>
+    <td>Use appropriate parameters and schedules of punishment.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-18"></td>
+    <td>D-18</td>
+    <td>Use extinction.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-19"></td>
+    <td>D-19</td>
+    <td>Use combinations of reinforcement with punishment and extinction.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-20"></td>
+    <td>D-20</td>
+    <td>Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cD-21"></td>
+    <td>D-21</td>
+    <td>Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>E. Specific Behavior-Change Procedures</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cE-01"></td>
+    <td>E-01</td>
+    <td>Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-02"></td>
+    <td>E-02</td>
+    <td>Use discrimination training procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-03"></td>
+    <td>E-03</td>
+    <td>Use instructions and rules.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-04"></td>
+    <td>E-04</td>
+    <td>Use contingency contracting (i.e., behavioral contracts).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-05"></td>
+    <td>E-05</td>
+    <td>Use independent, interdependent, and dependent group contingencies.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-06"></td>
+    <td>E-06</td>
+    <td>Use stimulus equivalence procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-07"></td>
+    <td>E-07</td>
+    <td>Plan for behavioral contrast effects.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-08"></td>
+    <td>E-08</td>
+    <td>Use the matching law and recognize factors influencing choice.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-09"></td>
+    <td>E-09</td>
+    <td>Arrange high-probability request sequences.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-10"></td>
+    <td>E-10</td>
+    <td>Use the Premack principle.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-11"></td>
+    <td>E-11</td>
+    <td>Use pairing procedures to establish new conditioned reinforcers and punishers.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-12"></td>
+    <td>E-12</td>
+    <td>Use errorless learning procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cE-13"></td>
+    <td>E-13</td>
+    <td>Use matching-to-sample procedures.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>F. Behavior-Change Systems</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cF-01"></td>
+    <td>F-01</td>
+    <td>Use self-management strategies.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-02"></td>
+    <td>F-02</td>
+    <td>Use token economies and other conditioned reinforcement systems.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-03"></td>
+    <td>F-03</td>
+    <td>Use Direct Instruction.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-04"></td>
+    <td>F-04</td>
+    <td>Use precision teaching.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-05"></td>
+    <td>F-05</td>
+    <td>Use personalized systems of instruction (PSI).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-06"></td>
+    <td>F-06</td>
+    <td>Use incidental teaching.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-07"></td>
+    <td>F-07</td>
+    <td>Use functional communication training.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cF-08"></td>
+    <td>F-08</td>
+    <td>Use augmentative communication systems.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<h2>Section II - Client-Centered Responsibilities</h2>
+
+<h3>G. Identification of the Problem</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cG-01"></td>
+    <td>G-01</td>
+    <td>Review records and available data at the outset of the case.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-02"></td>
+    <td>G-02</td>
+    <td>Consider biological/medical variables that may be affecting the client.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-03"></td>
+    <td>G-03</td>
+    <td>Conduct a preliminary assessment of the client in order to identify the referral problem.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-04"></td>
+    <td>G-04</td>
+    <td>Explain behavioral concepts using nontechnical language.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-05"></td>
+    <td>G-05</td>
+    <td>Describe and explain behavior, including private events, in behavior-analytic (non-mentalistic) terms.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-06"></td>
+    <td>G-06</td>
+    <td>Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-07"></td>
+    <td>G-07</td>
+    <td>Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cG-08"></td>
+    <td>G-08</td>
+    <td>Identify and make environmental changes that reduce the need for behavior analysis services.</td>
+</tr>
+</tbody>
+</table>
+</div>   
+
+<h3>H. Measurement</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cH-01"></td>
+    <td>H-01</td>
+    <td>Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cH-02"></td>
+    <td>H-02</td>
+    <td>Select a schedule of observation and recording periods.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cH-03"></td>
+    <td>H-03</td>
+    <td>Select a data display that effectively communicates relevant quantitative relations.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cH-04"></td>
+    <td>H-04</td>
+    <td>Evaluate changes in level, trend, and variability.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cH-05"></td>
+    <td>H-05</td>
+    <td>Evaluate temporal relations between observed variables (within &amp; between sessions, time series).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>I. Assessment</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cI-01"></td>
+    <td>I-01</td>
+    <td>Define behavior in observable and measurable terms.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cI-02"></td>
+    <td>I-02</td>
+    <td>Define environmental variables in observable and measurable terms.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cI-03"></td>
+    <td>I-03</td>
+    <td>Design and implement individualized behavioral assessment procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cI-04"></td>
+    <td>I-04</td>
+    <td>Design and implement the full range of functional assessment procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cI-05"></td>
+    <td>I-05</td>
+    <td>Organize, analyze, and interpret observed data.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cI-06"></td>
+    <td>I-06</td>
+    <td>Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cI-07"></td>
+    <td>I-07</td>
+    <td>Design and conduct preference assessments to identify putative reinforcers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>J. Intervention</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cJ-01"></td>
+    <td>J-01</td>
+    <td>State intervention goals in observable and measurable terms.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-02"></td>
+    <td>J-02</td>
+    <td>Identify potential interventions based on assessment results and the best available scientific evidence.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-03"></td>
+    <td>J-03</td>
+    <td>Select intervention strategies based on task analysis.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-04"></td>
+    <td>J-04</td>
+    <td>Select intervention strategies based on client preferences.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-05"></td>
+    <td>J-05</td>
+    <td>Select intervention strategies based on the client’s current repertoires.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-06"></td>
+    <td>J-06</td>
+    <td>Select intervention strategies based on supporting environments.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-07"></td>
+    <td>J-07</td>
+    <td>Select intervention strategies based on environmental and resource constraints.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-08"></td>
+    <td>J-08</td>
+    <td>Select intervention strategies based on the social validity of the intervention.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-09"></td>
+    <td>J-09</td>
+    <td>Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-10"></td>
+    <td>J-10</td>
+    <td>When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-11"></td>
+    <td>J-11</td>
+    <td>Program for stimulus and response generalization.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-12"></td>
+    <td>J-12</td>
+    <td>Program for maintenance.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-13"></td>
+    <td>J-13</td>
+    <td>Select behavioral cusps as goals for intervention when appropriate.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-14"></td>
+    <td>J-14</td>
+    <td>Arrange instructional procedures to promote generative learning (i.e., derived relations).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cJ-15"></td>
+    <td>J-15</td>
+    <td>Base decision-making on data displayed in various formats.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>K. Implementation, Management, and Supervision</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cK-01"></td>
+    <td>K-01</td>
+    <td>Provide for ongoing documentation of behavioral services.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-02"></td>
+    <td>K-02</td>
+    <td>Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-03"></td>
+    <td>K-03</td>
+    <td>Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-04"></td>
+    <td>K-04</td>
+    <td>Design and use effective performance monitoring and reinforcement systems.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-05"></td>
+    <td>K-05</td>
+    <td>Design and use systems for monitoring procedural integrity.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-06"></td>
+    <td>K-06</td>
+    <td>Provide supervision for behavior-change agents.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-07"></td>
+    <td>K-07</td>
+    <td>Evaluate the effectiveness of the behavioral program.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-08"></td>
+    <td>K-08</td>
+    <td>Establish support for behavior-analytic services from direct and indirect consumers.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-09"></td>
+    <td>K-09</td>
+    <td>Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cK-10"></td>
+    <td>K-10</td>
+    <td>Arrange for the orderly termination of services when they are no longer required.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>Section III - Foundational Knowledge Accompanying the BACB Fourth Edition Task List</h2>
+
+<h3>Explain and Behave in Accordance with the Philosophical Assumptions of Behavior Analysis</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cFK-01"></td>
+    <td>FK-01</td>
+    <td>Lawfulness of behavior</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-02"></td>
+    <td>FK-02</td>
+    <td>Selectionism (phylogenic, ontogenic, cultural)</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-03"></td>
+    <td>FK-03</td>
+    <td>Determinism</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-04"></td>
+    <td>FK-04</td>
+    <td>Empiricism</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-05"></td>
+    <td>FK-05</td>
+    <td>Parsimony</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-06"></td>
+    <td>FK-06</td>
+    <td>Pragmatism</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-07"></td>
+    <td>FK-07</td>
+    <td>Environmental (as opposed to mentalistic) explanations of behavior</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-08"></td>
+    <td>FK-08</td>
+    <td>Distinguish between radical and methodological behaviorism.</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-09"></td>
+    <td>FK-09</td>
+    <td>Distinguish between the conceptual analysis of behavior, experimental analysis of 
+behavior, applied behavior analysis, and behavioral service delivery.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>Define and Provide Examples of:</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cFK-10"></td>
+    <td>FK-10</td>
+    <td>behavior, response, response class</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-11"></td>
+    <td>FK-11</td>
+    <td>environment, stimulus, stimulus class</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-12"></td>
+    <td>FK-12</td>
+    <td>stimulus equivalence</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-13"></td>
+    <td>FK-13</td>
+    <td>reflexive relations (US-UR)</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-14"></td>
+    <td>FK-14</td>
+    <td>respondent conditioning (CS-CR)</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-15"></td>
+    <td>FK-15</td>
+    <td>operant conditioning</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-16"></td>
+    <td>FK-16</td>
+    <td>respondent-operant interactions</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-17"></td>
+    <td>FK-17</td>
+    <td>unconditioned reinforcement</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-18"></td>
+    <td>FK-18</td>
+    <td>conditioned reinforcement</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-19"></td>
+    <td>FK-19</td>
+    <td>unconditioned punishment</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-20"></td>
+    <td>FK-20</td>
+    <td>conditioned punishment</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-21"></td>
+    <td>FK-21</td>
+    <td>schedules of reinforcement and punishment</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-22"></td>
+    <td>FK-22</td>
+    <td>extinction</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-23"></td>
+    <td>FK-23</td>
+    <td>automatic reinforcement and punishment</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-24"></td>
+    <td>FK-24</td>
+    <td>stimulus control</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-25"></td>
+    <td>FK-25</td>
+    <td>multiple functions of a single stimulus</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-26"></td>
+    <td>FK-26</td>
+    <td>unconditioned motivating operations</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-27"></td>
+    <td>FK-27</td>
+    <td>conditioned motivating operations</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-28"></td>
+    <td>FK-28</td>
+    <td>transitive, reflexive, surrogate motivating operations</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-29"></td>
+    <td>FK-29</td>
+    <td>distinguish between the discriminative stimulus and the motivating operation</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-30"></td>
+    <td>FK-30</td>
+    <td>distinguish between motivating operation and reinforcement effects</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-31"></td>
+    <td>FK-31</td>
+    <td>behavioral contingencies</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-32"></td>
+    <td>FK-32</td>
+    <td>contiguity</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-33"></td>
+    <td>FK-33</td>
+    <td>functional relations</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-34"></td>
+    <td>FK-34</td>
+    <td>conditional discriminations</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-35"></td>
+    <td>FK-35</td>
+    <td>stimulus discrimination</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-36"></td>
+    <td>FK-36</td>
+    <td>response generalization</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-37"></td>
+    <td>FK-37</td>
+    <td>stimulus generalization</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-38"></td>
+    <td>FK-38</td>
+    <td>behavioral contrast</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-39"></td>
+    <td>FK-39</td>
+    <td>behavioral momentum</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-40"></td>
+    <td>FK-40</td>
+    <td>matching law</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-41"></td>
+    <td>FK-41</td>
+    <td>contingency-shaped behavior</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-42"></td>
+    <td>FK-42</td>
+    <td>rule-governed behavior</td>
+</tr>
+</tbody>
+</table>
+</div>
+    
+<h3>Distinguish between the Verbal Operants</h3>
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cFK-43"></td>
+    <td>FK-43</td>
+    <td>Echoics</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-44"></td>
+    <td>FK-44</td>
+    <td>Mands</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-45"></td>
+    <td>FK-45</td>
+    <td>Tacts</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-46"></td>
+    <td>FK-46</td>
+    <td>Intraverbals</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>Measurement Concepts</h3>    
+
+<div class="col-md-12">
+<table class="table table-striped table-condensed">
+<tbody>
+<tr>
+    <td><input type="checkbox" name="cFK-47"></td>
+    <td>FK-47</td>
+    <td>Identify the measurable dimensions of behavior (e.g., rate, duration, latency, 
+interresponse time).</td>
+</tr>
+<tr>
+    <td><input type="checkbox" name="cFK-48"></td>
+    <td>FK-48</td>
+    <td>State the advantages and disadvantages of using continuous measurement procedures and discontinuous measurement procedures (e.g., partial- and whole-interval recording, momentary time sampling).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><input type='submit' class='btn btn-success'></p>
+</form>
+
+{% endblock %}            
+
+{% block content %}
+<!-- <h1>Heading</h1> -->
+
+{% endblock %}
