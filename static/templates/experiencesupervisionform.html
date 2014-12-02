@@ -22,11 +22,11 @@ function findTotal(){
 <div class="col-md-10">
 <form method='POST' action=''> {% csrf_token %}
 <br>
-Supervisee:<u>                                                            </u> <br>
-  Supervisor:<u>                                                      ___</u> <br>
-  Supervisory Meeting Date(s) &amp; Duration(s):<u>            __________________________________________</u><br>
+Supervisee: <input type="text" name="textfield" id="textfield"><br>
+Supervisor: <input type="text" name="textfield2" id="textfield2"><br>
+Supervisory Meeting Date(s) &amp; Duration(s): <input type="text" name="textfield3" id="textfield3"><br>
   Supervisory Meeting Format (check all that apply):     <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0"> individual                  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0">  group <br>
-  This document covers the supervisory period from <u>         </u>/<u>        </u>/<u>        </u> to <u>     </u>/<u>           </u>/<u>           </u><br>
+  This document covers the supervisory period from <input name="textfield4" type="text" id="textfield4" size="8"> to <input name="textfield5" type="text" id="textfield5" size="8"><br>
 
 <table class="table">
 <tbody>
@@ -56,7 +56,8 @@ Supervisee:<u>                                 �
 </table>
 
 <strong>Characteristics of Supervision Conducted During This Supervisory Period (check all that apply)</strong> <br>
-  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0"> BACB Task List skills covered (list Task numbers): ________________________________<br>
+  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0">
+   BACB Task List skills covered (list Task numbers): <br>
   <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0">
 Specific client(s) discussed<br>
   <input type="checkbox" name="characteristics_of_supervision_2" value="checkbox" id="characteristics_of_supervision_1">
@@ -70,8 +71,8 @@ Supervisory discussion &amp; feedback (in-person)<br>
  <input type="checkbox" name="characteristics_of_supervision" value="checkbox" id="characteristics_of_supervision_4">
 Supervisory discussion &amp; feedback (remote)<br>
   <input type="checkbox" name="characteristics_of_supervision_6" value="checkbox" id="characteristics_of_supervision_6">
-Readings: ______________________________________________________________________
-
+Readings: 
+<input type="text" name="textfield6" id="textfield6">
 <br /><br />
 
 <strong>Evaluation of Supervisee Performance:</strong><br />
@@ -106,278 +107,283 @@ Readings: ______________________________________________________________________
     <td valign="top">Maintains professional and courteous interactions with:</td>
     <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Maintains_professional_interactions" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Maintains_professional_interactions" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Maintains_professional_interactions" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Maintains_professional_interactions" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Clients/consumers</td>
   <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Clients_consumers" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Clients_consumers" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Clients_consumers" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Clients_consumers" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Other service providers</p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Other_service_providers" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Other_service_providers" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Other_service_providers" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Other_service_providers" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Coworkers </p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Coworkers" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Coworkers" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Coworkers" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Coworkers" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Maintains appropriate attire &amp; demeanor</p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Initiates professional self-improvement</p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Maintains_appropriate_attire" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Accepts supervisory feedback appropriately</p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Accepts_supervisory_feedback" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Accepts_supervisory_feedback" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Accepts_supervisory_feedback" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Accepts_supervisory_feedback" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Seeks supervision appropriately</p></td>
         <td valign="top">
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Seeks_supervision_appropriately" value="radio" id="Satisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Seeks_supervision_appropriately" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Seeks_supervision_appropriately" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Seeks_supervision_appropriately" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Timely submission of written reports</p></td>
     <td valign="top">
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Timely_submission_reports" value="radio" id="Satisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Timely_submission_reports" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Timely_submission_reports" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Timely_submission_reports" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Communicates effectively</p></td>
         <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Communicates_effectively" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Communicates_effectively" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Communicates_effectively" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Communicates_effectively" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Written </p></td>
     <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Written" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Written" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Written" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Written" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Oral </p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Oral" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Oral" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Oral" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Oral" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Demonstrates appropriate sensitivity to nonbehavioral providers</p></td>
       <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Demonstrates_appropriate_sensitivity" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Demonstrates_appropriate_sensitivity" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Demonstrates_appropriate_sensitivity" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Demonstrates_appropriate_sensitivity" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
-    <td valign="top">Supervisee   self-detects personal limitations</p></td>
+    <td valign="top">Supervisee self-detects personal limitations</p></td>
   <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Supervisee_self_detects_personal_limitations<" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Supervisee_self_detects_limitations" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Supervisee_self_detects_limitations" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Supervisee_self_detects_limitations" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
-    <td valign="top">Supervisee   self-detects professional limitations</p></td>
+    <td valign="top">Supervisee self-detects professional limitations</p></td>
   <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Supervisee_self_detects_prof_limitations" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Supervisee_self_detects_prof_limitations" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Supervisee_self_detects_prof_limitations" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Supervisee_self_detects_prof_limitations" value="radio" id="Not_Applicable">
     </td>
   </tr>
   <tr>
     <td valign="top">Acquisition of target behavior-analytic skills</p></td>
   <td valign="top">
       
-        <input type="radio" name="Arrives_on_time" value="radio" id="Satisfactory">
+        <input type="radio" name="Acquisition_target_behavior" value="radio" id="Satisfactory">
       
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Needs_Improvement">
+      <input type="radio" name="Acquisition_target_behavior" value="radio" id="Needs_Improvement">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Unsatisfactory">
+      <input type="radio" name="Acquisition_target_behavior" value="radio" id="Unsatisfactory">
     </td>
     <td valign="top">
-      <input type="radio" name="Arrives_on_time" value="radio" id="Not_Applicable">
+      <input type="radio" name="Acquisition_target_behavior" value="radio" id="Not_Applicable">
 </td></tr>
 </tbody>
 </table>
 
-If unsatisfactory performance is noted in 2 or more different areas during the same evaluation period and/or the same over two consecutive evaluations, the supervisor will contact the practicum professor and the student must meet with the practicum professor to complete an intervention plan prior to returning to the practicum site.  Hours accumulated during this evaluation period will be excluded from the student&rsquo;s total hours toward supervised experience for the BACB and hours can only recommence accumulation once the meeting with the practicum professor has occurred. <strong>Overall evaluation </strong>of supervisee performance during this period (choose one):   S                                                                 NI  U</p>
-Supervisee signature: <u>                                                          </u>   Date: <u>  ________________________________</u><br>
-  Supervisor signature: ___________________________       Date: <u>  ________________________________</u></p>
-
-
-<p align="center"><input type='submit' class='btn btn-success'></p>
+If unsatisfactory performance is noted in 2 or more different areas during the same evaluation period and/or the same over two consecutive evaluations, the supervisor will contact the practicum professor and the student must meet with the practicum professor to complete an intervention plan prior to returning to the practicum site.  Hours accumulated during this evaluation period will be excluded from the student&rsquo;s total hours toward supervised experience for the BACB and hours can only recommence accumulation once the meeting with the practicum professor has occurred. <br /><br />
+<strong>Overall evaluation </strong>of supervisee performance during this period (choose one):   
+  <input type="radio" name="overall_evaluation" id="radio" value="radio"> S&nbsp;&nbsp;&nbsp; <input type="radio" name="overall_evaluation" id="radio" value="radio"> NI&nbsp;&nbsp;&nbsp;  <input type="radio" name="overall_evaluation" id="radio" value="radio"> U
+  <br /><br />
+Supervisee signature: <input type="text" name="textfield9" id="textfield9">         Date: 
+<input type="text" name="textfield7" id="textfield7"><br>
+  Supervisor signature: 
+  <input type="text" name="textfield10" id="textfield10">
+         Date: 
+  <input type="text" name="textfield8" id="textfield8"><br /><br />
+  <p align="center"><input type='submit' class='btn btn-success'></p>
 </form>
 </div>
 </div>
