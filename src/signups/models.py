@@ -8,6 +8,10 @@ from django.utils.encoding import smart_unicode
 
 # Create your models here.
 
+def home(request):
+
+    return render_to_response("index.html", locals(), context_instance=RequestContext(request))
+
 class SignUp(models.Model):
     first_name = models.CharField(max_length=120, null=True, blank=True)
     last_name = models.CharField(max_length=120, null=True, blank=True)
@@ -43,6 +47,9 @@ class Storyboard(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    def __unicode__(self):
+        return smart_unicode(self.performance)
+
 class SupervisionFeedback(models.Model):
     supervisee = models.CharField(max_length=480, null=True, blank=True)
     supervisor = models.CharField(max_length=480, null=True, blank=True)
@@ -56,6 +63,9 @@ class SupervisionFeedback(models.Model):
     evaluation = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return smart_unicode(self.supervisee)
 
 class JobModel(models.Model):
     position = models.CharField(max_length=480, null=True, blank=True)
@@ -830,20 +840,10 @@ class SkillsChecklist(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
 class SelfAssessment(models.Model):
-    supervisor_id = models.ForeignKey(SignUp)
-    self_assess_1A = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_1B = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_2 = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_3A = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_3B = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_3C = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_4A = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_4B = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_5 = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_6A = models.CharField(max_length=480, null=True, blank=True)
-    self_assess_6B = models.CharField(max_length=480, null=True, blank=True)
+    Allergies = models.BooleanField('Allergies:')
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-    
+
     def __unicode__(self):
-        return smart_unicode(self.email)
+        return smart_unicode(self.Allergies)
+

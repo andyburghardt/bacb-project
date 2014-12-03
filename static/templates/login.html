@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+            
+
+{% block jumbotron %}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <h2>BACB Supervisor Training Module</h2>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-sm-3">
+&nbsp;
+</div>
+
+<div class="col-sm-6">
+  <h2>Heading</h2>
+  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+  <h3>Login</h3>
+<form action="" method="post" accept-charset="utf-8">
+    {{ form }}
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <input class="btn btn-default" type="submit" value="Login" />
+</form>
+</div>
+
+<div class="col-sm-3">
+&nbsp;
+</div>
+
+{% endblock %}

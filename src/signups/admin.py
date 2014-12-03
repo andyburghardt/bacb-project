@@ -6,7 +6,6 @@ from .models import Storyboard
 from .models import TaskAnalysis
 from .models import JobModel
 from .models import SkillsChecklist
-from .models import SelfAssessment
 
 class SignUpAdmin(admin.ModelAdmin):
     class Meta:
@@ -38,11 +37,4 @@ class SkillsChecklistAdmin(admin.ModelAdmin):
         model = SkillsChecklist
 
 admin.site.register(SkillsChecklist, SkillsChecklistAdmin)
-
-class SelfAssessmentAdmin(admin.ModelAdmin):
-    class Meta:
-        model = SelfAssessment
-
-admin.site.register(SelfAssessment, SelfAssessmentAdmin)
-
 

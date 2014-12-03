@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hmzcnp#jsl+r&181tjpv13epdk#!q_1_%09^a3bl79ixt2+5q-'
+SECRET_KEY = '7(j88+el$tu6ao+dimy2r#gi)19^hj_083*!j0jv8uq+$8&@b%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'south',
+    'south',
     'signups',
 )
 
@@ -59,8 +59,10 @@ WSGI_APPLICATION = 'bacb_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bacb_db',
+        'USER': 'eup_dbowner',
+        'PASSWORD': '3Xt3nd3d!pr0gRams',
     }
 }
 
@@ -77,23 +79,24 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
 
-
-
 if not DEBUG:
     MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/aburghardt/webapps/bacb_static/'
-    MEDIA_ROOT = '/home/aburghardt/webapps/bacb_static/media/'
+    STATIC_ROOT = '/home/aburghardt/webapps/bacb_static2/'
+    MEDIA_ROOT = '/home/aburghardt/webapps/bacb_static2/media/'
     STATICFILES_DIRS = (
-        '/home/aburghardt/webapps/bacb_static/static',
+        '/home/aburghardt/webapps/bacb_static2/static/',
     )
-    # Template location
-TEMPLATE_DIRS = (
-    '/home/aburghardt/webapps/bacb_static/templates',
-	)
+    TEMPLATE_DIRS = (
+        '/home/aburghardt/webapps/bacb_static2/templates',
+    )
+
 

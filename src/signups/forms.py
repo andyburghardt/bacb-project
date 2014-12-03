@@ -45,5 +45,12 @@ class SuperviseeForm(forms.ModelForm):
 class SelfAssessmentForm(forms.ModelForm):
 	class Meta:
 		model = SelfAssessment
-		fields = "__all__"
+		YESNO_CHOICES = ((0, 'No'), (1, 'Yes'))
+		Allergies = forms.TypedChoiceField(
+                     choices=YESNO_CHOICES, widget=forms.RadioSelect, coerce=int
+                )
+
+#	class Meta:
+#		model = SelfAssessment
+#		fields = "__all__"
 

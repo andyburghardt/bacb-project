@@ -19,12 +19,13 @@
 <div class="col-sm-6">
   <h2>Heading</h2>
   <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-  <h3>Login</h3>
-    <form method='POST' action=''> {% csrf_token %}
-    <tr><th><label for="id_email">Email:</label></th><td><input id="id_email" maxlength="75" name="email" type="email" /></td></tr>
-<tr><th><label for="id_password">Password:</label></th><td><input id="id_password" maxlength="50" name="password" type="password" /></td></tr>                 
-    <input type='submit' class='btn btn-success'>
-        </form>
+{% if user.is_authenticated %}
+        <button type="button" class="btn btn-default" role="button"><a href='{% url "supervisors" %}'>View the Dashboard</a></button>
+        <!-- <li><a href='{% url "supervisees" %}'>Supervisee Dashboard</a></li> -->
+{% else %}
+        <button type="button" class="btn btn-default" role="button"><a href='{% url "login" %}'>Login &raquo;</a></button>
+        {% endif %}
+
 </div>
 
 <div class="col-sm-3">

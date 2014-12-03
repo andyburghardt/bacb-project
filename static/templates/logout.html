@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+            
+
+{% block jumbotron %}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <h2>BACB Supervisor Training Module</h2>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-sm-3">
+&nbsp;
+</div>
+
+<div class="col-sm-6">
+  <h2>Heading</h2>
+  <p>You have successfully logged out.</p>
+  <button type="button" class="btn btn-default" role="button"><a href='{% url "home" %}'>Log in &raquo;</a></button>
+</div>
+
+<div class="col-sm-3">
+&nbsp;
+</div>
+
+{% endblock %}
