@@ -12,7 +12,7 @@
             <ul class="nav navbar-nav">
         {% if user.is_authenticated %}
         <li><a href='{% url "supervisors" %}'>Supervisor Dashboard</a></li>
-        <!-- <li><a href='{% url "supervisees" %}'>Supervisee Dashboard</a></li> -->
+        <li><a href='{% url "supervisees" %}'>Supervisee Dashboard</a></li>
         {% else %}
         {% endif %}
       </ul>

@@ -1,7 +1,7 @@
 import os
 import sys
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'bacb_project.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'bacb.settings'
 
 from django.core.handlers.wsgi import WSGIHandler
 

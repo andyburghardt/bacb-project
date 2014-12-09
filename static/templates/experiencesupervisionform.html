@@ -17,12 +17,14 @@ function findTotal(){
 
 <div class="jumbotron">
 <h2>BACB Experience Supervision Form</h2>
+You will use this form each supervisory period to track and monitor supervisee progress. You will log cumulative and weekly hours, as well as, meeting dates and times. <br /><br />
+<strong> Be sure to complete each section of the BACB Supervision Form. If you choose, you may also add contingencies that will be in place for unsatisfactory performance, though this section of the form is not required by the BACB. This form can be printed for obtaining signatures. </strong>
 <em>This form must be completed at least once during each supervisory period.</em><br /><br />
 <div class="container">
 <div class="col-md-10">
 <form method='POST' action=''> {% csrf_token %}
 <br>
-Supervisee: <input type="text" name="textfield" id="textfield"><br>
+Supervisee: {{ form.Supervisees }} <br>
 Supervisor: <input type="text" name="textfield2" id="textfield2"><br>
 Supervisory Meeting Date(s) &amp; Duration(s): <input type="text" name="textfield3" id="textfield3"><br>
   Supervisory Meeting Format (check all that apply):     <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0"> individual                  <input type="checkbox" name="characteristics_of_supervision_" value="checkbox" id="characteristics_of_supervision_0">  group <br>
@@ -372,8 +374,7 @@ Readings:
 </td></tr>
 </tbody>
 </table>
-
-If unsatisfactory performance is noted in 2 or more different areas during the same evaluation period and/or the same over two consecutive evaluations, the supervisor will contact the practicum professor and the student must meet with the practicum professor to complete an intervention plan prior to returning to the practicum site.  Hours accumulated during this evaluation period will be excluded from the student&rsquo;s total hours toward supervised experience for the BACB and hours can only recommence accumulation once the meeting with the practicum professor has occurred. <br /><br />
+If unsatisfactory performance is noted in 2 or more different areas during the same evaluation period and/or the same over two consecutive evaluations, the supervisor will (ENTER FORM FILL BOX) and the supervisee must (ENTER FORM FILL BOX).<br /><br />
 <strong>Overall evaluation </strong>of supervisee performance during this period (choose one):   
   <input type="radio" name="overall_evaluation" id="radio" value="radio"> S&nbsp;&nbsp;&nbsp; <input type="radio" name="overall_evaluation" id="radio" value="radio"> NI&nbsp;&nbsp;&nbsp;  <input type="radio" name="overall_evaluation" id="radio" value="radio"> U
   <br /><br />

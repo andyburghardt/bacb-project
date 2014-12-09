@@ -7,7 +7,8 @@
  <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
 <h2>Supervision Feedback and Goal Setting Form</h2>
-Etiam laoreet tempus rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas et euismod massa, ac congue neque. Vestibulum bibendum, justo quis cursus semper, mi quam aliquet lectus, ac finibus nisl nunc et mi. Integer nec tortor vulputate enim feugiat ornare vitae non odio. Aenean consequat vel risus sollicitudin tincidunt.<br />
+ You will use this form to generate goals, collect data, and provide feedback to your supervisee on the skills they are learning throughout the supervision process.  At the end of each form, you will also find and area to comment on professionalism.<br /><br />
+<strong> Complete each section of the feedback and goal setting form using the results from current and previous supervisee assessments. Identify the supervisee’s current performance level across all performances or skills first, then identify specific performances/skills to provide goals for/feedback on. It is important to focus on a relatively small number of skills at one time in order to maximize potential for success.</strong>
 <hr />
 
 <form method='POST' action=''> {% csrf_token %}
@@ -15,9 +16,9 @@ Etiam laoreet tempus rhoncus. Pellentesque habitant morbi tristique senectus et 
   <tbody>
     <tr>
       <td><strong>Supervisee:</strong>
-        <input type="text" name="supervisee_name" id="id_supervisee_name"></td>
+        {{ form.Supervisees }}</td>
       <td><strong>Supervisor:</strong>
-        <input type="text" name="supervisor_name" id="id_supervisor_name"></td>
+        {{ request.user.first_name }} {{ request.user.last_name }}</td>
     </tr>
     <tr>
       <td><strong>Setting:</strong>

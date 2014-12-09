@@ -5,12 +5,20 @@ import datetime
 from django import forms
 from django.forms import Textarea
 from django.utils.encoding import smart_unicode
+from django.contrib.auth.models import User, Group
 
 # Create your models here.
 
-def home(request):
+class MyModel(models.Model):
+    Supervisees = models.ForeignKey(User)
 
-    return render_to_response("index.html", locals(), context_instance=RequestContext(request))
+class ExperienceSupervision(models.Model):
+    Supervisees = models.ForeignKey(User)
+    # Supervisors = models.ForeignKey(User)
+
+#def home(request):
+
+#    return render_to_response("index.html", locals(), context_instance=RequestContext(request))
 
 class SignUp(models.Model):
     first_name = models.CharField(max_length=120, null=True, blank=True)
@@ -51,8 +59,7 @@ class Storyboard(models.Model):
         return smart_unicode(self.performance)
 
 class SupervisionFeedback(models.Model):
-    supervisee = models.CharField(max_length=480, null=True, blank=True)
-    supervisor = models.CharField(max_length=480, null=True, blank=True)
+    Supervisees = models.ForeignKey(User)
     setting = models.CharField(max_length=480, null=True, blank=True)
     date = models.CharField(max_length=480, null=True, blank=True)
     rational = models.TextField()
@@ -65,7 +72,7 @@ class SupervisionFeedback(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return smart_unicode(self.supervisee)
+        return smart_unicode(self.Supervisees)
 
 class JobModel(models.Model):
     position = models.CharField(max_length=480, null=True, blank=True)
@@ -672,7 +679,7 @@ class TaskAnalysis(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
 class SkillsChecklist(models.Model):
-    supervisor_id = models.ForeignKey(Supervisee)
+    Supervisees = models.ForeignKey(User)
     a01 = models.BooleanField()
     a02 = models.BooleanField()
     a03 = models.BooleanField()

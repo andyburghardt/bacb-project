@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
             
 {% block jumbotron %}
 
@@ -17,61 +17,70 @@
 {% block content %}
 
 <div class="container">
- <div class="col-md-3">
+ <div class="col-md-6">
           <h3>Assessment and Contract Development</h3>
           <hr />
           <p>Provide your supervisees with ongoing knowledge assessments from this menu.  You can also access and edit contracts, job models, and supervision feedback forms.  </p>
           <div class="btn-group-vertical">
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "knowledgequiz" %}'>Foundational Knowledge Quiz &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "samplecontracts" %}'>Sample Contracts &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "jobmodel" %}'>Job Model &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "skills" %}'>Skills Checklist &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "supervisionfeedback" %}'>Supervision Feedback <br />and Goal Setting Form &raquo;</a></button>
+          <a href='{% url "knowledgequiz" %}' type="button" role="button" class="btn btn-default">Foundational Knowledge Quiz &raquo;</a>
+          <a href='{% url "samplecontracts" %}' type="button" class="btn btn-default" role="button">Sample Contracts &raquo;</a>
+          <a href='{% url "jobmodel" %}' type="button" class="btn btn-default" role="button">Job Model &raquo;</a>
+          <a href='{% url "skills" %}' type="button" class="btn btn-default" role="button">BACB Task List Skills Selection &raquo;</a>
+          <a href='{% url "home" %}' type="button" class="btn btn-default" role="button">Supervisee Self-Assessment Validation &raquo;</a>
+          <a href='{% url "supervisionfeedback" %}' type="button" class="btn btn-default" role="button">Supervision Feedback <br />and Goal Setting Form &raquo;</a>
           </div>
         </div>
-        <div class="col-md-3">
-          <h3>Training <br />Development</h3>
+        <div class="col-md-6">
+          <h3>Training Development</h3>
           <hr />
           <p>Access your tools that will assist you in developing training materials.</p>
           <div class="btn-group-vertical">
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "taskanalysis" %}'>Task Analysis &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "storyboard" %}'>Training Storyboard <br />and Goal Setting Form &raquo;</a></button>                
+          <a href='{% url "taskanalysis" %}' type="button" class="btn btn-default" role="button">Task Analysis &raquo;</a>
+          <a href='{% url "storyboard" %}' type="button" class="btn btn-default" role="button">Training Storyboard &raquo;</a>
+          <a href='{% url "home" %}' type="button" class="btn btn-default" role="button">My Data Sheets &raquo;</a>
           </div>
        </div>
-        <div class="col-md-3">
-          <h3>Performance <br />Monitoring</h3>
+       <div class="container">
+        <div class="col-md-6">
+          <h3>Performance Monitoring</h3>
           <hr />
           <p>Access templates for supervision feedback forms, goal setting forms, and other performance monitoring tools in order to track your supervisees’ progress.</p>
           <div class="btn-group-vertical">
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "experiencesupervisionform" %}'>BACB Supervision Form &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "supervisionfeedback" %}'>Supervision Feedback <br />and Goal Setting Form &raquo;</a></button>
+          <a href='{% url "experiencesupervisionform" %}' type="button" class="btn btn-default" role="button">BACB Supervision Form &raquo;</a>
+          <a href='{% url "supervisionfeedback" %}' type="button" class="btn btn-default" role="button">Supervision Feedback and Goal Setting Form &raquo;</a>
+          <a href='{% url "home" %}' type="button" class="btn btn-default" role="button">My Data Sheets &raquo;</a>
           </div>
         </div>
-
-        <div class="col-md-3">
+        <div class="col-md-6">
           <h3>Evaluation and Prof. Development</h3>
           <hr />
           <p>Supervisee and supervisor assessments are located here.  You can use these forms to periodically evaluate your supervisees in order to track progress, as well as assess and get feedback on your own supervision skills and services. </p>
           <div class="btn-group-vertical">
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "selfassessmentview" %}'>Supervisee Assessment of Supervision &raquo;</a></button>
-          <button type="button" class="btn btn-default" role="button"><a href='{% url "selfassessment" %}'>Supervisor Self Assessment &raquo;</a></button>
+          <a href='{% url "home" %}' type="button" class="btn btn-default" role="button">Supervisee Self-Assessment Validation &raquo;</a>
+          <a href='{% url "selfassessmentview" %}' type="button" class="btn btn-default" role="button">Supervisee Assessment of Supervision &raquo;</a>
+          <a href='{% url "selfassessment" %}' type="button" class="btn btn-default" role="button">Supervisor Self Assessment &raquo;</a>
+          <a href='{% url "home" %}' type="button" class="btn btn-default" role="button">Professional Development Goals &raquo;</a>
           </div>
         </div>
 </div>
-
+<br />
+<hr />
 <div class="container">
 <div class="col-md-6">
 
-<h3>Supervisees</h3>
-{% include 'superviseeview.html' %}
+<br />
+<br />
+
+{{ form }} <input type='submit' type="button" class="btn btn-default btn-xs">
+
+<br />
+<br />
+<a href='{% url "register" %}' type="button" class="btn btn-default btn-xs">Add a new supervisee &raquo;</a></button>
 </div>
 <div class="col-md-6">
-<h3>Resources</h3>
-<ul>
-  <li>
-    <a href="#">Skills Hierarchy</a>
-  </li>
-</ul>
+<br />
+<br />
+<a href='{% url "resources" %}' type="button" class="btn btn-default btn-lg active" role="button">Resources &raquo;</a>
 </div>
 </div>
 

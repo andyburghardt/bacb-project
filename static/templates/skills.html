@@ -4,19 +4,13 @@
 
  <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-        
-Ethics and Professional Conduct are subsumed within each section of the task list. The BACB Professional Disciplinary and Ethical Standards and Guidelines for Responsible Conduct for Behavior Analysts are essential companion documents to the task list. BACB certificants must practice in compliance with the professional disciplinary and ethical standards and should structure their practices in accordance with the conduct guidelines. Candidates are expected to have a complete understanding of these documents, including, but not limited to, the importance of ethical conduct as it relates to professional practice of the tasks identified in the Fourth Edition Task List. As a result, questions addressing ethical issues related to specific tasks will appear on the examination.
-<br />
+<h2>BACB Task List Skills Selection</h2>
+Ethics and Professional Conduct are subsumed within each section of the task list. The BACB Professional Disciplinary and Ethical Standards and Guidelines for Responsible Conduct for Behavior Analysts are essential companion documents to the task list. BACB certificants must practice in compliance with the professional disciplinary and ethical standards and should structure their practices in accordance with the conduct guidelines. Candidates are expected to have a complete understanding of these documents, including, but not limited to, the importance of ethical conduct as it relates to professional practice of the tasks identified in the Fourth Edition Task List. As a result, questions addressing ethical issues related to specific tasks will appear on the examination. <br /><br />
+<strong>Choose only those BACB Task List skills that are applied in your setting and, therefore, appropriate for assessment, training, and performance monitoring. </strong>
 <hr />
 <form method='POST' action=''> {% csrf_token %}
 
-<strong>Choose your supervisee</strong><br />
-<select name="supervisee_name"><br />
-<option value="1">Jane Doe</option>
-<option value="2">John Doe</option>
-<option value="3">Kyle Doe</option>
-<option value="4">Kylie Doe</option>
-</select>
+{{ form.Supervisees }}
 
 <h2>Section 1 - Basic Behavior-Analytic Skills</h2>
 

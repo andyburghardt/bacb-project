@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django import forms
 
 from .models import SignUp
@@ -7,6 +8,9 @@ from .models import TaskAnalysis
 from .models import SkillsChecklist
 from .models import Supervisee
 from .models import SelfAssessment
+from .models import MyModel
+from .models import ExperienceSupervision
+from .models import SupervisionFeedback
 
 
 class SignUpForm(forms.ModelForm):
@@ -34,7 +38,7 @@ class TaskAnalysisForm(forms.ModelForm):
 
 class SkillsChecklistForm(forms.ModelForm):
 	class Meta:
-		model = SkillsChecklist
+		model = SkillsChecklist 
 		fields = "__all__" 
 
 class SuperviseeForm(forms.ModelForm):
@@ -42,15 +46,26 @@ class SuperviseeForm(forms.ModelForm):
 		model = Supervisee
 		fields = "__all__" 
 
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
 class SelfAssessmentForm(forms.ModelForm):
-	class Meta:
-		model = SelfAssessment
-		YESNO_CHOICES = ((0, 'No'), (1, 'Yes'))
-		Allergies = forms.TypedChoiceField(
-                     choices=YESNO_CHOICES, widget=forms.RadioSelect, coerce=int
-                )
+    class Meta:
+        model = SelfAssessment
 
-#	class Meta:
-#		model = SelfAssessment
-#		fields = "__all__"
+class MyForm(forms.ModelForm):
+    class Meta:
+        model = MyModel
+        # form.fields['myuser'].queryset = User.objects.filter(groups__name='Supervisees')
 
+class ExperienceSupervisionForm(forms.ModelForm):
+    class Meta:
+        model = ExperienceSupervision
+
+class SupervisionFeedbackForm(forms.ModelForm):
+    class Meta:
+        model = SupervisionFeedback

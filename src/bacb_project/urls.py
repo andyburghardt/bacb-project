@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
 
 
 from django.contrib import admin
@@ -8,7 +10,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-     url(r'^$', 'signups.views.home', name='home'),
+    url(r'^$', 'signups.views.home', name='home'),
     # url(r'^logout/$', 'signups.views.logout', name='logout'),
     # url(r'^$', 'bacb_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
@@ -27,6 +29,8 @@ urlpatterns = patterns('',
     url(r'^selfassessmentview/$', 'signups.views.selfassessmentview', name='selfassessmentview'),
     url(r'^superviseeassessmentresults/$', 'signups.views.superviseeassessmentresults', name='superviseeassessmentresults'),
     url(r'^jobmodel/$', 'signups.views.jobmodel', name='jobmodel'),
+    url(r'^register/$', 'signups.views.register', name='register'),
+    url(r'^resources/$', 'signups.views.resources', name='resources'),
     url(r'^admin/', include(admin.site.urls)),
 )
 
@@ -35,6 +39,7 @@ urlpatterns += patterns('django.contrib.auth.views',
         name='login'),
     url(r'^logout/$', 'logout', {'next_page': '/'}, name='logout'),
 )
+
 
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
