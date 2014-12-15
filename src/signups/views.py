@@ -1,6 +1,8 @@
-from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
+from django.shortcuts import redirect, render, render_to_response, RequestContext, HttpResponseRedirect
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.generic import ListView
 
 # Create your views here.
 from .forms import SignUpForm
@@ -10,10 +12,15 @@ from .forms import TaskAnalysisForm
 from .forms import SkillsChecklistForm
 from .forms import SelfAssessmentForm
 from .forms import UserForm
+from .forms import UserProfileForm
 from .forms import MyForm
 from .forms import ExperienceSupervisionForm
 from .forms import SupervisionFeedbackForm
+from .forms import MyDataSheetsForm
 
+
+from .models import SelfAssessment
+from .models import MyDataSheets
 
 def home(request):
 
@@ -52,6 +59,7 @@ def skills(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
 		messages.success(request, 'You have successfully submitted a skills checklist')
 		return HttpResponseRedirect('/thank-you/')
@@ -78,6 +86,7 @@ def supervisionfeedback(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
 		messages.success(request, 'You have successfully submitted supervision feedback')
 		return HttpResponseRedirect('/thank-you/')
@@ -92,6 +101,7 @@ def storyboard(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
 		messages.success(request, 'You have successfully submitted the storyboard')
 		return HttpResponseRedirect('/thank-you/')
@@ -106,8 +116,9 @@ def jobmodel(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
-		messages.success(request, 'We will be in touch')
+		messages.success(request, 'You have successfully submitted a job model')
 		return HttpResponseRedirect('/thank-you/')
 
 	return render_to_response("jobmodel.html", locals(), context_instance=RequestContext(request))
@@ -120,6 +131,7 @@ def taskanalysis(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
 		messages.success(request, 'You have successfully submitted a task analysis')
 		return HttpResponseRedirect('/thank-you/')
@@ -134,8 +146,9 @@ def selfassessment(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
-		messages.success(request, 'We will be in touch')
+		messages.success(request, 'You have successfully submitted a self assessment')
 		return HttpResponseRedirect('/thank-you/')
 
 	return render_to_response("selfassessment.html", locals(), context_instance=RequestContext(request))
@@ -160,14 +173,16 @@ def experiencesupervisionform(request):
 
 	if form.is_valid():
 		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
 		save_it.save()
-		messages.success(request, 'We will be in touch')
+		messages.success(request, 'You have successfully submitted an experience supervision form')
 		return HttpResponseRedirect('/thank-you/')
 
 	return render_to_response("experiencesupervisionform.html", locals(), context_instance=RequestContext(request))
 
 def register(request):
     # Like before, get the request's context.
+    form = UserProfileForm(request.POST or None)
     context = RequestContext(request)
 
     # A boolean value for telling the template whether the registration was successful.
@@ -179,16 +194,26 @@ def register(request):
         # Attempt to grab information from the raw form information.
         # Note that we make use of both UserForm and UserProfileForm.
         user_form = UserForm(data=request.POST)
-
+        profile_form = UserProfileForm(data=request.POST)
         # If the two forms are valid...
-        if user_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
             # Save the user's form data to the database.
             user = user_form.save()
-
             # Now we hash the password with the set_password method.
             # Once hashed, we can update the user object.
             user.set_password(user.password)
             user.save()
+
+            # Now sort out the UserProfile instance.
+            # Since we need to set the user attribute ourselves, we set commit=False.
+            # This delays saving the model until we're ready to avoid integrity problems.
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.created_by = request.user # The logged-in user
+            profile.current_supervisor = request.user # The logged-in user
+
+            # Now we save the UserProfile model instance.
+            profile.save()
 
             # Update our variable to tell the template registration was successful.
             registered = True
@@ -197,15 +222,31 @@ def register(request):
         # Print problems to the terminal.
         # They'll also be shown to the user.
         else:
-            print user_form.errors
+            print user_form.errors, profile_form.errors
 
     # Not a HTTP POST, so we render our form using two ModelForm instances.
     # These forms will be blank, ready for user input.
     else:
         user_form = UserForm()
+        profile_form = UserProfileForm()
 
     # Render the template depending on the context.
     return render_to_response(
             'register.html',
-            {'user_form': user_form, 'registered': registered},
+            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered},
             context)
+
+def mydatasheets(request):
+	query_results = MyDataSheets.objects.all()
+	if request.POST:
+		form = MyDataSheetsForm(request.POST, request.FILES)
+		if form.is_valid():
+			save_it = form.save(commit=False)
+			save_it.user = request.user  # The logged-in user
+			save_it.save()
+			messages.success(request, 'You have successfully submitted a data sheet')
+			return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+	else:
+		form = MyDataSheetsForm()
+
+	return render_to_response("mydatasheets.html", locals(), context_instance=RequestContext(request))

@@ -6,8 +6,20 @@ from django import forms
 from django.forms import Textarea
 from django.utils.encoding import smart_unicode
 from django.contrib.auth.models import User, Group
+from time import time
 
 # Create your models here.
+
+class UserProfile(models.Model):
+    # This line is required. Links UserProfile to a User model instance.
+    user = models.OneToOneField(User)
+    created_by = models.ForeignKey(User, related_name='created_by')
+    current_supervisor = models.ForeignKey(User, related_name='current_supervisor')
+    can_view = models.BooleanField(default=True)
+
+    # Override the __unicode__() method to return out something meaningful!
+    def __unicode__(self):
+        return self.user.username
 
 class MyModel(models.Model):
     Supervisees = models.ForeignKey(User)
@@ -30,9 +42,10 @@ class SignUp(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     
     def __unicode__(self):
-        return smart_unicode(self.email)
+        return self.user
 
 class Supervisee(models.Model):
+    user = models.ForeignKey(User)
     first_name = models.CharField(max_length=120, null=True, blank=True)
     last_name = models.CharField(max_length=120, null=True, blank=True)
     email = models.EmailField()
@@ -42,9 +55,10 @@ class Supervisee(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     
     def __unicode__(self):
-        return smart_unicode(self.email)
+        return self.user
 
 class Storyboard(models.Model):
+    user = models.ForeignKey(User)
     performance = models.CharField(max_length=480, null=True, blank=True)
     rational = models.TextField()
     modeling_say = models.TextField()
@@ -56,25 +70,66 @@ class Storyboard(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return smart_unicode(self.performance)
+        return self.user
 
 class SupervisionFeedback(models.Model):
-    Supervisees = models.ForeignKey(User)
+    user = models.ForeignKey(User)
+    Supervisees = models.ForeignKey(User, related_name='supervisee_dd')
     setting = models.CharField(max_length=480, null=True, blank=True)
-    date = models.CharField(max_length=480, null=True, blank=True)
-    rational = models.TextField()
-    modeling_say = models.TextField()
-    modeling_do = models.TextField()
-    practice = models.TextField()
-    feedback = models.TextField()
-    evaluation = models.TextField()
+    date = models.CharField(max_length=120, null=True, blank=True)
+    start_time = models.CharField(max_length=10, null=True, blank=True)
+    end_time = models.CharField(max_length=10, null=True, blank=True)
+    oar_cant = models.CharField(max_length=3, null=True, blank=True)
+    oar_canwcoaching = models.CharField(max_length=3, null=True, blank=True)
+    oar_canwocoaching = models.CharField(max_length=3, null=True, blank=True)
+    oar_cancoach = models.CharField(max_length=3, null=True, blank=True)
+    p1_job_performance = models.CharField(max_length=480, null=True, blank=True)
+    p1_no_limited = models.BooleanField()
+    p1_can_w_coaching = models.BooleanField()
+    p1_can_wo_coaching = models.BooleanField()
+    p1_can_coach = models.BooleanField()
+    p1_feedback = models.TextField()
+    p1_train = models.BooleanField()
+    p1_generalize = models.BooleanField()
+    p1_monitor = models.BooleanField()
+    p1_lead_train_others = models.BooleanField()
+    p1_actionplan = models.TextField()
+    p2_job_performance = models.CharField(max_length=480, null=True, blank=True)
+    p2_no_limited = models.BooleanField()
+    p2_can_w_coaching = models.BooleanField()
+    p2_can_wo_coaching = models.BooleanField()
+    p2_can_coach = models.BooleanField()
+    p2_feedback = models.TextField(null=True, blank=True)
+    p2_train = models.BooleanField()
+    p2_generalize = models.BooleanField()
+    p2_monitor = models.BooleanField()
+    p2_lead_train_others = models.BooleanField()
+    p2_actionplan = models.TextField(null=True, blank=True)
+    p3_job_performance = models.CharField(max_length=480, null=True, blank=True)
+    p3_no_limited = models.BooleanField()
+    p3_can_w_coaching = models.BooleanField()
+    p3_can_wo_coaching = models.BooleanField()
+    p3_can_coach = models.BooleanField()
+    p3_feedback = models.TextField(null=True, blank=True)
+    p3_train = models.BooleanField()
+    p3_generalize = models.BooleanField()
+    p3_monitor = models.BooleanField()
+    p3_lead_train_others = models.BooleanField()
+    p3_actionplan = models.TextField(null=True, blank=True)
+    strengths = models.TextField()
+    suggestions = models.TextField()
+    gen_comments = models.TextField()
+    next_focus_1 = models.CharField(max_length=480, null=True, blank=True)
+    next_focus_2 = models.CharField(max_length=480, null=True, blank=True)
+    next_focus_3 = models.CharField(max_length=480, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return smart_unicode(self.Supervisees)
+        return self.user
 
 class JobModel(models.Model):
+    user = models.ForeignKey(User)
     position = models.CharField(max_length=480, null=True, blank=True)
     supervisor = models.CharField(max_length=480, null=True, blank=True)
     job_mission = models.CharField(max_length=480, null=True, blank=True)
@@ -194,7 +249,7 @@ class JobModel(models.Model):
     skills1_k08 = models.BooleanField()
     skills1_k09 = models.BooleanField()
     skills1_k10 = models.BooleanField()
-    job_responsibility_2 = models.TextField()
+    job_responsibility_2 = models.TextField(null=True, blank=True)
     skills2_a01 = models.BooleanField()
     skills2_a02 = models.BooleanField()
     skills2_a03 = models.BooleanField()
@@ -310,7 +365,7 @@ class JobModel(models.Model):
     skills2_k08 = models.BooleanField()
     skills2_k09 = models.BooleanField()
     skills2_k10 = models.BooleanField()
-    job_responsibility_3 = models.TextField()
+    job_responsibility_3 = models.TextField(null=True, blank=True)
     skills3_a01 = models.BooleanField()
     skills3_a02 = models.BooleanField()
     skills3_a03 = models.BooleanField()
@@ -426,7 +481,7 @@ class JobModel(models.Model):
     skills3_k08 = models.BooleanField()
     skills3_k09 = models.BooleanField()
     skills3_k10 = models.BooleanField()
-    job_responsibility_4 = models.TextField()
+    job_responsibility_4 = models.TextField(null=True, blank=True)
     skills4_a01 = models.BooleanField()
     skills4_a02 = models.BooleanField()
     skills4_a03 = models.BooleanField()
@@ -542,7 +597,7 @@ class JobModel(models.Model):
     skills4_k08 = models.BooleanField()
     skills4_k09 = models.BooleanField()
     skills4_k10 = models.BooleanField()
-    job_responsibility_5 = models.TextField()
+    job_responsibility_5 = models.TextField(null=True, blank=True)
     skills5_a01 = models.BooleanField()
     skills5_a02 = models.BooleanField()
     skills5_a03 = models.BooleanField()
@@ -661,25 +716,111 @@ class JobModel(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    def __unicode__(self):
+        return self.user
+
 class TaskAnalysis(models.Model):
-    performance = models.CharField(max_length=480, null=True, blank=True)
-    triggering_event = models.CharField(max_length=480, null=True, blank=True)
-    ending_event = models.CharField(max_length=480, null=True, blank=True)
-    materials1 = models.CharField(max_length=480, null=True, blank=True)
-    location1 = models.CharField(max_length=480, null=True, blank=True)
-    materials2 = models.CharField(max_length=480, null=True, blank=True)
-    location2 = models.CharField(max_length=480, null=True, blank=True)
-    materials3 = models.CharField(max_length=480, null=True, blank=True)
-    location3 = models.CharField(max_length=480, null=True, blank=True)
-    materials4 = models.CharField(max_length=480, null=True, blank=True)
-    location4 = models.CharField(max_length=480, null=True, blank=True)
-    task_steps = models.TextField()
-    permanant_products = models.CharField(max_length=480, null=True, blank=True)
+    user = models.ForeignKey(User)
+    performance = models.CharField(max_length=255, null=True, blank=True)
+    triggering_event = models.CharField(max_length=255, null=True, blank=True)
+    ending_event = models.CharField(max_length=255, null=True, blank=True)
+    task1 = models.CharField(max_length=255, null=True, blank=True)
+    task1_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task1_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task1_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task1_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task1_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task1_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task1_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task1_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task1_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task1_task_steps = models.TextField(null=True, blank=True)
+    task2 = models.CharField(max_length=255, null=True, blank=True)
+    task2_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task2_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task2_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task2_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task2_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task2_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task2_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task2_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task2_task_steps = models.TextField(null=True, blank=True)
+    task2_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task3 = models.CharField(max_length=255, null=True, blank=True)
+    task3_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task3_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task3_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task3_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task3_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task3_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task3_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task3_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task3_task_steps = models.TextField(null=True, blank=True)
+    task3_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task4 = models.CharField(max_length=255, null=True, blank=True)
+    task4_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task4_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task4_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task4_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task4_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task4_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task4_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task4_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task4_task_steps = models.TextField(null=True, blank=True)
+    task4_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task5 = models.CharField(max_length=255, null=True, blank=True)
+    task5_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task5_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task5_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task5_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task5_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task5_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task5_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task5_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task5_task_steps = models.TextField(null=True, blank=True)
+    task5_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task6 = models.CharField(max_length=255, null=True, blank=True)
+    task6_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task6_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task6_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task6_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task6_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task6_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task6_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task6_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task6_task_steps = models.TextField(null=True, blank=True)
+    task6_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task7 = models.CharField(max_length=255, null=True, blank=True)
+    task7_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task7_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task7_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task7_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task7_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task7_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task7_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task7_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task7_task_steps = models.TextField(null=True, blank=True)
+    task7_permanant_products = models.CharField(max_length=255, null=True, blank=True)
+    task8 = models.CharField(max_length=255, null=True, blank=True)
+    task8_materials1 = models.CharField(max_length=255, null=True, blank=True)
+    task8_location1 = models.CharField(max_length=255, null=True, blank=True)
+    task8_materials2 = models.CharField(max_length=255, null=True, blank=True)
+    task8_location2 = models.CharField(max_length=255, null=True, blank=True)
+    task8_materials3 = models.CharField(max_length=255, null=True, blank=True)
+    task8_location3 = models.CharField(max_length=255, null=True, blank=True)
+    task8_materials4 = models.CharField(max_length=255, null=True, blank=True)
+    task8_location4 = models.CharField(max_length=255, null=True, blank=True)
+    task8_task_steps = models.TextField(null=True, blank=True)
+    task8_permanant_products = models.CharField(max_length=255, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    def __unicode__(self):
+        return self.user
+
 class SkillsChecklist(models.Model):
-    Supervisees = models.ForeignKey(User)
+    user = models.ForeignKey(User)
+    Supervisees = models.ForeignKey(User, related_name='supervisee_sc_dd')
     a01 = models.BooleanField()
     a02 = models.BooleanField()
     a03 = models.BooleanField()
@@ -846,11 +987,38 @@ class SkillsChecklist(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    def __unicode__(self):
+        return self.user
+
 class SelfAssessment(models.Model):
-    Allergies = models.BooleanField('Allergies:')
+    user = models.ForeignKey(User)
+    sa_1a = models.CharField(max_length=2, null=True, blank=True)
+    sa_1b = models.CharField(max_length=2, null=True, blank=True)
+    sa_2 = models.CharField(max_length=2, null=True, blank=True)
+    sa_3a = models.CharField(max_length=2, null=True, blank=True)
+    sa_3b = models.CharField(max_length=2, null=True, blank=True)
+    sa_3c = models.CharField(max_length=2, null=True, blank=True)
+    sa_4a = models.CharField(max_length=2, null=True, blank=True)
+    sa_4b = models.CharField(max_length=2, null=True, blank=True)
+    sa_5 = models.CharField(max_length=2, null=True, blank=True)
+    sa_6a = models.CharField(max_length=2, null=True, blank=True)
+    sa_6b = models.CharField(max_length=2, null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return smart_unicode(self.Allergies)
+        return self.user
+
+def get_upload_file_name(instance, filename):
+    return "uploaded_files/%s_%s" % (str(time()).replace('.','_'),filename)
+
+class MyDataSheets(models.Model):
+    user = models.ForeignKey(User)
+    files = models.FileField(upload_to=get_upload_file_name)
+    description = models.CharField(max_length=480, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.user
 

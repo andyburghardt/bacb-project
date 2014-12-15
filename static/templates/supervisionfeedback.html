@@ -37,113 +37,114 @@
 <table width="100%" border="0" cellpadding="5" class="table">
   <tbody class="borderless">
     <tr>
-      <td>Can’t Do Yet: <input type="text" name="cant_do" id="id_cant_do" size="3">%</td>
-      <td>Can Do w/ Coaching: <input type="text" name="can_do_w_coaching" id="id_can_do_w_coaching" size="3">%</td>
-      <td>Can Do w/o Coaching: <input type="text" name="can_do_wo_coaching" id="id_can_do_wo_coaching" size="3">%</td>
-      <td>Can Coach Others: <input type="text" name="can_coach" id="id_can_coach" size="3">%</td>
+      <td>Can’t Do Yet: <input type="text" name="oar_cant" id="id_oar_cant" size="3">%</td>
+      <td>Can Do w/ Coaching: <input type="text" name="oar_canwcoaching" id="id_oar_canwcoaching" size="3">%</td>
+      <td>Can Do w/o Coaching: <input type="text" name="oar_canwocoaching" id="id_oar_canwocoaching" size="3">%</td>
+      <td>Can Coach Others: <input type="text" name="oar_cancoach" id="id_oar_cancoach" size="3">%</td>
     </tr>
   </tbody>
 </table>
-<h3>Job Performance:</h3>
+<p><strong>Job Performance:</strong> <input type="text" name="p1_job_performance" id="id_p1_job_performance"></td>
   <table width="80%" border="0" cellpadding="15" class="table table-bordered">
     <tbody>
       <tr>
         <td width="17%" valign="top">Current Level:</td>
-        <td width="83%"><input type="checkbox" name="CheckboxGroup1_3" value="no_knowledge" id="CheckboxGroup1_0">no/limited&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="CheckboxGroup1_4" value="with_coaching" id="CheckboxGroup1_1">
+        <td width="83%"><input type="checkbox" name="p2_no_limited" value="no_knowledge" id="id_p2_no_limited">no/limited&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="p2_can_w_coaching" value="with_coaching" id="id_p2_can_w_coaching">
         can do w/ coaching&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="CheckboxGroup1_5" value="without_coaching" id="CheckboxGroup1_2">
+        <input type="checkbox" name="p2_can_wo_coaching" value="without_coaching" id="id_p2_can_wo_coaching">
         can do w/o coaching&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="CheckboxGroup1" value="can_coach" id="CheckboxGroup1_3">
+        <input type="checkbox" name="p2_can_coach" value="can_coach" id="id_p2_can_coach">
         can coach others</td>
       </tr>
       <tr>
         <td valign="top">Feedback:</td>
-        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+        <td><textarea name="p1_feedback" id="id_p1_feedback" cols="75" rows="4"></textarea></td>
       </tr>
       <tr>
         <td valign="top">Goals: </td>
-        <td><input type="checkbox" name="CheckboxGroup2_4" value="train" id="CheckboxGroup2_1">
+        <td>
+        <input id="id_p1_train" name="p1_train" type="checkbox" />
         train&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="CheckboxGroup2_5" value="generalize" id="CheckboxGroup2_2">
+        <input id="id_p1_generalize" name="p1_generalize" type="checkbox" />
         generalize&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="CheckboxGroup2_6" value="monitor" id="CheckboxGroup2_3">
+        <input id="id_p1_monitor" name="p1_monitor" type="checkbox" />
         monitor&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="CheckboxGroup2_" value="lead_train_others" id="CheckboxGroup2_4">
+        <input id="id_p1_lead_train_others" name="p1_lead_train_others" type="checkbox" />
         lead/train others</td>
       </tr>
       <tr>
         <td valign="top">Action Plan: </td>
-        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+        <td><textarea name="p1_actionplan" id="id_p1_actionplan" cols="75" rows="4"></textarea></td>
       </tr>
     </tbody>
   </table>
-  <h3>Job Performance:</h3>
+  <p><strong>Job Performance:</strong> <input type="text" name="p2_job_performance" id="id_p2_job_performance">
   <table width="80%" border="0" cellpadding="15" class="table table-bordered">
     <tbody>
       <tr>
         <td width="17%" valign="top">Current Level:</td>
-        <td width="83%"><input type="checkbox" name="CheckboxGroup1_" value="no_knowledge" id="CheckboxGroup1_4">
+        <td width="83%"><input id="id_p2_no_limited" name="p2_no_limited" type="checkbox" />
           no/limited&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup1_" value="with_coaching" id="CheckboxGroup1_5">
+            <input id="id_p2_can_w_coaching" name="p2_can_w_coaching" type="checkbox" />
           can do w/ coaching&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" name="CheckboxGroup1_" value="without_coaching" id="CheckboxGroup1_6">
+          <input id="id_p2_can_wo_coaching" name="p2_can_wo_coaching" type="checkbox" />
           can do w/o coaching&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" name="CheckboxGroup1_" value="can_coach" id="CheckboxGroup1_7">
+          <input id="id_p2_can_coach" name="p2_can_coach" type="checkbox" />
           can coach others</td>
       </tr>
       <tr>
         <td valign="top">Feedback:</td>
-        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+        <td><textarea name="p2_feedback" id="id_p2_feedback" cols="75" rows="4"></textarea></td>
       </tr>
       <tr>
         <td valign="top">Goals: </td>
-        <td><input type="checkbox" name="CheckboxGroup2_2" value="train" id="CheckboxGroup2_5">
+        <td><input id="id_p2_train" name="p2_train" type="checkbox" />
           train&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup2_2" value="generalize" id="CheckboxGroup2_6">
+            <input id="id_p2_generalize" name="p2_generalize" type="checkbox" />
           generalize&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup2_2" value="monitor" id="CheckboxGroup2_7">
+            <input id="id_p2_monitor" name="p2_monitor" type="checkbox" />
             monitor&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup2_2" value="lead_train_others" id="CheckboxGroup2_8">
+            <input id="id_p2_lead_train_others" name="p2_lead_train_others" type="checkbox" />
             lead/train others</td>
       </tr>
       <tr>
         <td valign="top">Action Plan: </td>
-        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+        <td><textarea name="p2_actionplan" id="id_p2_actionplan" cols="75" rows="4"></textarea></td>
       </tr>
     </tbody>
   </table>
-  <h3>Job Performance:</h3>
+  <p><strong>Job Performance:</strong> <input type="text" name="p3_job_performance" id="id_p3_job_performance">
   <table width="80%" border="0" cellpadding="15" class="table table-bordered">
     <tbody>
       <tr>
         <td width="17%" valign="top">Current Level:</td>
-        <td width="83%"><input type="checkbox" name="CheckboxGroup1_2" value="no_knowledge" id="CheckboxGroup1_8">no/limited&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup1_2" value="with_coaching" id="CheckboxGroup1_9">
+        <td width="83%"><input id="id_p3_no_limited" name="p3_no_limited" type="checkbox" /> no/limited&nbsp;&nbsp;&nbsp;
+            <input id="id_p3_can_w_coaching" name="p3_can_w_coaching" type="checkbox" />
           can do w/ coaching&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" name="CheckboxGroup1_2" value="without_coaching" id="CheckboxGroup1_10">
+          <input id="id_p3_can_wo_coaching" name="p3_can_wo_coaching" type="checkbox" />
           can do w/o coaching&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" name="CheckboxGroup1_2" value="can_coach" id="CheckboxGroup1_11">
+          <input id="id_p3_can_coach" name="p3_can_coach" type="checkbox" />
           can coach others</td>
       </tr>
       <tr>
         <td valign="top">Feedback:</td>
-        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+        <td><textarea name="p3_feedback" id="id_p3_feedback" cols="75" rows="4"></textarea></td>
       </tr>
       <tr>
         <td valign="top">Goals: </td>
-        <td><input type="checkbox" name="CheckboxGroup2_3" value="train" id="CheckboxGroup2_9">
+        <td><input id="id_p3_train" name="p3_train" type="checkbox" />
           train&nbsp;&nbsp;&nbsp;
-          <input type="checkbox" name="CheckboxGroup2_3" value="generalize" id="CheckboxGroup2_10">
+          <input id="id_p3_generalize" name="p3_generalize" type="checkbox" />
           generalize&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup2_3" value="monitor" id="CheckboxGroup2_11">
+            <input id="id_p3_monitor" name="p3_monitor" type="checkbox" />
             monitor&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="CheckboxGroup2_3" value="lead_train_others" id="CheckboxGroup2_12">
+            <input id="id_p3_lead_train_others" name="p3_lead_train_others" type="checkbox" />
             lead/train others</td>
       </tr>
       <tr>
         <td valign="top">Action Plan: </td>
-        <td><textarea name="textfield17" id="textfield17" cols="75" rows="4"></textarea></td>
+        <td><textarea name="p3_actionplan" id="id_p3_actionplan" cols="75" rows="4"></textarea></td>
       </tr>
     </tbody>
   </table>
@@ -188,6 +189,7 @@
 
 <br />
 <p><input type='submit' class='btn btn-success'></p>
+
 </form>
 
 </div>

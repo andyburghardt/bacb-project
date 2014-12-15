@@ -1,57 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/static/media/favicon.ico">
-
-    <title>BACB Supervisor Training Module</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/static/css/jumbotron.css" rel="stylesheet">
-
-    <!-- Custom CSS for this template -->
-    <link href="/static/css/custom.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/static/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<link rel="stylesheet" type="text/css" href="/static/css/jquery.multiselect.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/prettify.css" />
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/static/js/prettify.js"></script>
-<script type="text/javascript" src="/static/js/jquery.multiselect.js"></script>
-<script type="text/javascript">
-$(function(){
-  $("select").multiselect();
-});
-</script>
-</head>
-<body id="test" onload="prettyPrint();">
-
-{% include 'navbar.html' %}
+{% extends 'base.html' %}
 
  <!-- Main jumbotron for a primary marketing message or call to action -->
-
+{% block jumbotron %}
 <div class="jumbotron">
 <h2>Job Model</h2>
  Job models clarify performance expectations for any given supervisee role in the organization. When building your job models, you can be as broad or specific as you would like, depending on the role you will be assigning to your supervisee.  You can use the job model to specify what types of experiences your agency can provide, or to determine what task list items are encompassed in specific job performances/tasks. <br /><br />
- <strong> Complete each section of the job model with objective, measurable performances. When completing the BACB skills required section of the job model, clicking a section (e.g., Section 1 – Measurement) will select all skills under Measurement. Alternatively, you can choose individual skills by clicking the box next to those skills. Scroll to bottom of page for a completed example. </strong>
+ <strong> Complete each section of the job model with objective, measurable performances. When completing the BACB skills required section of the job model. You can choose individual skills by clicking the box next to those skills. Scroll to bottom of page for a completed example. </strong>
 <div class="container">
 <div class="col-md-8">
 <form method='POST' action=''> {% csrf_token %}
@@ -77,729 +31,791 @@ $(function(){
         <td valign="top"><strong><br />BACB Skills Required</strong></td>
     </tr>
       <tr>
-        <td valign="top">1. <textarea name="job_responsibility_1" id="id_job_responsibility_1" cols="35" rows="5"></textarea></td>
-        <td><br />
-  <select name="example-optgroup" multiple="multiple" size="5">
-  <optgroup label="Section I - Measurement">
-    <option value="A-01" id="ui-miltiselect-id_skills1_a01" name="multiselect_0"> A-01 Measure frequency (i.e., count).</option>
-    <option value="A-02" id="id_skills1_a02" name="skills1_a02"> A-02 Measure rate (i.e., count per unit time). </option>
-    <option value="A-03"  id="id_skills1_a03" name="skills1_a03"> A-03 Measure duration.</option>
-    <option value="A-04"  id="id_skills1_a04" name="skills1_a04"> A-04 Measure latency.</option>
-    <option value="A-05"  id="id_skills1_a05" name="skills1_a05"> A-05 Measure interresponse time (IRT).</option>
-    <option value="A-06"  id="id_skills1_a06" name="skills1_a06"> A-06 Measure percent of occurrence. </option>
-    <option value="A-07"  id="id_skills1_a07" name="skills1_a07"> A-07 Measure trials to criterion. </option>
-    <option value="A-08"  id="id_skills1_a08" name="skills1_a08"> A-08 Assess and interpret interobserver agreement.</option>
-    <option value="A-09"  id="id_skills1_a01" name="skills1_a01"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
-    <option value="A-10"  id="id_skills1_a01" name="skills1_a01"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
-    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
-    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
-    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
-    <option value="A-14"> A-14 Design and implement choice measures. </option>
-  </optgroup>
-  <optgroup label="Section I - Experimental Design">
-    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
-    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
-    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
-    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
-    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
-    <option value="B-06"> B-06 Use changing criterion designs. </option>
-    <option value="B-07"> B-07 Use multiple baseline designs. </option>
-    <option value="B-08"> B-08 Use multiple probe designs. </option>
-    <option value="B-09"> B-09 Use combinations of design elements. </option>
-    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
-    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
-  </optgroup>
-  <optgroup label="Section I - Behavior-Change Considerations">
-    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
-    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
-    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
-  </optgroup>
-  <optgroup label="Section I - Fundamental Elements of Behavior Change">
-    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
-    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
-    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
-    <option value="D-04"> D-04 Use modeling and imitation training.</option>
-    <option value="D-05"> D-05 Use shaping.</option>
-    <option value="D-06"> D-06 Use chaining.</option>
-    <option value="D-07"> D-07 Conduct task analyses. </option>
-    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
-    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
-    <option value="D-10"> D-10 Use echoic training. </option>
-    <option value="D-11"> D-11 Use mand training. </option>
-    <option value="D-12"> D-12 Use tact training. </option>
-    <option value="D-13"> D-13 Use intraverbal training.</option>
-    <option value="D-14"> D-14 Use listener training. </option>
-    <option value="D-15"> D-15 Identify punishers. </option>
-    <option value="D-16"> D-16 Use positive and negative punishment. </option>
-    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
-    <option value="D-18"> D-18 Use extinction. </option>
-    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
-    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
-    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
-  </optgroup>
-  <optgroup label="Section I - Specific Behavior-Change Procedures">
-    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
-    <option value="E-02"> E-02 Use discrimination training procedures.</option>
-    <option value="E-03"> E-03 Use instructions and rules. </option>
-    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
-    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
-    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
-    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
-    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
-    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
-    <option value="E-10"> E-10 Use the Premack principle.</option>
-    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
-    <option value="E-12"> E-12 Use errorless learning procedures.</option>
-    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
-  </optgroup>
-    <optgroup label="Section I - Behavior-Change Systems">
-    <option value="F-01"> F-01 Use self-management strategies. </option>
-    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
-    <option value="F-03"> F-03 Use Direct Instruction. </option>
-    <option value="F-04"> F-04 Use precision teaching.</option>
-    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
-    <option value="F-06"> F-06 Use incidental teaching.</option>
-    <option value="F-07"> F-07 Use functional communication training.</option>
-    <option value="F-08"> F-08 Use augmentative communication systems. </option>
-  </optgroup>
-    </optgroup>
-    <optgroup label="Section II - Identification of the Problem">
-    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
-    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
-    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
-    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
-    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
-    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
-    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
-    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
-  </optgroup>
-  <optgroup label="Section II - Measurement">
-    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
-    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
-    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
-    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
-    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
-  </optgroup>
-    <optgroup label="Section II - Assessment">
-    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
-    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
-    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
-    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
-    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
-    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
-    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
-  </optgroup>
-    <optgroup label="Section II - Intervention">
-    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
-    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
-    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
-    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
-    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
-    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
-    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
-    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
-    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
-    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
-    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
-    <option value="J-12"> J-12 Program for maintenance. </option>
-    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
-    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
-    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
-  </optgroup>
-    <optgroup label="Section II - Implementation, Management, and Supervision">
-    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
-    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
-    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
-    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
-    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
-    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
-    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
-    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
-    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
-    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
-  </optgroup>
-  </select>
+        <td valign="top">1. <textarea name="job_responsibility_1" id="id_job_responsibility_1" cols="35" rows="15"></textarea></td>
+        <td>
+        <a href="javascript:hideshow(document.getElementById('section1a'))">Section I - Measurement</a><br />
+        <div id="section1a" style="display: none">
+        <input id="id_skills1_a01" name="skills1_a01" type="checkbox" /> A-01 Measure frequency (i.e., count).<br />
+        <input id="id_skills1_a02" name="skills1_a02" type="checkbox" /> A-02 Measure rate (i.e., count per unit time). <br />
+        <input id="id_skills1_a03" name="skills1_a03" type="checkbox" /> A-03 Measure duration.<br />
+        <input id="id_skills1_a04" name="skills1_a04" type="checkbox" /> A-04 Measure latency.<br />
+        <input id="id_skills1_a05" name="skills1_a05" type="checkbox" /> A-05 Measure interresponse time (IRT).<br />
+        <input id="id_skills1_a06" name="skills1_a06" type="checkbox" /> A-06 Measure percent of occurrence. <br />
+        <input id="id_skills1_a07" name="skills1_a07" type="checkbox" /> A-07 Measure trials to criterion. <br />
+        <input id="id_skills1_a08" name="skills1_a08" type="checkbox" /> A-08 Assess and interpret interobserver agreement.<br />
+        <input id="id_skills1_a09" name="skills1_a09" type="checkbox" /> A-09 Evaluate the accuracy and reliability of measurement procedures.<br />
+        <input id="id_skills1_a10" name="skills1_a10" type="checkbox" /> A-10 Design, plot, and interpret data using equal-interval graphs.<br />
+        <input id="id_skills1_a11" name="skills1_a11" type="checkbox" /> A-11 Design, plot, and interpret data using a cumulative record to display data. <br />
+        <input id="id_skills1_a12" name="skills1_a12" type="checkbox" /> A-12 Design and implement continuous measurement procedures (e.g., event recording). <br />
+        <input id="id_skills1_a13" name="skills1_a13" type="checkbox" /> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). <br />
+        <input id="id_skills1_a14" name="skills1_a14" type="checkbox" /> A-14 Design and implement choice measures.
+    </div>
+    <a href="javascript:hideshow(document.getElementById('section1b'))">Section I - Experimental Design</a><br />
+        <div id="section1b" style="display: none">
+     <input id="id_skills1_b01" name="skills1_b01" type="checkbox" /> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.<br />
+     <input id="id_skills1_b02" name="skills1_b02" type="checkbox" /> B-02 Review and interpret articles from the behavior-analytic literature. <br />
+     <input id="id_skills1_b03" name="skills1_b03" type="checkbox" /> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. <br />
+     <input id="id_skills1_b04" name="skills1_b04" type="checkbox" /> B-04 Use withdrawal/reversal designs.<br />
+     <input id="id_skills1_b05" name="skills1_b05" type="checkbox" /> B-05 Use alternating treatments (i.e., multielement) designs. <br />
+     <input id="id_skills1_b06" name="skills1_b06" type="checkbox" /> B-06 Use changing criterion designs. <br />
+     <input id="id_skills1_b07" name="skills1_b07" type="checkbox" /> B-07 Use multiple baseline designs. <br />
+     <input id="id_skills1_b08" name="skills1_b08" type="checkbox" /> B-08 Use multiple probe designs. <br />
+     <input id="id_skills1_b09" name="skills1_b09" type="checkbox" /> B-09 Use combinations of design elements. <br />
+     <input id="id_skills1_b10" name="skills1_b10" type="checkbox" /> B-10 Conduct a component analysis to determine the effective components of an intervention package. <br />
+     <input id="id_skills1_b11" name="skills1_b11" type="checkbox" /> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('section1c'))">Section I - Behavior-Change Considerations</a><br />
+        <div id="section1c" style="display: none">
+    <input id="id_skills1_c01" name="skills1_c01" type="checkbox" /> C-01 State and plan for the possible unwanted effects of reinforcement.<br />
+    <input id="id_skills1_c02" name="skills1_c02" type="checkbox" /> C-02 State and plan for the possible unwanted effects of punishment. <br />
+    <input id="id_skills1_c03" name="skills1_c03" type="checkbox" /> C-03 State and plan for the possible unwanted effects of extinction. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('section1d'))">Section I - Fundamental Elements of Behavior Change</a><br />
+        <div id="section1d" style="display: none">
+    <input id="id_skills1_d01" name="skills1_d01" type="checkbox" /> D-01 Use positive and negative reinforcement.<br />
+    <input id="id_skills1_d02" name="skills1_d02" type="checkbox" /> D-02 Use appropriate parameters and schedules of reinforcement. <br />
+    <input id="id_skills1_d03" name="skills1_d03" type="checkbox" /> D-03 Use prompts and prompt fading. <br />
+    <input id="id_skills1_d04" name="skills1_d04" type="checkbox" /> D-04 Use modeling and imitation training.<br />
+    <input id="id_skills1_d05" name="skills1_d05" type="checkbox" /> D-05 Use shaping.<br />
+    <input id="id_skills1_d06" name="skills1_d06" type="checkbox" /> D-06 Use chaining.<br />
+    <input id="id_skills1_d07" name="skills1_d07" type="checkbox" /> D-07 Conduct task analyses. <br />
+    <input id="id_skills1_d08" name="skills1_d08" type="checkbox" /> D-08 Use discrete-trial and free-operant arrangements.<br />
+    <input id="id_skills1_d09" name="skills1_d09" type="checkbox" /> D-09 Use the verbal operants as a basis for language assessment. <br />
+    <input id="id_skills1_d10" name="skills1_d10" type="checkbox" /> D-10 Use echoic training. <br />
+    <input id="id_skills1_d11" name="skills1_d11" type="checkbox" /> D-11 Use mand training. <br />
+    <input id="id_skills1_d12" name="skills1_d12" type="checkbox" /> D-12 Use tact training. <br />
+    <input id="id_skills1_d13" name="skills1_d13" type="checkbox" /> D-13 Use intraverbal training.<br />
+    <input id="id_skills1_d14" name="skills1_d14" type="checkbox" /> D-14 Use listener training. <br />
+    <input id="id_skills1_d15" name="skills1_d15" type="checkbox" /> D-15 Identify punishers. <br />
+    <input id="id_skills1_d16" name="skills1_d16" type="checkbox" /> D-16 Use positive and negative punishment. <br />
+    <input id="id_skills1_d17" name="skills1_d17" type="checkbox" /> D-17 Use appropriate parameters and schedules of punishment. <br />
+    <input id="id_skills1_d18" name="skills1_d18" type="checkbox" /> D-18 Use extinction. <br />
+    <input id="id_skills1_d19" name="skills1_d19" type="checkbox" /> D-19 Use combinations of reinforcement with punishment and extinction. <br />
+    <input id="id_skills1_d20" name="skills1_d20" type="checkbox" /> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). <br />
+    <input id="id_skills1_d21" name="skills1_d21" type="checkbox" /> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('section1e'))">Section I - Specific Behavior-Change Procedures</a><br />
+        <div id="section1e" style="display: none">
+    <input id="id_skills1_e01" name="skills1_e01" type="checkbox" /> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. <br />
+    <input id="id_skills1_e02" name="skills1_e02" type="checkbox" /> E-02 Use discrimination training procedures.<br />
+    <input id="id_skills1_e03" name="skills1_e03" type="checkbox" /> E-03 Use instructions and rules. <br />
+    <input id="id_skills1_e04" name="skills1_e04" type="checkbox" /> E-04 Use contingency contracting (i.e., behavioral contracts). <br />
+    <input id="id_skills1_e05" name="skills1_e05" type="checkbox" /> E-05 Use independent, interdependent, and dependent group contingencies.<br />
+    <input id="id_skills1_e06" name="skills1_e06" type="checkbox" /> E-06 Use stimulus equivalence procedures. <br />
+    <input id="id_skills1_e07" name="skills1_e07" type="checkbox" /> E-07 Plan for behavioral contrast effects. <br />
+    <input id="id_skills1_e08" name="skills1_e08" type="checkbox" /> E-08 Use the matching law and recognize factors influencing choice. <br />
+    <input id="id_skills1_e09" name="skills1_e09" type="checkbox" /> E-09 Arrange high-probability request sequences. <br />
+    <input id="id_skills1_e10" name="skills1_e10" type="checkbox" /> E-10 Use the Premack principle.<br />
+    <input id="id_skills1_e11" name="skills1_e11" type="checkbox" /> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.<br />
+    <input id="id_skills1_e12" name="skills1_e12" type="checkbox" /> E-12 Use errorless learning procedures.<br />
+    <input id="id_skills1_e13" name="skills1_e13" type="checkbox" /> E-13 Use matching-to-sample procedures.<br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('section1f'))">Section I - Behavior-Change Systems</a><br />
+        <div id="section1f" style="display: none">
+    <input id="id_skills1_f01" name="skills1_f01" type="checkbox" /> F-01 Use self-management strategies. <br />
+    <input id="id_skills1_f02" name="skills1_f02" type="checkbox" /> F-02 Use token economies and other conditioned reinforcement systems. <br />
+    <input id="id_skills1_f03" name="skills1_f03" type="checkbox" /> F-03 Use Direct Instruction. <br />
+    <input id="id_skills1_f04" name="skills1_f04" type="checkbox" /> F-04 Use precision teaching.<br />
+    <input id="id_skills1_f05" name="skills1_f05" type="checkbox" /> F-05 Use personalized systems of instruction (PSI). <br />
+    <input id="id_skills1_f06" name="skills1_f06" type="checkbox" /> F-06 Use incidental teaching.<br />
+    <input id="id_skills1_f07" name="skills1_f07" type="checkbox" /> F-07 Use functional communication training.<br />
+    <input id="id_skills1_f08" name="skills1_f08" type="checkbox" /> F-08 Use augmentative communication systems. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('section2g'))">Section II - Identification of the Problem</a><br />
+        <div id="section2g" style="display: none">
+    <input id="id_skills1_g01" name="skills1_g01" type="checkbox" /> G-01 Review records and available data at the outset of the case. <br />
+    <input id="id_skills1_g02" name="skills1_g02" type="checkbox" /> G-02 Consider biological/medical variables that may be affecting the client. <br />
+    <input id="id_skills1_g03" name="skills1_g03" type="checkbox" /> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. <br />
+    <input id="id_skills1_g04" name="skills1_g04" type="checkbox" /> G-04 Explain behavioral concepts using nontechnical language.<br />
+    <input id="id_skills1_g05" name="skills1_g05" type="checkbox" /> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. <br />
+    <input id="id_skills1_g06" name="skills1_g06" type="checkbox" /> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. <br />
+    <input id="id_skills1_g07" name="skills1_g07" type="checkbox" /> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. <br />
+    <input id="id_skills1_g08" name="skills1_g08" type="checkbox" /> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('section2h'))">Section II - Measurement</a><br />
+        <div id="section2h" style="display: none">
+  <input id="id_skills1_h01" name="skills1_h01" type="checkbox" /> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. <br />
+ <input id="id_skills1_h02" name="skills1_h02" type="checkbox" /> H-02 Select a schedule of observation and recording periods.<br />
+ <input id="id_skills1_h03" name="skills1_h03" type="checkbox" /> H-03 Select a data display that effectively communicates relevant quantitative relations. <br />
+ <input id="id_skills1_h04" name="skills1_h04" type="checkbox" /> H-04 Evaluate changes in level, trend, and variability. <br />
+ <input id="id_skills1_h05" name="skills1_h05" type="checkbox" /> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). <br />
+ </div>
+   <a href="javascript:hideshow(document.getElementById('section2i'))">Section II - Assessment</a><br />
+        <div id="section2i" style="display: none">
+    <input id="id_skills1_i01" name="skills1_i01" type="checkbox" /> I-01 Define behavior in observable and measurable terms.<br />
+    <input id="id_skills1_i02" name="skills1_i02" type="checkbox" /> I-02 Define environmental variables in observable and measurable terms. <br />
+    <input id="id_skills1_i03" name="skills1_i03" type="checkbox" /> I-03 Design and implement individualized behavioral assessment procedures. <br />
+    <input id="id_skills1_i04" name="skills1_i04" type="checkbox" /> I-04 Design and implement the full range of functional assessment procedures.<br />
+    <input id="id_skills1_i05" name="skills1_i05" type="checkbox" /> I-05 Organize, analyze, and interpret observed data.<br />
+    <input id="id_skills1_i06" name="skills1_i06" type="checkbox" /> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.<br />
+    <input id="id_skills1_i07" name="skills1_i07" type="checkbox" /> I-07 Design and conduct preference assessments to identify putative reinforcers. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('section2j'))">Section II - Intervention</a><br />
+        <div id="section2j" style="display: none">
+    <input id="id_skills1_j01" name="skills1_j01" type="checkbox" /> J-01 State intervention goals in observable and measurable terms. <br />
+    <input id="id_skills1_j02" name="skills1_j02" type="checkbox" /> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. <br />
+    <input id="id_skills1_j03" name="skills1_j03" type="checkbox" /> J-03 Select intervention strategies based on task analysis. <br />
+    <input id="id_skills1_j04" name="skills1_j04" type="checkbox" /> J-04 Select intervention strategies based on client preferences. <br />
+    <input id="id_skills1_j05" name="skills1_j05" type="checkbox" /> J-05 Select intervention strategies based on the client’s current repertoires. <br />
+    <input id="id_skills1_j06" name="skills1_j06" type="checkbox" /> J-06 Select intervention strategies based on supporting environments. <br />
+    <input id="id_skills1_j07" name="skills1_j07" type="checkbox" /> J-07 Select intervention strategies based on environmental and resource constraints. <br />
+    <input id="id_skills1_j08" name="skills1_j08" type="checkbox" /> J-08 Select intervention strategies based on the social validity of the intervention. <br />
+    <input id="id_skills1_j09" name="skills1_j09" type="checkbox" /> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. <br />
+    <input id="id_skills1_j10" name="skills1_j10" type="checkbox" /> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. <br />
+    <input id="id_skills1_j11" name="skills1_j11" type="checkbox" /> J-11 Program for stimulus and response generalization. <br />
+    <input id="id_skills1_j12" name="skills1_j12" type="checkbox" /> J-12 Program for maintenance. <br />
+    <input id="id_skills1_j13" name="skills1_j13" type="checkbox" /> J-13 Select behavioral cusps as goals for intervention when appropriate. <br />
+    <input id="id_skills1_j14" name="skills1_j14" type="checkbox" /> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). <br />
+    <input id="id_skills1_j15" name="skills1_j15" type="checkbox" /> J-15 Base decision-making on data displayed in various formats. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('section2k'))">Section II - Implementation, Management, and Supervision</a><br />
+        <div id="section2k" style="display: none">
+    <input id="id_skills1_k01" name="skills1_k01" type="checkbox" /> K-01 Provide for ongoing documentation of behavioral services.<br />
+    <input id="id_skills1_k02" name="skills1_k02" type="checkbox" /> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. <br />
+    <input id="id_skills1_k03" name="skills1_k03" type="checkbox" /> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.<br />
+    <input id="id_skills1_k04" name="skills1_k04" type="checkbox" /> K-04 Design and use effective performance monitoring and reinforcement systems. <br />
+    <input id="id_skills1_k05" name="skills1_k05" type="checkbox" /> K-05 Design and use systems for monitoring procedural integrity. <br />
+    <input id="id_skills1_k06" name="skills1_k06" type="checkbox" /> K-06 Provide supervision for behavior-change agents.<br />
+    <input id="id_skills1_k07" name="skills1_k07" type="checkbox" /> K-07 Evaluate the effectiveness of the behavioral program.<br />
+    <input id="id_skills1_k08" name="skills1_k08" type="checkbox" /> K-08 Establish support for behavior-analytic services from direct and indirect consumers.<br />
+    <input id="id_skills1_k09" name="skills1_k09" type="checkbox" /> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.<br />
+    <input id="id_skills1_k10" name="skills1_k10" type="checkbox" /> K-10 Arrange for the orderly termination of services when they are no longer required.<br />
+  </div>
+        </td>
+      </tr>
+     <tr>
+        <td valign="top"><strong><br />Job Responsibility/Performance</strong></td>
+        <td valign="top"><strong><br />BACB Skills Required</strong></td>
+    </tr>
+      <tr>
+        <td valign="top">2. <textarea name="job_responsibility_2" id="id_job_responsibility_2" cols="35" rows="15"></textarea></td>
+        <td>
+        <a href="javascript:hideshow(document.getElementById('2section1a'))">Section I - Measurement</a><br />
+        <div id="2section1a" style="display: none">
+        <input id="id_skills2_a01" name="skills2_a01" type="checkbox" /> A-01 Measure frequency (i.e., count).<br />
+        <input id="id_skills2_a02" name="skills2_a02" type="checkbox" /> A-02 Measure rate (i.e., count per unit time). <br />
+        <input id="id_skills2_a03" name="skills2_a03" type="checkbox" /> A-03 Measure duration.<br />
+        <input id="id_skills2_a04" name="skills2_a04" type="checkbox" /> A-04 Measure latency.<br />
+        <input id="id_skills2_a05" name="skills2_a05" type="checkbox" /> A-05 Measure interresponse time (IRT).<br />
+        <input id="id_skills2_a06" name="skills2_a06" type="checkbox" /> A-06 Measure percent of occurrence. <br />
+        <input id="id_skills2_a07" name="skills2_a07" type="checkbox" /> A-07 Measure trials to criterion. <br />
+        <input id="id_skills2_a08" name="skills2_a08" type="checkbox" /> A-08 Assess and interpret interobserver agreement.<br />
+        <input id="id_skills2_a09" name="skills2_a09" type="checkbox" /> A-09 Evaluate the accuracy and reliability of measurement procedures.<br />
+        <input id="id_skills2_a10" name="skills2_a10" type="checkbox" /> A-10 Design, plot, and interpret data using equal-interval graphs.<br />
+        <input id="id_skills2_a11" name="skills2_a11" type="checkbox" /> A-11 Design, plot, and interpret data using a cumulative record to display data. <br />
+        <input id="id_skills2_a12" name="skills2_a12" type="checkbox" /> A-12 Design and implement continuous measurement procedures (e.g., event recording). <br />
+        <input id="id_skills2_a13" name="skills2_a13" type="checkbox" /> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). <br />
+        <input id="id_skills2_a14" name="skills2_a14" type="checkbox" /> A-14 Design and implement choice measures.
+    </div>
+    <a href="javascript:hideshow(document.getElementById('2section1b'))">Section I - Experimental Design</a><br />
+        <div id="2section1b" style="display: none">
+     <input id="id_skills2_b01" name="skills2_b01" type="checkbox" /> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.<br />
+     <input id="id_skills2_b02" name="skills2_b02" type="checkbox" /> B-02 Review and interpret articles from the behavior-analytic literature. <br />
+     <input id="id_skills2_b03" name="skills2_b03" type="checkbox" /> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. <br />
+     <input id="id_skills2_b04" name="skills2_b04" type="checkbox" /> B-04 Use withdrawal/reversal designs.<br />
+     <input id="id_skills2_b05" name="skills2_b05" type="checkbox" /> B-05 Use alternating treatments (i.e., multielement) designs. <br />
+     <input id="id_skills2_b06" name="skills2_b06" type="checkbox" /> B-06 Use changing criterion designs. <br />
+     <input id="id_skills2_b07" name="skills2_b07" type="checkbox" /> B-07 Use multiple baseline designs. <br />
+     <input id="id_skills2_b08" name="skills2_b08" type="checkbox" /> B-08 Use multiple probe designs. <br />
+     <input id="id_skills2_b09" name="skills2_b09" type="checkbox" /> B-09 Use combinations of design elements. <br />
+     <input id="id_skills2_b10" name="skills2_b10" type="checkbox" /> B-10 Conduct a component analysis to determine the effective components of an intervention package. <br />
+     <input id="id_skills2_b11" name="skills2_b11" type="checkbox" /> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('2section1c'))">Section I - Behavior-Change Considerations</a><br />
+        <div id="2section1c" style="display: none">
+    <input id="id_skills2_c01" name="skills2_c01" type="checkbox" /> C-01 State and plan for the possible unwanted effects of reinforcement.<br />
+    <input id="id_skills2_c02" name="skills2_c02" type="checkbox" /> C-02 State and plan for the possible unwanted effects of punishment. <br />
+    <input id="id_skills2_c03" name="skills2_c03" type="checkbox" /> C-03 State and plan for the possible unwanted effects of extinction. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('2section1d'))">Section I - Fundamental Elements of Behavior Change</a><br />
+        <div id="2section1d" style="display: none">
+    <input id="id_skills2_d01" name="skills2_d01" type="checkbox" /> D-01 Use positive and negative reinforcement.<br />
+    <input id="id_skills2_d02" name="skills2_d02" type="checkbox" /> D-02 Use appropriate parameters and schedules of reinforcement. <br />
+    <input id="id_skills2_d03" name="skills2_d03" type="checkbox" /> D-03 Use prompts and prompt fading. <br />
+    <input id="id_skills2_d04" name="skills2_d04" type="checkbox" /> D-04 Use modeling and imitation training.<br />
+    <input id="id_skills2_d05" name="skills2_d05" type="checkbox" /> D-05 Use shaping.<br />
+    <input id="id_skills2_d06" name="skills2_d06" type="checkbox" /> D-06 Use chaining.<br />
+    <input id="id_skills2_d07" name="skills2_d07" type="checkbox" /> D-07 Conduct task analyses. <br />
+    <input id="id_skills2_d08" name="skills2_d08" type="checkbox" /> D-08 Use discrete-trial and free-operant arrangements.<br />
+    <input id="id_skills2_d09" name="skills2_d09" type="checkbox" /> D-09 Use the verbal operants as a basis for language assessment. <br />
+    <input id="id_skills2_d10" name="skills2_d10" type="checkbox" /> D-10 Use echoic training. <br />
+    <input id="id_skills2_d11" name="skills2_d11" type="checkbox" /> D-11 Use mand training. <br />
+    <input id="id_skills2_d12" name="skills2_d12" type="checkbox" /> D-12 Use tact training. <br />
+    <input id="id_skills2_d13" name="skills2_d13" type="checkbox" /> D-13 Use intraverbal training.<br />
+    <input id="id_skills2_d14" name="skills2_d14" type="checkbox" /> D-14 Use listener training. <br />
+    <input id="id_skills2_d15" name="skills2_d15" type="checkbox" /> D-15 Identify punishers. <br />
+    <input id="id_skills2_d16" name="skills2_d16" type="checkbox" /> D-16 Use positive and negative punishment. <br />
+    <input id="id_skills2_d17" name="skills2_d17" type="checkbox" /> D-17 Use appropriate parameters and schedules of punishment. <br />
+    <input id="id_skills2_d18" name="skills2_d18" type="checkbox" /> D-18 Use extinction. <br />
+    <input id="id_skills2_d19" name="skills2_d19" type="checkbox" /> D-19 Use combinations of reinforcement with punishment and extinction. <br />
+    <input id="id_skills2_d20" name="skills2_d20" type="checkbox" /> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). <br />
+    <input id="id_skills2_d21" name="skills2_d21" type="checkbox" /> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('2section1e'))">Section I - Specific Behavior-Change Procedures</a><br />
+        <div id="2section1e" style="display: none">
+    <input id="id_skills2_e01" name="skills2_e01" type="checkbox" /> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. <br />
+    <input id="id_skills2_e02" name="skills2_e02" type="checkbox" /> E-02 Use discrimination training procedures.<br />
+    <input id="id_skills2_e03" name="skills2_e03" type="checkbox" /> E-03 Use instructions and rules. <br />
+    <input id="id_skills2_e04" name="skills2_e04" type="checkbox" /> E-04 Use contingency contracting (i.e., behavioral contracts). <br />
+    <input id="id_skills2_e05" name="skills2_e05" type="checkbox" /> E-05 Use independent, interdependent, and dependent group contingencies.<br />
+    <input id="id_skills2_e06" name="skills2_e06" type="checkbox" /> E-06 Use stimulus equivalence procedures. <br />
+    <input id="id_skills2_e07" name="skills2_e07" type="checkbox" /> E-07 Plan for behavioral contrast effects. <br />
+    <input id="id_skills2_e08" name="skills2_e08" type="checkbox" /> E-08 Use the matching law and recognize factors influencing choice. <br />
+    <input id="id_skills2_e09" name="skills2_e09" type="checkbox" /> E-09 Arrange high-probability request sequences. <br />
+    <input id="id_skills2_e10" name="skills2_e10" type="checkbox" /> E-10 Use the Premack principle.<br />
+    <input id="id_skills2_e11" name="skills2_e11" type="checkbox" /> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.<br />
+    <input id="id_skills2_e12" name="skills2_e12" type="checkbox" /> E-12 Use errorless learning procedures.<br />
+    <input id="id_skills2_e13" name="skills2_e13" type="checkbox" /> E-13 Use matching-to-sample procedures.<br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('2section1f'))">Section I - Behavior-Change Systems</a><br />
+        <div id="2section1f" style="display: none">
+    <input id="id_skills2_f01" name="skills2_f01" type="checkbox" /> F-01 Use self-management strategies. <br />
+    <input id="id_skills2_f02" name="skills2_f02" type="checkbox" /> F-02 Use token economies and other conditioned reinforcement systems. <br />
+    <input id="id_skills2_f03" name="skills2_f03" type="checkbox" /> F-03 Use Direct Instruction. <br />
+    <input id="id_skills2_f04" name="skills2_f04" type="checkbox" /> F-04 Use precision teaching.<br />
+    <input id="id_skills2_f05" name="skills2_f05" type="checkbox" /> F-05 Use personalized systems of instruction (PSI). <br />
+    <input id="id_skills2_f06" name="skills2_f06" type="checkbox" /> F-06 Use incidental teaching.<br />
+    <input id="id_skills2_f07" name="skills2_f07" type="checkbox" /> F-07 Use functional communication training.<br />
+    <input id="id_skills2_f08" name="skills2_f08" type="checkbox" /> F-08 Use augmentative communication systems. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('2section2g'))">Section II - Identification of the Problem</a><br />
+        <div id="2section2g" style="display: none">
+    <input id="id_skills2_g01" name="skills2_g01" type="checkbox" /> G-01 Review records and available data at the outset of the case. <br />
+    <input id="id_skills2_g02" name="skills2_g02" type="checkbox" /> G-02 Consider biological/medical variables that may be affecting the client. <br />
+    <input id="id_skills2_g03" name="skills2_g03" type="checkbox" /> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. <br />
+    <input id="id_skills2_g04" name="skills2_g04" type="checkbox" /> G-04 Explain behavioral concepts using nontechnical language.<br />
+    <input id="id_skills2_g05" name="skills2_g05" type="checkbox" /> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. <br />
+    <input id="id_skills2_g06" name="skills2_g06" type="checkbox" /> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. <br />
+    <input id="id_skills2_g07" name="skills2_g07" type="checkbox" /> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. <br />
+    <input id="id_skills2_g08" name="skills2_g08" type="checkbox" /> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('2section2h'))">Section II - Measurement</a><br />
+        <div id="2section2h" style="display: none">
+  <input id="id_skills2_h01" name="skills2_h01" type="checkbox" /> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. <br />
+ <input id="id_skills2_h02" name="skills2_h02" type="checkbox" /> H-02 Select a schedule of observation and recording periods.<br />
+ <input id="id_skills2_h03" name="skills2_h03" type="checkbox" /> H-03 Select a data display that effectively communicates relevant quantitative relations. <br />
+ <input id="id_skills2_h04" name="skills2_h04" type="checkbox" /> H-04 Evaluate changes in level, trend, and variability. <br />
+ <input id="id_skills2_h05" name="skills2_h05" type="checkbox" /> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). <br />
+ </div>
+   <a href="javascript:hideshow(document.getElementById('2section2i'))">Section II - Assessment</a><br />
+        <div id="2section2i" style="display: none">
+    <input id="id_skills2_i01" name="skills2_i01" type="checkbox" /> I-01 Define behavior in observable and measurable terms.<br />
+    <input id="id_skills2_i02" name="skills2_i02" type="checkbox" /> I-02 Define environmental variables in observable and measurable terms. <br />
+    <input id="id_skills2_i03" name="skills2_i03" type="checkbox" /> I-03 Design and implement individualized behavioral assessment procedures. <br />
+    <input id="id_skills2_i04" name="skills2_i04" type="checkbox" /> I-04 Design and implement the full range of functional assessment procedures.<br />
+    <input id="id_skills2_i05" name="skills2_i05" type="checkbox" /> I-05 Organize, analyze, and interpret observed data.<br />
+    <input id="id_skills2_i06" name="skills2_i06" type="checkbox" /> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.<br />
+    <input id="id_skills2_i07" name="skills2_i07" type="checkbox" /> I-07 Design and conduct preference assessments to identify putative reinforcers. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('2section2j'))">Section II - Intervention</a><br />
+        <div id="2section2j" style="display: none">
+    <input id="id_skills2_j01" name="skills2_j01" type="checkbox" /> J-01 State intervention goals in observable and measurable terms. <br />
+    <input id="id_skills2_j02" name="skills2_j02" type="checkbox" /> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. <br />
+    <input id="id_skills2_j03" name="skills2_j03" type="checkbox" /> J-03 Select intervention strategies based on task analysis. <br />
+    <input id="id_skills2_j04" name="skills2_j04" type="checkbox" /> J-04 Select intervention strategies based on client preferences. <br />
+    <input id="id_skills2_j05" name="skills2_j05" type="checkbox" /> J-05 Select intervention strategies based on the client’s current repertoires. <br />
+    <input id="id_skills2_j06" name="skills2_j06" type="checkbox" /> J-06 Select intervention strategies based on supporting environments. <br />
+    <input id="id_skills2_j07" name="skills2_j07" type="checkbox" /> J-07 Select intervention strategies based on environmental and resource constraints. <br />
+    <input id="id_skills2_j08" name="skills2_j08" type="checkbox" /> J-08 Select intervention strategies based on the social validity of the intervention. <br />
+    <input id="id_skills2_j09" name="skills2_j09" type="checkbox" /> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. <br />
+    <input id="id_skills2_j10" name="skills2_j10" type="checkbox" /> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. <br />
+    <input id="id_skills2_j11" name="skills2_j11" type="checkbox" /> J-11 Program for stimulus and response generalization. <br />
+    <input id="id_skills2_j12" name="skills2_j12" type="checkbox" /> J-12 Program for maintenance. <br />
+    <input id="id_skills2_j13" name="skills2_j13" type="checkbox" /> J-13 Select behavioral cusps as goals for intervention when appropriate. <br />
+    <input id="id_skills2_j14" name="skills2_j14" type="checkbox" /> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). <br />
+    <input id="id_skills2_j15" name="skills2_j15" type="checkbox" /> J-15 Base decision-making on data displayed in various formats. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('2section2k'))">Section II - Implementation, Management, and Supervision</a><br />
+        <div id="2section2k" style="display: none">
+    <input id="id_skills2_k01" name="skills2_k01" type="checkbox" /> K-01 Provide for ongoing documentation of behavioral services.<br />
+    <input id="id_skills2_k02" name="skills2_k02" type="checkbox" /> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. <br />
+    <input id="id_skills2_k03" name="skills2_k03" type="checkbox" /> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.<br />
+    <input id="id_skills2_k04" name="skills2_k04" type="checkbox" /> K-04 Design and use effective performance monitoring and reinforcement systems. <br />
+    <input id="id_skills2_k05" name="skills2_k05" type="checkbox" /> K-05 Design and use systems for monitoring procedural integrity. <br />
+    <input id="id_skills2_k06" name="skills2_k06" type="checkbox" /> K-06 Provide supervision for behavior-change agents.<br />
+    <input id="id_skills2_k07" name="skills2_k07" type="checkbox" /> K-07 Evaluate the effectiveness of the behavioral program.<br />
+    <input id="id_skills2_k08" name="skills2_k08" type="checkbox" /> K-08 Establish support for behavior-analytic services from direct and indirect consumers.<br />
+    <input id="id_skills2_k09" name="skills2_k09" type="checkbox" /> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.<br />
+    <input id="id_skills2_k10" name="skills2_k10" type="checkbox" /> K-10 Arrange for the orderly termination of services when they are no longer required.<br />
+  </div>
         </td>
       </tr>
       <tr>
-        <td valign="top">2. <textarea name="job_responsibility_2" id="id_job_responsibility_2" cols="35" rows="5"></textarea></td>
-        <td valign="top"><br />
-  <select name="example-optgroup" multiple="multiple" size="5">
-  <optgroup label="Section I - Measurement">
-    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
-    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
-    <option value="A-03"> A-03 Measure duration.</option>
-    <option value="A-04"> A-04 Measure latency.</option>
-    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
-    <option value="A-06"> A-06 Measure percent of occurrence. </option>
-    <option value="A-07"> A-07 Measure trials to criterion. </option>
-    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
-    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
-    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
-    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
-    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
-    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
-    <option value="A-14"> A-14 Design and implement choice measures. </option>
-  </optgroup>
-  <optgroup label="Section I - Experimental Design">
-    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
-    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
-    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
-    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
-    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
-    <option value="B-06"> B-06 Use changing criterion designs. </option>
-    <option value="B-07"> B-07 Use multiple baseline designs. </option>
-    <option value="B-08"> B-08 Use multiple probe designs. </option>
-    <option value="B-09"> B-09 Use combinations of design elements. </option>
-    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
-    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
-  </optgroup>
-  <optgroup label="Section I - Behavior-Change Considerations">
-    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
-    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
-    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
-  </optgroup>
-  <optgroup label="Section I - Fundamental Elements of Behavior Change">
-    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
-    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
-    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
-    <option value="D-04"> D-04 Use modeling and imitation training.</option>
-    <option value="D-05"> D-05 Use shaping.</option>
-    <option value="D-06"> D-06 Use chaining.</option>
-    <option value="D-07"> D-07 Conduct task analyses. </option>
-    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
-    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
-    <option value="D-10"> D-10 Use echoic training. </option>
-    <option value="D-11"> D-11 Use mand training. </option>
-    <option value="D-12"> D-12 Use tact training. </option>
-    <option value="D-13"> D-13 Use intraverbal training.</option>
-    <option value="D-14"> D-14 Use listener training. </option>
-    <option value="D-15"> D-15 Identify punishers. </option>
-    <option value="D-16"> D-16 Use positive and negative punishment. </option>
-    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
-    <option value="D-18"> D-18 Use extinction. </option>
-    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
-    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
-    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
-  </optgroup>
-  <optgroup label="Section I - Specific Behavior-Change Procedures">
-    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
-    <option value="E-02"> E-02 Use discrimination training procedures.</option>
-    <option value="E-03"> E-03 Use instructions and rules. </option>
-    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
-    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
-    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
-    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
-    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
-    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
-    <option value="E-10"> E-10 Use the Premack principle.</option>
-    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
-    <option value="E-12"> E-12 Use errorless learning procedures.</option>
-    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
-  </optgroup>
-    <optgroup label="Section I - Behavior-Change Systems">
-    <option value="F-01"> F-01 Use self-management strategies. </option>
-    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
-    <option value="F-03"> F-03 Use Direct Instruction. </option>
-    <option value="F-04"> F-04 Use precision teaching.</option>
-    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
-    <option value="F-06"> F-06 Use incidental teaching.</option>
-    <option value="F-07"> F-07 Use functional communication training.</option>
-    <option value="F-08"> F-08 Use augmentative communication systems. </option>
-  </optgroup>
-    </optgroup>
-    <optgroup label="Section II - Identification of the Problem">
-    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
-    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
-    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
-    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
-    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
-    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
-    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
-    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
-  </optgroup>
-  <optgroup label="Section II - Measurement">
-    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
-    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
-    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
-    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
-    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
-  </optgroup>
-    <optgroup label="Section II - Assessment">
-    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
-    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
-    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
-    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
-    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
-    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
-    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
-  </optgroup>
-    <optgroup label="Section II - Intervention">
-    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
-    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
-    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
-    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
-    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
-    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
-    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
-    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
-    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
-    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
-    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
-    <option value="J-12"> J-12 Program for maintenance. </option>
-    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
-    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
-    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
-  </optgroup>
-    <optgroup label="Section II - Implementation, Management, and Supervision">
-    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
-    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
-    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
-    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
-    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
-    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
-    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
-    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
-    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
-    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
-  </optgroup>
-  </select></td>
+        <td valign="top"><strong><br />Job Responsibility/Performance</strong></td>
+        <td valign="top"><strong><br />BACB Skills Required</strong></td>
+    </tr>
+      <tr>
+        <td valign="top">3. <textarea name="job_responsibility_3" id="id_job_responsibility_3" cols="35" rows="15"></textarea></td>
+        <td>
+        <a href="javascript:hideshow(document.getElementById('3section1a'))">Section I - Measurement</a><br />
+        <div id="3section1a" style="display: none">
+        <input id="id_skills3_a01" name="skills3_a01" type="checkbox" /> A-01 Measure frequency (i.e., count).<br />
+        <input id="id_skills3_a02" name="skills3_a02" type="checkbox" /> A-02 Measure rate (i.e., count per unit time). <br />
+        <input id="id_skills3_a03" name="skills3_a03" type="checkbox" /> A-03 Measure duration.<br />
+        <input id="id_skills3_a04" name="skills3_a04" type="checkbox" /> A-04 Measure latency.<br />
+        <input id="id_skills3_a05" name="skills3_a05" type="checkbox" /> A-05 Measure interresponse time (IRT).<br />
+        <input id="id_skills3_a06" name="skills3_a06" type="checkbox" /> A-06 Measure percent of occurrence. <br />
+        <input id="id_skills3_a07" name="skills3_a07" type="checkbox" /> A-07 Measure trials to criterion. <br />
+        <input id="id_skills3_a08" name="skills3_a08" type="checkbox" /> A-08 Assess and interpret interobserver agreement.<br />
+        <input id="id_skills3_a09" name="skills3_a09" type="checkbox" /> A-09 Evaluate the accuracy and reliability of measurement procedures.<br />
+        <input id="id_skills3_a10" name="skills3_a10" type="checkbox" /> A-10 Design, plot, and interpret data using equal-interval graphs.<br />
+        <input id="id_skills3_a11" name="skills3_a11" type="checkbox" /> A-11 Design, plot, and interpret data using a cumulative record to display data. <br />
+        <input id="id_skills3_a12" name="skills3_a12" type="checkbox" /> A-12 Design and implement continuous measurement procedures (e.g., event recording). <br />
+        <input id="id_skills3_a13" name="skills3_a13" type="checkbox" /> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). <br />
+        <input id="id_skills3_a14" name="skills3_a14" type="checkbox" /> A-14 Design and implement choice measures.
+    </div>
+    <a href="javascript:hideshow(document.getElementById('3section1b'))">Section I - Experimental Design</a><br />
+        <div id="3section1b" style="display: none">
+     <input id="id_skills3_b01" name="skills3_b01" type="checkbox" /> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.<br />
+     <input id="id_skills3_b02" name="skills3_b02" type="checkbox" /> B-02 Review and interpret articles from the behavior-analytic literature. <br />
+     <input id="id_skills3_b03" name="skills3_b03" type="checkbox" /> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. <br />
+     <input id="id_skills3_b04" name="skills3_b04" type="checkbox" /> B-04 Use withdrawal/reversal designs.<br />
+     <input id="id_skills3_b05" name="skills3_b05" type="checkbox" /> B-05 Use alternating treatments (i.e., multielement) designs. <br />
+     <input id="id_skills3_b06" name="skills3_b06" type="checkbox" /> B-06 Use changing criterion designs. <br />
+     <input id="id_skills3_b07" name="skills3_b07" type="checkbox" /> B-07 Use multiple baseline designs. <br />
+     <input id="id_skills3_b08" name="skills3_b08" type="checkbox" /> B-08 Use multiple probe designs. <br />
+     <input id="id_skills3_b09" name="skills3_b09" type="checkbox" /> B-09 Use combinations of design elements. <br />
+     <input id="id_skills3_b10" name="skills3_b10" type="checkbox" /> B-10 Conduct a component analysis to determine the effective components of an intervention package. <br />
+     <input id="id_skills3_b11" name="skills3_b11" type="checkbox" /> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('3section1c'))">Section I - Behavior-Change Considerations</a><br />
+        <div id="3section1c" style="display: none">
+    <input id="id_skills3_c01" name="skills3_c01" type="checkbox" /> C-01 State and plan for the possible unwanted effects of reinforcement.<br />
+    <input id="id_skills3_c02" name="skills3_c02" type="checkbox" /> C-02 State and plan for the possible unwanted effects of punishment. <br />
+    <input id="id_skills3_c03" name="skills3_c03" type="checkbox" /> C-03 State and plan for the possible unwanted effects of extinction. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('3section1d'))">Section I - Fundamental Elements of Behavior Change</a><br />
+        <div id="3section1d" style="display: none">
+    <input id="id_skills3_d01" name="skills3_d01" type="checkbox" /> D-01 Use positive and negative reinforcement.<br />
+    <input id="id_skills3_d02" name="skills3_d02" type="checkbox" /> D-02 Use appropriate parameters and schedules of reinforcement. <br />
+    <input id="id_skills3_d03" name="skills3_d03" type="checkbox" /> D-03 Use prompts and prompt fading. <br />
+    <input id="id_skills3_d04" name="skills3_d04" type="checkbox" /> D-04 Use modeling and imitation training.<br />
+    <input id="id_skills3_d05" name="skills3_d05" type="checkbox" /> D-05 Use shaping.<br />
+    <input id="id_skills3_d06" name="skills3_d06" type="checkbox" /> D-06 Use chaining.<br />
+    <input id="id_skills3_d07" name="skills3_d07" type="checkbox" /> D-07 Conduct task analyses. <br />
+    <input id="id_skills3_d08" name="skills3_d08" type="checkbox" /> D-08 Use discrete-trial and free-operant arrangements.<br />
+    <input id="id_skills3_d09" name="skills3_d09" type="checkbox" /> D-09 Use the verbal operants as a basis for language assessment. <br />
+    <input id="id_skills3_d10" name="skills3_d10" type="checkbox" /> D-10 Use echoic training. <br />
+    <input id="id_skills3_d11" name="skills3_d11" type="checkbox" /> D-11 Use mand training. <br />
+    <input id="id_skills3_d12" name="skills3_d12" type="checkbox" /> D-12 Use tact training. <br />
+    <input id="id_skills3_d13" name="skills3_d13" type="checkbox" /> D-13 Use intraverbal training.<br />
+    <input id="id_skills3_d14" name="skills3_d14" type="checkbox" /> D-14 Use listener training. <br />
+    <input id="id_skills3_d15" name="skills3_d15" type="checkbox" /> D-15 Identify punishers. <br />
+    <input id="id_skills3_d16" name="skills3_d16" type="checkbox" /> D-16 Use positive and negative punishment. <br />
+    <input id="id_skills3_d17" name="skills3_d17" type="checkbox" /> D-17 Use appropriate parameters and schedules of punishment. <br />
+    <input id="id_skills3_d18" name="skills3_d18" type="checkbox" /> D-18 Use extinction. <br />
+    <input id="id_skills3_d19" name="skills3_d19" type="checkbox" /> D-19 Use combinations of reinforcement with punishment and extinction. <br />
+    <input id="id_skills3_d20" name="skills3_d20" type="checkbox" /> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). <br />
+    <input id="id_skills3_d21" name="skills3_d21" type="checkbox" /> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('3section1e'))">Section I - Specific Behavior-Change Procedures</a><br />
+        <div id="3section1e" style="display: none">
+    <input id="id_skills3_e01" name="skills3_e01" type="checkbox" /> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. <br />
+    <input id="id_skills3_e02" name="skills3_e02" type="checkbox" /> E-02 Use discrimination training procedures.<br />
+    <input id="id_skills3_e03" name="skills3_e03" type="checkbox" /> E-03 Use instructions and rules. <br />
+    <input id="id_skills3_e04" name="skills3_e04" type="checkbox" /> E-04 Use contingency contracting (i.e., behavioral contracts). <br />
+    <input id="id_skills3_e05" name="skills3_e05" type="checkbox" /> E-05 Use independent, interdependent, and dependent group contingencies.<br />
+    <input id="id_skills3_e06" name="skills3_e06" type="checkbox" /> E-06 Use stimulus equivalence procedures. <br />
+    <input id="id_skills3_e07" name="skills3_e07" type="checkbox" /> E-07 Plan for behavioral contrast effects. <br />
+    <input id="id_skills3_e08" name="skills3_e08" type="checkbox" /> E-08 Use the matching law and recognize factors influencing choice. <br />
+    <input id="id_skills3_e09" name="skills3_e09" type="checkbox" /> E-09 Arrange high-probability request sequences. <br />
+    <input id="id_skills3_e10" name="skills3_e10" type="checkbox" /> E-10 Use the Premack principle.<br />
+    <input id="id_skills3_e11" name="skills3_e11" type="checkbox" /> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.<br />
+    <input id="id_skills3_e12" name="skills3_e12" type="checkbox" /> E-12 Use errorless learning procedures.<br />
+    <input id="id_skills3_e13" name="skills3_e13" type="checkbox" /> E-13 Use matching-to-sample procedures.<br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('3section1f'))">Section I - Behavior-Change Systems</a><br />
+        <div id="3section1f" style="display: none">
+    <input id="id_skills3_f01" name="skills3_f01" type="checkbox" /> F-01 Use self-management strategies. <br />
+    <input id="id_skills3_f02" name="skills3_f02" type="checkbox" /> F-02 Use token economies and other conditioned reinforcement systems. <br />
+    <input id="id_skills3_f03" name="skills3_f03" type="checkbox" /> F-03 Use Direct Instruction. <br />
+    <input id="id_skills3_f04" name="skills3_f04" type="checkbox" /> F-04 Use precision teaching.<br />
+    <input id="id_skills3_f05" name="skills3_f05" type="checkbox" /> F-05 Use personalized systems of instruction (PSI). <br />
+    <input id="id_skills3_f06" name="skills3_f06" type="checkbox" /> F-06 Use incidental teaching.<br />
+    <input id="id_skills3_f07" name="skills3_f07" type="checkbox" /> F-07 Use functional communication training.<br />
+    <input id="id_skills3_f08" name="skills3_f08" type="checkbox" /> F-08 Use augmentative communication systems. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('3section2g'))">Section II - Identification of the Problem</a><br />
+        <div id="3section2g" style="display: none">
+    <input id="id_skills3_g01" name="skills3_g01" type="checkbox" /> G-01 Review records and available data at the outset of the case. <br />
+    <input id="id_skills3_g02" name="skills3_g02" type="checkbox" /> G-02 Consider biological/medical variables that may be affecting the client. <br />
+    <input id="id_skills3_g03" name="skills3_g03" type="checkbox" /> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. <br />
+    <input id="id_skills3_g04" name="skills3_g04" type="checkbox" /> G-04 Explain behavioral concepts using nontechnical language.<br />
+    <input id="id_skills3_g05" name="skills3_g05" type="checkbox" /> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. <br />
+    <input id="id_skills3_g06" name="skills3_g06" type="checkbox" /> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. <br />
+    <input id="id_skills3_g07" name="skills3_g07" type="checkbox" /> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. <br />
+    <input id="id_skills3_g08" name="skills3_g08" type="checkbox" /> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('3section2h'))">Section II - Measurement</a><br />
+        <div id="3section2h" style="display: none">
+  <input id="id_skills3_h01" name="skills3_h01" type="checkbox" /> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. <br />
+ <input id="id_skills3_h02" name="skills3_h02" type="checkbox" /> H-02 Select a schedule of observation and recording periods.<br />
+ <input id="id_skills3_h03" name="skills3_h03" type="checkbox" /> H-03 Select a data display that effectively communicates relevant quantitative relations. <br />
+ <input id="id_skills3_h04" name="skills3_h04" type="checkbox" /> H-04 Evaluate changes in level, trend, and variability. <br />
+ <input id="id_skills3_h05" name="skills3_h05" type="checkbox" /> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). <br />
+ </div>
+   <a href="javascript:hideshow(document.getElementById('3section2i'))">Section II - Assessment</a><br />
+        <div id="3section2i" style="display: none">
+    <input id="id_skills3_i01" name="skills3_i01" type="checkbox" /> I-01 Define behavior in observable and measurable terms.<br />
+    <input id="id_skills3_i02" name="skills3_i02" type="checkbox" /> I-02 Define environmental variables in observable and measurable terms. <br />
+    <input id="id_skills3_i03" name="skills3_i03" type="checkbox" /> I-03 Design and implement individualized behavioral assessment procedures. <br />
+    <input id="id_skills3_i04" name="skills3_i04" type="checkbox" /> I-04 Design and implement the full range of functional assessment procedures.<br />
+    <input id="id_skills3_i05" name="skills3_i05" type="checkbox" /> I-05 Organize, analyze, and interpret observed data.<br />
+    <input id="id_skills3_i06" name="skills3_i06" type="checkbox" /> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.<br />
+    <input id="id_skills3_i07" name="skills3_i07" type="checkbox" /> I-07 Design and conduct preference assessments to identify putative reinforcers. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('3section2j'))">Section II - Intervention</a><br />
+        <div id="3section2j" style="display: none">
+    <input id="id_skills3_j01" name="skills3_j01" type="checkbox" /> J-01 State intervention goals in observable and measurable terms. <br />
+    <input id="id_skills3_j02" name="skills3_j02" type="checkbox" /> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. <br />
+    <input id="id_skills3_j03" name="skills3_j03" type="checkbox" /> J-03 Select intervention strategies based on task analysis. <br />
+    <input id="id_skills3_j04" name="skills3_j04" type="checkbox" /> J-04 Select intervention strategies based on client preferences. <br />
+    <input id="id_skills3_j05" name="skills3_j05" type="checkbox" /> J-05 Select intervention strategies based on the client’s current repertoires. <br />
+    <input id="id_skills3_j06" name="skills3_j06" type="checkbox" /> J-06 Select intervention strategies based on supporting environments. <br />
+    <input id="id_skills3_j07" name="skills3_j07" type="checkbox" /> J-07 Select intervention strategies based on environmental and resource constraints. <br />
+    <input id="id_skills3_j08" name="skills3_j08" type="checkbox" /> J-08 Select intervention strategies based on the social validity of the intervention. <br />
+    <input id="id_skills3_j09" name="skills3_j09" type="checkbox" /> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. <br />
+    <input id="id_skills3_j10" name="skills3_j10" type="checkbox" /> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. <br />
+    <input id="id_skills3_j11" name="skills3_j11" type="checkbox" /> J-11 Program for stimulus and response generalization. <br />
+    <input id="id_skills3_j12" name="skills3_j12" type="checkbox" /> J-12 Program for maintenance. <br />
+    <input id="id_skills3_j13" name="skills3_j13" type="checkbox" /> J-13 Select behavioral cusps as goals for intervention when appropriate. <br />
+    <input id="id_skills3_j14" name="skills3_j14" type="checkbox" /> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). <br />
+    <input id="id_skills3_j15" name="skills3_j15" type="checkbox" /> J-15 Base decision-making on data displayed in various formats. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('3section2k'))">Section II - Implementation, Management, and Supervision</a><br />
+        <div id="3section2k" style="display: none">
+    <input id="id_skills3_k01" name="skills3_k01" type="checkbox" /> K-01 Provide for ongoing documentation of behavioral services.<br />
+    <input id="id_skills3_k02" name="skills3_k02" type="checkbox" /> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. <br />
+    <input id="id_skills3_k03" name="skills3_k03" type="checkbox" /> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.<br />
+    <input id="id_skills3_k04" name="skills3_k04" type="checkbox" /> K-04 Design and use effective performance monitoring and reinforcement systems. <br />
+    <input id="id_skills3_k05" name="skills3_k05" type="checkbox" /> K-05 Design and use systems for monitoring procedural integrity. <br />
+    <input id="id_skills3_k06" name="skills3_k06" type="checkbox" /> K-06 Provide supervision for behavior-change agents.<br />
+    <input id="id_skills3_k07" name="skills3_k07" type="checkbox" /> K-07 Evaluate the effectiveness of the behavioral program.<br />
+    <input id="id_skills3_k08" name="skills3_k08" type="checkbox" /> K-08 Establish support for behavior-analytic services from direct and indirect consumers.<br />
+    <input id="id_skills3_k09" name="skills3_k09" type="checkbox" /> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.<br />
+    <input id="id_skills3_k10" name="skills3_k10" type="checkbox" /> K-10 Arrange for the orderly termination of services when they are no longer required.<br />
+  </div>
+        </td>
       </tr>
       <tr>
-        <td valign="top">3. <textarea name="job_responsibility_3" id="id_job_responsibility_3" cols="35" rows="5"></textarea></td>
-        <td valign="top"><br />
-  <select name="example-optgroup" multiple="multiple" size="5">
-  <optgroup label="Section I - Measurement">
-    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
-    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
-    <option value="A-03"> A-03 Measure duration.</option>
-    <option value="A-04"> A-04 Measure latency.</option>
-    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
-    <option value="A-06"> A-06 Measure percent of occurrence. </option>
-    <option value="A-07"> A-07 Measure trials to criterion. </option>
-    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
-    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
-    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
-    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
-    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
-    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
-    <option value="A-14"> A-14 Design and implement choice measures. </option>
-  </optgroup>
-  <optgroup label="Section I - Experimental Design">
-    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
-    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
-    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
-    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
-    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
-    <option value="B-06"> B-06 Use changing criterion designs. </option>
-    <option value="B-07"> B-07 Use multiple baseline designs. </option>
-    <option value="B-08"> B-08 Use multiple probe designs. </option>
-    <option value="B-09"> B-09 Use combinations of design elements. </option>
-    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
-    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
-  </optgroup>
-  <optgroup label="Section I - Behavior-Change Considerations">
-    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
-    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
-    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
-  </optgroup>
-  <optgroup label="Section I - Fundamental Elements of Behavior Change">
-    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
-    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
-    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
-    <option value="D-04"> D-04 Use modeling and imitation training.</option>
-    <option value="D-05"> D-05 Use shaping.</option>
-    <option value="D-06"> D-06 Use chaining.</option>
-    <option value="D-07"> D-07 Conduct task analyses. </option>
-    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
-    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
-    <option value="D-10"> D-10 Use echoic training. </option>
-    <option value="D-11"> D-11 Use mand training. </option>
-    <option value="D-12"> D-12 Use tact training. </option>
-    <option value="D-13"> D-13 Use intraverbal training.</option>
-    <option value="D-14"> D-14 Use listener training. </option>
-    <option value="D-15"> D-15 Identify punishers. </option>
-    <option value="D-16"> D-16 Use positive and negative punishment. </option>
-    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
-    <option value="D-18"> D-18 Use extinction. </option>
-    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
-    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
-    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
-  </optgroup>
-  <optgroup label="Section I - Specific Behavior-Change Procedures">
-    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
-    <option value="E-02"> E-02 Use discrimination training procedures.</option>
-    <option value="E-03"> E-03 Use instructions and rules. </option>
-    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
-    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
-    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
-    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
-    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
-    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
-    <option value="E-10"> E-10 Use the Premack principle.</option>
-    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
-    <option value="E-12"> E-12 Use errorless learning procedures.</option>
-    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
-  </optgroup>
-    <optgroup label="Section I - Behavior-Change Systems">
-    <option value="F-01"> F-01 Use self-management strategies. </option>
-    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
-    <option value="F-03"> F-03 Use Direct Instruction. </option>
-    <option value="F-04"> F-04 Use precision teaching.</option>
-    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
-    <option value="F-06"> F-06 Use incidental teaching.</option>
-    <option value="F-07"> F-07 Use functional communication training.</option>
-    <option value="F-08"> F-08 Use augmentative communication systems. </option>
-  </optgroup>
-    </optgroup>
-    <optgroup label="Section II - Identification of the Problem">
-    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
-    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
-    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
-    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
-    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
-    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
-    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
-    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
-  </optgroup>
-  <optgroup label="Section II - Measurement">
-    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
-    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
-    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
-    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
-    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
-  </optgroup>
-    <optgroup label="Section II - Assessment">
-    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
-    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
-    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
-    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
-    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
-    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
-    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
-  </optgroup>
-    <optgroup label="Section II - Intervention">
-    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
-    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
-    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
-    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
-    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
-    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
-    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
-    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
-    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
-    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
-    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
-    <option value="J-12"> J-12 Program for maintenance. </option>
-    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
-    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
-    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
-  </optgroup>
-    <optgroup label="Section II - Implementation, Management, and Supervision">
-    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
-    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
-    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
-    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
-    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
-    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
-    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
-    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
-    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
-    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
-  </optgroup>
-  </select></td>
+        <td valign="top"><strong><br />Job Responsibility/Performance</strong></td>
+        <td valign="top"><strong><br />BACB Skills Required</strong></td>
+    </tr>
+      <tr>
+        <td valign="top">4. <textarea name="job_responsibility_4" id="id_job_responsibility_4" cols="35" rows="15"></textarea></td>
+        <td>
+        <a href="javascript:hideshow(document.getElementById('4section1a'))">Section I - Measurement</a><br />
+        <div id="4section1a" style="display: none">
+        <input id="id_skills4_a01" name="skills4_a01" type="checkbox" /> A-01 Measure frequency (i.e., count).<br />
+        <input id="id_skills4_a02" name="skills4_a02" type="checkbox" /> A-02 Measure rate (i.e., count per unit time). <br />
+        <input id="id_skills4_a03" name="skills4_a03" type="checkbox" /> A-03 Measure duration.<br />
+        <input id="id_skills4_a04" name="skills4_a04" type="checkbox" /> A-04 Measure latency.<br />
+        <input id="id_skills4_a05" name="skills4_a05" type="checkbox" /> A-05 Measure interresponse time (IRT).<br />
+        <input id="id_skills4_a06" name="skills4_a06" type="checkbox" /> A-06 Measure percent of occurrence. <br />
+        <input id="id_skills4_a07" name="skills4_a07" type="checkbox" /> A-07 Measure trials to criterion. <br />
+        <input id="id_skills4_a08" name="skills4_a08" type="checkbox" /> A-08 Assess and interpret interobserver agreement.<br />
+        <input id="id_skills4_a09" name="skills4_a09" type="checkbox" /> A-09 Evaluate the accuracy and reliability of measurement procedures.<br />
+        <input id="id_skills4_a10" name="skills4_a10" type="checkbox" /> A-10 Design, plot, and interpret data using equal-interval graphs.<br />
+        <input id="id_skills4_a11" name="skills4_a11" type="checkbox" /> A-11 Design, plot, and interpret data using a cumulative record to display data. <br />
+        <input id="id_skills4_a12" name="skills4_a12" type="checkbox" /> A-12 Design and implement continuous measurement procedures (e.g., event recording). <br />
+        <input id="id_skills4_a13" name="skills4_a13" type="checkbox" /> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). <br />
+        <input id="id_skills4_a14" name="skills4_a14" type="checkbox" /> A-14 Design and implement choice measures.
+    </div>
+    <a href="javascript:hideshow(document.getElementById('4section1b'))">Section I - Experimental Design</a><br />
+        <div id="4section1b" style="display: none">
+     <input id="id_skills4_b01" name="skills4_b01" type="checkbox" /> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.<br />
+     <input id="id_skills4_b02" name="skills4_b02" type="checkbox" /> B-02 Review and interpret articles from the behavior-analytic literature. <br />
+     <input id="id_skills4_b03" name="skills4_b03" type="checkbox" /> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. <br />
+     <input id="id_skills4_b04" name="skills4_b04" type="checkbox" /> B-04 Use withdrawal/reversal designs.<br />
+     <input id="id_skills4_b05" name="skills4_b05" type="checkbox" /> B-05 Use alternating treatments (i.e., multielement) designs. <br />
+     <input id="id_skills4_b06" name="skills4_b06" type="checkbox" /> B-06 Use changing criterion designs. <br />
+     <input id="id_skills4_b07" name="skills4_b07" type="checkbox" /> B-07 Use multiple baseline designs. <br />
+     <input id="id_skills4_b08" name="skills4_b08" type="checkbox" /> B-08 Use multiple probe designs. <br />
+     <input id="id_skills4_b09" name="skills4_b09" type="checkbox" /> B-09 Use combinations of design elements. <br />
+     <input id="id_skills4_b10" name="skills4_b10" type="checkbox" /> B-10 Conduct a component analysis to determine the effective components of an intervention package. <br />
+     <input id="id_skills4_b11" name="skills4_b11" type="checkbox" /> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('4section1c'))">Section I - Behavior-Change Considerations</a><br />
+        <div id="4section1c" style="display: none">
+    <input id="id_skills4_c01" name="skills4_c01" type="checkbox" /> C-01 State and plan for the possible unwanted effects of reinforcement.<br />
+    <input id="id_skills4_c02" name="skills4_c02" type="checkbox" /> C-02 State and plan for the possible unwanted effects of punishment. <br />
+    <input id="id_skills4_c03" name="skills4_c03" type="checkbox" /> C-03 State and plan for the possible unwanted effects of extinction. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('4section1d'))">Section I - Fundamental Elements of Behavior Change</a><br />
+        <div id="4section1d" style="display: none">
+    <input id="id_skills4_d01" name="skills4_d01" type="checkbox" /> D-01 Use positive and negative reinforcement.<br />
+    <input id="id_skills4_d02" name="skills4_d02" type="checkbox" /> D-02 Use appropriate parameters and schedules of reinforcement. <br />
+    <input id="id_skills4_d03" name="skills4_d03" type="checkbox" /> D-03 Use prompts and prompt fading. <br />
+    <input id="id_skills4_d04" name="skills4_d04" type="checkbox" /> D-04 Use modeling and imitation training.<br />
+    <input id="id_skills4_d05" name="skills4_d05" type="checkbox" /> D-05 Use shaping.<br />
+    <input id="id_skills4_d06" name="skills4_d06" type="checkbox" /> D-06 Use chaining.<br />
+    <input id="id_skills4_d07" name="skills4_d07" type="checkbox" /> D-07 Conduct task analyses. <br />
+    <input id="id_skills4_d08" name="skills4_d08" type="checkbox" /> D-08 Use discrete-trial and free-operant arrangements.<br />
+    <input id="id_skills4_d09" name="skills4_d09" type="checkbox" /> D-09 Use the verbal operants as a basis for language assessment. <br />
+    <input id="id_skills4_d10" name="skills4_d10" type="checkbox" /> D-10 Use echoic training. <br />
+    <input id="id_skills4_d11" name="skills4_d11" type="checkbox" /> D-11 Use mand training. <br />
+    <input id="id_skills4_d12" name="skills4_d12" type="checkbox" /> D-12 Use tact training. <br />
+    <input id="id_skills4_d13" name="skills4_d13" type="checkbox" /> D-13 Use intraverbal training.<br />
+    <input id="id_skills4_d14" name="skills4_d14" type="checkbox" /> D-14 Use listener training. <br />
+    <input id="id_skills4_d15" name="skills4_d15" type="checkbox" /> D-15 Identify punishers. <br />
+    <input id="id_skills4_d16" name="skills4_d16" type="checkbox" /> D-16 Use positive and negative punishment. <br />
+    <input id="id_skills4_d17" name="skills4_d17" type="checkbox" /> D-17 Use appropriate parameters and schedules of punishment. <br />
+    <input id="id_skills4_d18" name="skills4_d18" type="checkbox" /> D-18 Use extinction. <br />
+    <input id="id_skills4_d19" name="skills4_d19" type="checkbox" /> D-19 Use combinations of reinforcement with punishment and extinction. <br />
+    <input id="id_skills4_d20" name="skills4_d20" type="checkbox" /> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). <br />
+    <input id="id_skills4_d21" name="skills4_d21" type="checkbox" /> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('4section1e'))">Section I - Specific Behavior-Change Procedures</a><br />
+        <div id="4section1e" style="display: none">
+    <input id="id_skills4_e01" name="skills4_e01" type="checkbox" /> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. <br />
+    <input id="id_skills4_e02" name="skills4_e02" type="checkbox" /> E-02 Use discrimination training procedures.<br />
+    <input id="id_skills4_e03" name="skills4_e03" type="checkbox" /> E-03 Use instructions and rules. <br />
+    <input id="id_skills4_e04" name="skills4_e04" type="checkbox" /> E-04 Use contingency contracting (i.e., behavioral contracts). <br />
+    <input id="id_skills4_e05" name="skills4_e05" type="checkbox" /> E-05 Use independent, interdependent, and dependent group contingencies.<br />
+    <input id="id_skills4_e06" name="skills4_e06" type="checkbox" /> E-06 Use stimulus equivalence procedures. <br />
+    <input id="id_skills4_e07" name="skills4_e07" type="checkbox" /> E-07 Plan for behavioral contrast effects. <br />
+    <input id="id_skills4_e08" name="skills4_e08" type="checkbox" /> E-08 Use the matching law and recognize factors influencing choice. <br />
+    <input id="id_skills4_e09" name="skills4_e09" type="checkbox" /> E-09 Arrange high-probability request sequences. <br />
+    <input id="id_skills4_e10" name="skills4_e10" type="checkbox" /> E-10 Use the Premack principle.<br />
+    <input id="id_skills4_e11" name="skills4_e11" type="checkbox" /> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.<br />
+    <input id="id_skills4_e12" name="skills4_e12" type="checkbox" /> E-12 Use errorless learning procedures.<br />
+    <input id="id_skills4_e13" name="skills4_e13" type="checkbox" /> E-13 Use matching-to-sample procedures.<br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('4section1f'))">Section I - Behavior-Change Systems</a><br />
+        <div id="4section1f" style="display: none">
+    <input id="id_skills4_f01" name="skills4_f01" type="checkbox" /> F-01 Use self-management strategies. <br />
+    <input id="id_skills4_f02" name="skills4_f02" type="checkbox" /> F-02 Use token economies and other conditioned reinforcement systems. <br />
+    <input id="id_skills4_f03" name="skills4_f03" type="checkbox" /> F-03 Use Direct Instruction. <br />
+    <input id="id_skills4_f04" name="skills4_f04" type="checkbox" /> F-04 Use precision teaching.<br />
+    <input id="id_skills4_f05" name="skills4_f05" type="checkbox" /> F-05 Use personalized systems of instruction (PSI). <br />
+    <input id="id_skills4_f06" name="skills4_f06" type="checkbox" /> F-06 Use incidental teaching.<br />
+    <input id="id_skills4_f07" name="skills4_f07" type="checkbox" /> F-07 Use functional communication training.<br />
+    <input id="id_skills4_f08" name="skills4_f08" type="checkbox" /> F-08 Use augmentative communication systems. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('4section2g'))">Section II - Identification of the Problem</a><br />
+        <div id="4section2g" style="display: none">
+    <input id="id_skills4_g01" name="skills4_g01" type="checkbox" /> G-01 Review records and available data at the outset of the case. <br />
+    <input id="id_skills4_g02" name="skills4_g02" type="checkbox" /> G-02 Consider biological/medical variables that may be affecting the client. <br />
+    <input id="id_skills4_g03" name="skills4_g03" type="checkbox" /> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. <br />
+    <input id="id_skills4_g04" name="skills4_g04" type="checkbox" /> G-04 Explain behavioral concepts using nontechnical language.<br />
+    <input id="id_skills4_g05" name="skills4_g05" type="checkbox" /> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. <br />
+    <input id="id_skills4_g06" name="skills4_g06" type="checkbox" /> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. <br />
+    <input id="id_skills4_g07" name="skills4_g07" type="checkbox" /> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. <br />
+    <input id="id_skills4_g08" name="skills4_g08" type="checkbox" /> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('4section2h'))">Section II - Measurement</a><br />
+        <div id="4section2h" style="display: none">
+  <input id="id_skills4_h01" name="skills4_h01" type="checkbox" /> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. <br />
+ <input id="id_skills4_h02" name="skills4_h02" type="checkbox" /> H-02 Select a schedule of observation and recording periods.<br />
+ <input id="id_skills4_h03" name="skills4_h03" type="checkbox" /> H-03 Select a data display that effectively communicates relevant quantitative relations. <br />
+ <input id="id_skills4_h04" name="skills4_h04" type="checkbox" /> H-04 Evaluate changes in level, trend, and variability. <br />
+ <input id="id_skills4_h05" name="skills4_h05" type="checkbox" /> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). <br />
+ </div>
+   <a href="javascript:hideshow(document.getElementById('4section2i'))">Section II - Assessment</a><br />
+        <div id="4section2i" style="display: none">
+    <input id="id_skills4_i01" name="skills4_i01" type="checkbox" /> I-01 Define behavior in observable and measurable terms.<br />
+    <input id="id_skills4_i02" name="skills4_i02" type="checkbox" /> I-02 Define environmental variables in observable and measurable terms. <br />
+    <input id="id_skills4_i03" name="skills4_i03" type="checkbox" /> I-03 Design and implement individualized behavioral assessment procedures. <br />
+    <input id="id_skills4_i04" name="skills4_i04" type="checkbox" /> I-04 Design and implement the full range of functional assessment procedures.<br />
+    <input id="id_skills4_i05" name="skills4_i05" type="checkbox" /> I-05 Organize, analyze, and interpret observed data.<br />
+    <input id="id_skills4_i06" name="skills4_i06" type="checkbox" /> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.<br />
+    <input id="id_skills4_i07" name="skills4_i07" type="checkbox" /> I-07 Design and conduct preference assessments to identify putative reinforcers. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('4section2j'))">Section II - Intervention</a><br />
+        <div id="4section2j" style="display: none">
+    <input id="id_skills4_j01" name="skills4_j01" type="checkbox" /> J-01 State intervention goals in observable and measurable terms. <br />
+    <input id="id_skills4_j02" name="skills4_j02" type="checkbox" /> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. <br />
+    <input id="id_skills4_j03" name="skills4_j03" type="checkbox" /> J-03 Select intervention strategies based on task analysis. <br />
+    <input id="id_skills4_j04" name="skills4_j04" type="checkbox" /> J-04 Select intervention strategies based on client preferences. <br />
+    <input id="id_skills4_j05" name="skills4_j05" type="checkbox" /> J-05 Select intervention strategies based on the client’s current repertoires. <br />
+    <input id="id_skills4_j06" name="skills4_j06" type="checkbox" /> J-06 Select intervention strategies based on supporting environments. <br />
+    <input id="id_skills4_j07" name="skills4_j07" type="checkbox" /> J-07 Select intervention strategies based on environmental and resource constraints. <br />
+    <input id="id_skills4_j08" name="skills4_j08" type="checkbox" /> J-08 Select intervention strategies based on the social validity of the intervention. <br />
+    <input id="id_skills4_j09" name="skills4_j09" type="checkbox" /> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. <br />
+    <input id="id_skills4_j10" name="skills4_j10" type="checkbox" /> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. <br />
+    <input id="id_skills4_j11" name="skills4_j11" type="checkbox" /> J-11 Program for stimulus and response generalization. <br />
+    <input id="id_skills4_j12" name="skills4_j12" type="checkbox" /> J-12 Program for maintenance. <br />
+    <input id="id_skills4_j13" name="skills4_j13" type="checkbox" /> J-13 Select behavioral cusps as goals for intervention when appropriate. <br />
+    <input id="id_skills4_j14" name="skills4_j14" type="checkbox" /> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). <br />
+    <input id="id_skills4_j15" name="skills4_j15" type="checkbox" /> J-15 Base decision-making on data displayed in various formats. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('4section2k'))">Section II - Implementation, Management, and Supervision</a><br />
+        <div id="4section2k" style="display: none">
+    <input id="id_skills4_k01" name="skills4_k01" type="checkbox" /> K-01 Provide for ongoing documentation of behavioral services.<br />
+    <input id="id_skills4_k02" name="skills4_k02" type="checkbox" /> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. <br />
+    <input id="id_skills4_k03" name="skills4_k03" type="checkbox" /> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.<br />
+    <input id="id_skills4_k04" name="skills4_k04" type="checkbox" /> K-04 Design and use effective performance monitoring and reinforcement systems. <br />
+    <input id="id_skills4_k05" name="skills4_k05" type="checkbox" /> K-05 Design and use systems for monitoring procedural integrity. <br />
+    <input id="id_skills4_k06" name="skills4_k06" type="checkbox" /> K-06 Provide supervision for behavior-change agents.<br />
+    <input id="id_skills4_k07" name="skills4_k07" type="checkbox" /> K-07 Evaluate the effectiveness of the behavioral program.<br />
+    <input id="id_skills4_k08" name="skills4_k08" type="checkbox" /> K-08 Establish support for behavior-analytic services from direct and indirect consumers.<br />
+    <input id="id_skills4_k09" name="skills4_k09" type="checkbox" /> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.<br />
+    <input id="id_skills4_k10" name="skills4_k10" type="checkbox" /> K-10 Arrange for the orderly termination of services when they are no longer required.<br />
+  </div>
+        </td>
       </tr>
       <tr>
-        <td valign="top">4. <textarea name="job_responsibility_4" id="id_job_responsibility_4" cols="35" rows="5"></textarea></td>
-        <td valign="top"><br />
-  <select name="example-optgroup" multiple="multiple" size="5">
-  <optgroup label="Section I - Measurement">
-    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
-    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
-    <option value="A-03"> A-03 Measure duration.</option>
-    <option value="A-04"> A-04 Measure latency.</option>
-    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
-    <option value="A-06"> A-06 Measure percent of occurrence. </option>
-    <option value="A-07"> A-07 Measure trials to criterion. </option>
-    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
-    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
-    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
-    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
-    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
-    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
-    <option value="A-14"> A-14 Design and implement choice measures. </option>
-  </optgroup>
-  <optgroup label="Section I - Experimental Design">
-    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
-    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
-    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
-    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
-    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
-    <option value="B-06"> B-06 Use changing criterion designs. </option>
-    <option value="B-07"> B-07 Use multiple baseline designs. </option>
-    <option value="B-08"> B-08 Use multiple probe designs. </option>
-    <option value="B-09"> B-09 Use combinations of design elements. </option>
-    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
-    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
-  </optgroup>
-  <optgroup label="Section I - Behavior-Change Considerations">
-    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
-    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
-    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
-  </optgroup>
-  <optgroup label="Section I - Fundamental Elements of Behavior Change">
-    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
-    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
-    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
-    <option value="D-04"> D-04 Use modeling and imitation training.</option>
-    <option value="D-05"> D-05 Use shaping.</option>
-    <option value="D-06"> D-06 Use chaining.</option>
-    <option value="D-07"> D-07 Conduct task analyses. </option>
-    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
-    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
-    <option value="D-10"> D-10 Use echoic training. </option>
-    <option value="D-11"> D-11 Use mand training. </option>
-    <option value="D-12"> D-12 Use tact training. </option>
-    <option value="D-13"> D-13 Use intraverbal training.</option>
-    <option value="D-14"> D-14 Use listener training. </option>
-    <option value="D-15"> D-15 Identify punishers. </option>
-    <option value="D-16"> D-16 Use positive and negative punishment. </option>
-    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
-    <option value="D-18"> D-18 Use extinction. </option>
-    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
-    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
-    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
-  </optgroup>
-  <optgroup label="Section I - Specific Behavior-Change Procedures">
-    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
-    <option value="E-02"> E-02 Use discrimination training procedures.</option>
-    <option value="E-03"> E-03 Use instructions and rules. </option>
-    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
-    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
-    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
-    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
-    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
-    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
-    <option value="E-10"> E-10 Use the Premack principle.</option>
-    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
-    <option value="E-12"> E-12 Use errorless learning procedures.</option>
-    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
-  </optgroup>
-    <optgroup label="Section I - Behavior-Change Systems">
-    <option value="F-01"> F-01 Use self-management strategies. </option>
-    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
-    <option value="F-03"> F-03 Use Direct Instruction. </option>
-    <option value="F-04"> F-04 Use precision teaching.</option>
-    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
-    <option value="F-06"> F-06 Use incidental teaching.</option>
-    <option value="F-07"> F-07 Use functional communication training.</option>
-    <option value="F-08"> F-08 Use augmentative communication systems. </option>
-  </optgroup>
-    </optgroup>
-    <optgroup label="Section II - Identification of the Problem">
-    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
-    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
-    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
-    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
-    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
-    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
-    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
-    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
-  </optgroup>
-  <optgroup label="Section II - Measurement">
-    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
-    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
-    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
-    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
-    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
-  </optgroup>
-    <optgroup label="Section II - Assessment">
-    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
-    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
-    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
-    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
-    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
-    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
-    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
-  </optgroup>
-    <optgroup label="Section II - Intervention">
-    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
-    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
-    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
-    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
-    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
-    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
-    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
-    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
-    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
-    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
-    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
-    <option value="J-12"> J-12 Program for maintenance. </option>
-    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
-    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
-    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
-  </optgroup>
-    <optgroup label="Section II - Implementation, Management, and Supervision">
-    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
-    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
-    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
-    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
-    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
-    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
-    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
-    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
-    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
-    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
-  </optgroup>
-  </select></td>
-      </tr>
+        <td valign="top"><strong><br />Job Responsibility/Performance</strong></td>
+        <td valign="top"><strong><br />BACB Skills Required</strong></td>
+    </tr>
       <tr>
-        <td valign="top">5. <textarea name="job_responsibility_5" id="id_job_responsibility_5" cols="35" rows="5"></textarea></td>
-        <td valign="top"><br />
-  <select name="example-optgroup" multiple="multiple" size="5">
-  <optgroup label="Section I - Measurement">
-    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
-    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
-    <option value="A-03"> A-03 Measure duration.</option>
-    <option value="A-04"> A-04 Measure latency.</option>
-    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
-    <option value="A-06"> A-06 Measure percent of occurrence. </option>
-    <option value="A-07"> A-07 Measure trials to criterion. </option>
-    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
-    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
-    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
-    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
-    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
-    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
-    <option value="A-14"> A-14 Design and implement choice measures. </option>
-  </optgroup>
-  <optgroup label="Section I - Experimental Design">
-    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
-    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
-    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
-    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
-    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
-    <option value="B-06"> B-06 Use changing criterion designs. </option>
-    <option value="B-07"> B-07 Use multiple baseline designs. </option>
-    <option value="B-08"> B-08 Use multiple probe designs. </option>
-    <option value="B-09"> B-09 Use combinations of design elements. </option>
-    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
-    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
-  </optgroup>
-  <optgroup label="Section I - Behavior-Change Considerations">
-    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
-    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
-    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
-  </optgroup>
-  <optgroup label="Section I - Fundamental Elements of Behavior Change">
-    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
-    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
-    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
-    <option value="D-04"> D-04 Use modeling and imitation training.</option>
-    <option value="D-05"> D-05 Use shaping.</option>
-    <option value="D-06"> D-06 Use chaining.</option>
-    <option value="D-07"> D-07 Conduct task analyses. </option>
-    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
-    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
-    <option value="D-10"> D-10 Use echoic training. </option>
-    <option value="D-11"> D-11 Use mand training. </option>
-    <option value="D-12"> D-12 Use tact training. </option>
-    <option value="D-13"> D-13 Use intraverbal training.</option>
-    <option value="D-14"> D-14 Use listener training. </option>
-    <option value="D-15"> D-15 Identify punishers. </option>
-    <option value="D-16"> D-16 Use positive and negative punishment. </option>
-    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
-    <option value="D-18"> D-18 Use extinction. </option>
-    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
-    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
-    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
-  </optgroup>
-  <optgroup label="Section I - Specific Behavior-Change Procedures">
-    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
-    <option value="E-02"> E-02 Use discrimination training procedures.</option>
-    <option value="E-03"> E-03 Use instructions and rules. </option>
-    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
-    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
-    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
-    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
-    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
-    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
-    <option value="E-10"> E-10 Use the Premack principle.</option>
-    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
-    <option value="E-12"> E-12 Use errorless learning procedures.</option>
-    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
-  </optgroup>
-    <optgroup label="Section I - Behavior-Change Systems">
-    <option value="F-01"> F-01 Use self-management strategies. </option>
-    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
-    <option value="F-03"> F-03 Use Direct Instruction. </option>
-    <option value="F-04"> F-04 Use precision teaching.</option>
-    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
-    <option value="F-06"> F-06 Use incidental teaching.</option>
-    <option value="F-07"> F-07 Use functional communication training.</option>
-    <option value="F-08"> F-08 Use augmentative communication systems. </option>
-  </optgroup>
-    </optgroup>
-    <optgroup label="Section II - Identification of the Problem">
-    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
-    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
-    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
-    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
-    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
-    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
-    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
-    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
-  </optgroup>
-  <optgroup label="Section II - Measurement">
-    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
-    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
-    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
-    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
-    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
-  </optgroup>
-    <optgroup label="Section II - Assessment">
-    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
-    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
-    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
-    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
-    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
-    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
-    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
-  </optgroup>
-    <optgroup label="Section II - Intervention">
-    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
-    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
-    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
-    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
-    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
-    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
-    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
-    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
-    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
-    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
-    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
-    <option value="J-12"> J-12 Program for maintenance. </option>
-    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
-    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
-    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
-  </optgroup>
-    <optgroup label="Section II - Implementation, Management, and Supervision">
-    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
-    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
-    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
-    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
-    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
-    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
-    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
-    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
-    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
-    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
-  </optgroup>
-  </select></td>
+        <td valign="top">5. <textarea name="job_responsibility_5" id="id_job_responsibility_5" cols="35" rows="15"></textarea></td>
+        <td>
+        <a href="javascript:hideshow(document.getElementById('5section1a'))">Section I - Measurement</a><br />
+        <div id="5section1a" style="display: none">
+        <input id="id_skills5_a01" name="skills5_a01" type="checkbox" /> A-01 Measure frequency (i.e., count).<br />
+        <input id="id_skills5_a02" name="skills5_a02" type="checkbox" /> A-02 Measure rate (i.e., count per unit time). <br />
+        <input id="id_skills5_a03" name="skills5_a03" type="checkbox" /> A-03 Measure duration.<br />
+        <input id="id_skills5_a04" name="skills5_a04" type="checkbox" /> A-04 Measure latency.<br />
+        <input id="id_skills5_a05" name="skills5_a05" type="checkbox" /> A-05 Measure interresponse time (IRT).<br />
+        <input id="id_skills5_a06" name="skills5_a06" type="checkbox" /> A-06 Measure percent of occurrence. <br />
+        <input id="id_skills5_a07" name="skills5_a07" type="checkbox" /> A-07 Measure trials to criterion. <br />
+        <input id="id_skills5_a08" name="skills5_a08" type="checkbox" /> A-08 Assess and interpret interobserver agreement.<br />
+        <input id="id_skills5_a09" name="skills5_a09" type="checkbox" /> A-09 Evaluate the accuracy and reliability of measurement procedures.<br />
+        <input id="id_skills5_a10" name="skills5_a10" type="checkbox" /> A-10 Design, plot, and interpret data using equal-interval graphs.<br />
+        <input id="id_skills5_a11" name="skills5_a11" type="checkbox" /> A-11 Design, plot, and interpret data using a cumulative record to display data. <br />
+        <input id="id_skills5_a12" name="skills5_a12" type="checkbox" /> A-12 Design and implement continuous measurement procedures (e.g., event recording). <br />
+        <input id="id_skills5_a13" name="skills5_a13" type="checkbox" /> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). <br />
+        <input id="id_skills5_a14" name="skills5_a14" type="checkbox" /> A-14 Design and implement choice measures.
+    </div>
+    <a href="javascript:hideshow(document.getElementById('5section1b'))">Section I - Experimental Design</a><br />
+        <div id="5section1b" style="display: none">
+     <input id="id_skills5_b01" name="skills5_b01" type="checkbox" /> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.<br />
+     <input id="id_skills5_b02" name="skills5_b02" type="checkbox" /> B-02 Review and interpret articles from the behavior-analytic literature. <br />
+     <input id="id_skills5_b03" name="skills5_b03" type="checkbox" /> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. <br />
+     <input id="id_skills5_b04" name="skills5_b04" type="checkbox" /> B-04 Use withdrawal/reversal designs.<br />
+     <input id="id_skills5_b05" name="skills5_b05" type="checkbox" /> B-05 Use alternating treatments (i.e., multielement) designs. <br />
+     <input id="id_skills5_b06" name="skills5_b06" type="checkbox" /> B-06 Use changing criterion designs. <br />
+     <input id="id_skills5_b07" name="skills5_b07" type="checkbox" /> B-07 Use multiple baseline designs. <br />
+     <input id="id_skills5_b08" name="skills5_b08" type="checkbox" /> B-08 Use multiple probe designs. <br />
+     <input id="id_skills5_b09" name="skills5_b09" type="checkbox" /> B-09 Use combinations of design elements. <br />
+     <input id="id_skills5_b10" name="skills5_b10" type="checkbox" /> B-10 Conduct a component analysis to determine the effective components of an intervention package. <br />
+     <input id="id_skills5_b11" name="skills5_b11" type="checkbox" /> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('5section1c'))">Section I - Behavior-Change Considerations</a><br />
+        <div id="5section1c" style="display: none">
+    <input id="id_skills5_c01" name="skills5_c01" type="checkbox" /> C-01 State and plan for the possible unwanted effects of reinforcement.<br />
+    <input id="id_skills5_c02" name="skills5_c02" type="checkbox" /> C-02 State and plan for the possible unwanted effects of punishment. <br />
+    <input id="id_skills5_c03" name="skills5_c03" type="checkbox" /> C-03 State and plan for the possible unwanted effects of extinction. <br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('5section1d'))">Section I - Fundamental Elements of Behavior Change</a><br />
+        <div id="5section1d" style="display: none">
+    <input id="id_skills5_d01" name="skills5_d01" type="checkbox" /> D-01 Use positive and negative reinforcement.<br />
+    <input id="id_skills5_d02" name="skills5_d02" type="checkbox" /> D-02 Use appropriate parameters and schedules of reinforcement. <br />
+    <input id="id_skills5_d03" name="skills5_d03" type="checkbox" /> D-03 Use prompts and prompt fading. <br />
+    <input id="id_skills5_d04" name="skills5_d04" type="checkbox" /> D-04 Use modeling and imitation training.<br />
+    <input id="id_skills5_d05" name="skills5_d05" type="checkbox" /> D-05 Use shaping.<br />
+    <input id="id_skills5_d06" name="skills5_d06" type="checkbox" /> D-06 Use chaining.<br />
+    <input id="id_skills5_d07" name="skills5_d07" type="checkbox" /> D-07 Conduct task analyses. <br />
+    <input id="id_skills5_d08" name="skills5_d08" type="checkbox" /> D-08 Use discrete-trial and free-operant arrangements.<br />
+    <input id="id_skills5_d09" name="skills5_d09" type="checkbox" /> D-09 Use the verbal operants as a basis for language assessment. <br />
+    <input id="id_skills5_d10" name="skills5_d10" type="checkbox" /> D-10 Use echoic training. <br />
+    <input id="id_skills5_d11" name="skills5_d11" type="checkbox" /> D-11 Use mand training. <br />
+    <input id="id_skills5_d12" name="skills5_d12" type="checkbox" /> D-12 Use tact training. <br />
+    <input id="id_skills5_d13" name="skills5_d13" type="checkbox" /> D-13 Use intraverbal training.<br />
+    <input id="id_skills5_d14" name="skills5_d14" type="checkbox" /> D-14 Use listener training. <br />
+    <input id="id_skills5_d15" name="skills5_d15" type="checkbox" /> D-15 Identify punishers. <br />
+    <input id="id_skills5_d16" name="skills5_d16" type="checkbox" /> D-16 Use positive and negative punishment. <br />
+    <input id="id_skills5_d17" name="skills5_d17" type="checkbox" /> D-17 Use appropriate parameters and schedules of punishment. <br />
+    <input id="id_skills5_d18" name="skills5_d18" type="checkbox" /> D-18 Use extinction. <br />
+    <input id="id_skills5_d19" name="skills5_d19" type="checkbox" /> D-19 Use combinations of reinforcement with punishment and extinction. <br />
+    <input id="id_skills5_d20" name="skills5_d20" type="checkbox" /> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). <br />
+    <input id="id_skills5_d21" name="skills5_d21" type="checkbox" /> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('5section1e'))">Section I - Specific Behavior-Change Procedures</a><br />
+        <div id="5section1e" style="display: none">
+    <input id="id_skills5_e01" name="skills5_e01" type="checkbox" /> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. <br />
+    <input id="id_skills5_e02" name="skills5_e02" type="checkbox" /> E-02 Use discrimination training procedures.<br />
+    <input id="id_skills5_e03" name="skills5_e03" type="checkbox" /> E-03 Use instructions and rules. <br />
+    <input id="id_skills5_e04" name="skills5_e04" type="checkbox" /> E-04 Use contingency contracting (i.e., behavioral contracts). <br />
+    <input id="id_skills5_e05" name="skills5_e05" type="checkbox" /> E-05 Use independent, interdependent, and dependent group contingencies.<br />
+    <input id="id_skills5_e06" name="skills5_e06" type="checkbox" /> E-06 Use stimulus equivalence procedures. <br />
+    <input id="id_skills5_e07" name="skills5_e07" type="checkbox" /> E-07 Plan for behavioral contrast effects. <br />
+    <input id="id_skills5_e08" name="skills5_e08" type="checkbox" /> E-08 Use the matching law and recognize factors influencing choice. <br />
+    <input id="id_skills5_e09" name="skills5_e09" type="checkbox" /> E-09 Arrange high-probability request sequences. <br />
+    <input id="id_skills5_e10" name="skills5_e10" type="checkbox" /> E-10 Use the Premack principle.<br />
+    <input id="id_skills5_e11" name="skills5_e11" type="checkbox" /> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.<br />
+    <input id="id_skills5_e12" name="skills5_e12" type="checkbox" /> E-12 Use errorless learning procedures.<br />
+    <input id="id_skills5_e13" name="skills5_e13" type="checkbox" /> E-13 Use matching-to-sample procedures.<br />
+   </div>
+   <a href="javascript:hideshow(document.getElementById('5section1f'))">Section I - Behavior-Change Systems</a><br />
+        <div id="5section1f" style="display: none">
+    <input id="id_skills5_f01" name="skills5_f01" type="checkbox" /> F-01 Use self-management strategies. <br />
+    <input id="id_skills5_f02" name="skills5_f02" type="checkbox" /> F-02 Use token economies and other conditioned reinforcement systems. <br />
+    <input id="id_skills5_f03" name="skills5_f03" type="checkbox" /> F-03 Use Direct Instruction. <br />
+    <input id="id_skills5_f04" name="skills5_f04" type="checkbox" /> F-04 Use precision teaching.<br />
+    <input id="id_skills5_f05" name="skills5_f05" type="checkbox" /> F-05 Use personalized systems of instruction (PSI). <br />
+    <input id="id_skills5_f06" name="skills5_f06" type="checkbox" /> F-06 Use incidental teaching.<br />
+    <input id="id_skills5_f07" name="skills5_f07" type="checkbox" /> F-07 Use functional communication training.<br />
+    <input id="id_skills5_f08" name="skills5_f08" type="checkbox" /> F-08 Use augmentative communication systems. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('5section2g'))">Section II - Identification of the Problem</a><br />
+        <div id="5section2g" style="display: none">
+    <input id="id_skills5_g01" name="skills5_g01" type="checkbox" /> G-01 Review records and available data at the outset of the case. <br />
+    <input id="id_skills5_g02" name="skills5_g02" type="checkbox" /> G-02 Consider biological/medical variables that may be affecting the client. <br />
+    <input id="id_skills5_g03" name="skills5_g03" type="checkbox" /> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. <br />
+    <input id="id_skills5_g04" name="skills5_g04" type="checkbox" /> G-04 Explain behavioral concepts using nontechnical language.<br />
+    <input id="id_skills5_g05" name="skills5_g05" type="checkbox" /> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. <br />
+    <input id="id_skills5_g06" name="skills5_g06" type="checkbox" /> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. <br />
+    <input id="id_skills5_g07" name="skills5_g07" type="checkbox" /> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. <br />
+    <input id="id_skills5_g08" name="skills5_g08" type="checkbox" /> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('5section2h'))">Section II - Measurement</a><br />
+        <div id="5section2h" style="display: none">
+  <input id="id_skills5_h01" name="skills5_h01" type="checkbox" /> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. <br />
+ <input id="id_skills5_h02" name="skills5_h02" type="checkbox" /> H-02 Select a schedule of observation and recording periods.<br />
+ <input id="id_skills5_h03" name="skills5_h03" type="checkbox" /> H-03 Select a data display that effectively communicates relevant quantitative relations. <br />
+ <input id="id_skills5_h04" name="skills5_h04" type="checkbox" /> H-04 Evaluate changes in level, trend, and variability. <br />
+ <input id="id_skills5_h05" name="skills5_h05" type="checkbox" /> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). <br />
+ </div>
+   <a href="javascript:hideshow(document.getElementById('5section2i'))">Section II - Assessment</a><br />
+        <div id="5section2i" style="display: none">
+    <input id="id_skills5_i01" name="skills5_i01" type="checkbox" /> I-01 Define behavior in observable and measurable terms.<br />
+    <input id="id_skills5_i02" name="skills5_i02" type="checkbox" /> I-02 Define environmental variables in observable and measurable terms. <br />
+    <input id="id_skills5_i03" name="skills5_i03" type="checkbox" /> I-03 Design and implement individualized behavioral assessment procedures. <br />
+    <input id="id_skills5_i04" name="skills5_i04" type="checkbox" /> I-04 Design and implement the full range of functional assessment procedures.<br />
+    <input id="id_skills5_i05" name="skills5_i05" type="checkbox" /> I-05 Organize, analyze, and interpret observed data.<br />
+    <input id="id_skills5_i06" name="skills5_i06" type="checkbox" /> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.<br />
+    <input id="id_skills5_i07" name="skills5_i07" type="checkbox" /> I-07 Design and conduct preference assessments to identify putative reinforcers. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('5section2j'))">Section II - Intervention</a><br />
+        <div id="5section2j" style="display: none">
+    <input id="id_skills5_j01" name="skills5_j01" type="checkbox" /> J-01 State intervention goals in observable and measurable terms. <br />
+    <input id="id_skills5_j02" name="skills5_j02" type="checkbox" /> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. <br />
+    <input id="id_skills5_j03" name="skills5_j03" type="checkbox" /> J-03 Select intervention strategies based on task analysis. <br />
+    <input id="id_skills5_j04" name="skills5_j04" type="checkbox" /> J-04 Select intervention strategies based on client preferences. <br />
+    <input id="id_skills5_j05" name="skills5_j05" type="checkbox" /> J-05 Select intervention strategies based on the client’s current repertoires. <br />
+    <input id="id_skills5_j06" name="skills5_j06" type="checkbox" /> J-06 Select intervention strategies based on supporting environments. <br />
+    <input id="id_skills5_j07" name="skills5_j07" type="checkbox" /> J-07 Select intervention strategies based on environmental and resource constraints. <br />
+    <input id="id_skills5_j08" name="skills5_j08" type="checkbox" /> J-08 Select intervention strategies based on the social validity of the intervention. <br />
+    <input id="id_skills5_j09" name="skills5_j09" type="checkbox" /> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. <br />
+    <input id="id_skills5_j10" name="skills5_j10" type="checkbox" /> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. <br />
+    <input id="id_skills5_j11" name="skills5_j11" type="checkbox" /> J-11 Program for stimulus and response generalization. <br />
+    <input id="id_skills5_j12" name="skills5_j12" type="checkbox" /> J-12 Program for maintenance. <br />
+    <input id="id_skills5_j13" name="skills5_j13" type="checkbox" /> J-13 Select behavioral cusps as goals for intervention when appropriate. <br />
+    <input id="id_skills5_j14" name="skills5_j14" type="checkbox" /> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). <br />
+    <input id="id_skills5_j15" name="skills5_j15" type="checkbox" /> J-15 Base decision-making on data displayed in various formats. <br />
+  </div>
+   <a href="javascript:hideshow(document.getElementById('5section2k'))">Section II - Implementation, Management, and Supervision</a><br />
+        <div id="5section2k" style="display: none">
+    <input id="id_skills5_k01" name="skills5_k01" type="checkbox" /> K-01 Provide for ongoing documentation of behavioral services.<br />
+    <input id="id_skills5_k02" name="skills5_k02" type="checkbox" /> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. <br />
+    <input id="id_skills5_k03" name="skills5_k03" type="checkbox" /> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.<br />
+    <input id="id_skills5_k04" name="skills5_k04" type="checkbox" /> K-04 Design and use effective performance monitoring and reinforcement systems. <br />
+    <input id="id_skills5_k05" name="skills5_k05" type="checkbox" /> K-05 Design and use systems for monitoring procedural integrity. <br />
+    <input id="id_skills5_k06" name="skills5_k06" type="checkbox" /> K-06 Provide supervision for behavior-change agents.<br />
+    <input id="id_skills5_k07" name="skills5_k07" type="checkbox" /> K-07 Evaluate the effectiveness of the behavioral program.<br />
+    <input id="id_skills5_k08" name="skills5_k08" type="checkbox" /> K-08 Establish support for behavior-analytic services from direct and indirect consumers.<br />
+    <input id="id_skills5_k09" name="skills5_k09" type="checkbox" /> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.<br />
+    <input id="id_skills5_k10" name="skills5_k10" type="checkbox" /> K-10 Arrange for the orderly termination of services when they are no longer required.<br />
+  </div>
+        </td>
       </tr>
     </tbody>
   </table>
 <br />
+
+
 <p align="center"><input type='submit' class='btn btn-success'></p>
 </form>
 </div>
@@ -816,12 +832,23 @@ $(function(){
 </tbody>
 </table>
 
+<script type="text/javascript">
+function hideshow(which){
+if (!document.getElementById)
+return
+if (which.style.display=="block")
+which.style.display="none"
+else
+which.style.display="block"
+}
+</script>
+
 <br />
 <br />
 </div>
 
+{% endblock %}
 
-{% block content %}
 <!-- <h1>Heading</h1> -->
 
-{% endblock %}
+

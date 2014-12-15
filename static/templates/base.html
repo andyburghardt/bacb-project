@@ -23,16 +23,20 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="/static/js/ie-emulation-modes-warning.js"></script>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/prettify.css" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/prettify.js"></script>
+<script type="text/javascript" src="/static/js/jquery.multiselect.js"></script>
+<script type="text/javascript">
+$(function(){
+  $("select").multiselect();
+});
+</script>
 </head>
-<body>
-  </head>
 
   <body>
 {% include 'navbar.html' %}

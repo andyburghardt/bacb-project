@@ -4,7 +4,6 @@ from django.conf.urls.static import static
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 
-
 from django.contrib import admin
 admin.autodiscover()
 
@@ -31,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^jobmodel/$', 'signups.views.jobmodel', name='jobmodel'),
     url(r'^register/$', 'signups.views.register', name='register'),
     url(r'^resources/$', 'signups.views.resources', name='resources'),
+    url(r'^mydatasheets/$', 'signups.views.mydatasheets', name='mydatasheets'),
     url(r'^admin/', include(admin.site.urls)),
 )
 

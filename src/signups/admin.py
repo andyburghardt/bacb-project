@@ -6,6 +6,7 @@ from .models import Storyboard
 from .models import TaskAnalysis
 from .models import JobModel
 from .models import SkillsChecklist
+from .models import UserProfile
 
 class SignUpAdmin(admin.ModelAdmin):
     class Meta:
@@ -29,6 +30,9 @@ admin.site.register(TaskAnalysis, TaskAnalysisAdmin)
 class JobModelAdmin(admin.ModelAdmin):
     class Meta:
         model = JobModel
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        obj.save()
 
 admin.site.register(JobModel, JobModelAdmin)
 
@@ -37,4 +41,4 @@ class SkillsChecklistAdmin(admin.ModelAdmin):
         model = SkillsChecklist
 
 admin.site.register(SkillsChecklist, SkillsChecklistAdmin)
-
+admin.site.register(UserProfile)
