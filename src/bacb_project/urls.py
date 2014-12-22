@@ -31,6 +31,8 @@ urlpatterns = patterns('',
     url(r'^register/$', 'signups.views.register', name='register'),
     url(r'^resources/$', 'signups.views.resources', name='resources'),
     url(r'^mydatasheets/$', 'signups.views.mydatasheets', name='mydatasheets'),
+    url(r'^developmentgoals/$', 'signups.views.developmentgoals', name='developmentgoals'),
+    url(r'^validation/$', 'signups.views.validation', name='validation'),
     url(r'^admin/', include(admin.site.urls)),
 )
 

@@ -17,10 +17,13 @@ from .forms import MyForm
 from .forms import ExperienceSupervisionForm
 from .forms import SupervisionFeedbackForm
 from .forms import MyDataSheetsForm
-
+from .forms import DevelopmentGoalsForm
+from .forms import ValidationForm
+from .forms import Validation2Form
 
 from .models import SelfAssessment
 from .models import MyDataSheets
+from .models import SuperviseeValidation
 
 def home(request):
 
@@ -38,21 +41,24 @@ def aboutus(request):
 
 	return render_to_response("aboutus.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
+
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def supervisors(request):
 
 	form = MyForm()
 	return render_to_response("supervisors.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
+
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisees').count() == 0, login_url='/login/')
+@login_required
 def supervisees(request):
 
 	return render_to_response("supervisees.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
+
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def skills(request):
 
 	form = SkillsChecklistForm(request.POST or None)
@@ -66,20 +72,23 @@ def skills(request):
 
 	return render_to_response("skills.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
+
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def knowledgequiz(request):
 
 	return render_to_response("knowledgequiz.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
+
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def samplecontracts(request):
 
 	return render_to_response("samplecontracts.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
+
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def supervisionfeedback(request):
 
 	form = SupervisionFeedbackForm(request.POST or None)
@@ -93,8 +102,8 @@ def supervisionfeedback(request):
 
 	return render_to_response("supervisionfeedback.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def storyboard(request):
 
 	form = StoryboardForm(request.POST or None)
@@ -108,8 +117,8 @@ def storyboard(request):
 
 	return render_to_response("storyboard.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def jobmodel(request):
 
 	form = JobModelForm(request.POST or None)
@@ -123,8 +132,8 @@ def jobmodel(request):
 
 	return render_to_response("jobmodel.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def taskanalysis(request):
 
 	form = TaskAnalysisForm(request.POST or None)
@@ -138,8 +147,8 @@ def taskanalysis(request):
 
 	return render_to_response("taskanalysis.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def selfassessment(request):
 
 	form = SelfAssessmentForm(request.POST or None)
@@ -153,20 +162,20 @@ def selfassessment(request):
 
 	return render_to_response("selfassessment.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def selfassessmentview(request):
 
 	return render_to_response("selfassessmentview.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def superviseeassessmentresults(request):
 
 	return render_to_response("superviseeassessmentresults.html", locals(), context_instance=RequestContext(request))
 
-# @login_required
 # @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
 def experiencesupervisionform(request):
 
 	form = ExperienceSupervisionForm(request.POST or None)
@@ -180,6 +189,7 @@ def experiencesupervisionform(request):
 
 	return render_to_response("experiencesupervisionform.html", locals(), context_instance=RequestContext(request))
 
+@login_required
 def register(request):
     # Like before, get the request's context.
     form = UserProfileForm(request.POST or None)
@@ -236,6 +246,7 @@ def register(request):
             {'user_form': user_form, 'profile_form': profile_form, 'registered': registered},
             context)
 
+@login_required
 def mydatasheets(request):
 	query_results = MyDataSheets.objects.all()
 	if request.POST:
@@ -250,3 +261,47 @@ def mydatasheets(request):
 		form = MyDataSheetsForm()
 
 	return render_to_response("mydatasheets.html", locals(), context_instance=RequestContext(request))
+
+# @user_passes_test(lambda u: u.groups.filter(name='Supervisors').count() == 0, login_url='/login/')
+@login_required
+def developmentgoals(request):
+
+	form = DevelopmentGoalsForm(request.POST or None)
+
+	if form.is_valid():
+		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
+		save_it.save()
+		messages.success(request, 'You have successfully submitted performance development goals')
+		return HttpResponseRedirect('/thank-you/')
+
+	return render_to_response("goals.html", locals(), context_instance=RequestContext(request))
+
+@login_required
+def validation(request):
+	query_results = SuperviseeValidation.objects.all()
+	if request.POST:
+		form = ValidationForm(request.POST, request.FILES)
+		if form.is_valid():
+			save_it = form.save(commit=False)
+			save_it.user = request.user  # The logged-in user
+			save_it.save()
+			messages.success(request, 'You have successfully submitted a supervisee validation')
+			return HttpResponseRedirect('/thank-you/')
+	else:
+		form = ValidationForm()
+
+	return render_to_response("validation.html", locals(), context_instance=RequestContext(request))
+
+@login_required
+def validation(request):
+	form = Validation2Form(request.POST or None)
+
+	if form.is_valid():
+		save_it = form.save(commit=False)
+		save_it.user = request.user  # The logged-in user
+		save_it.save()
+		messages.success(request, 'You have successfully submitted a supervisee validation')
+		return HttpResponseRedirect('/thank-you/')
+
+	return render_to_response("validation.html", locals(), context_instance=RequestContext(request))

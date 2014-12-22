@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/media/favicon.ico">
+
+    <title>BACB Supervisor Training Module</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/jumbotron.css" rel="stylesheet">
+
+    <!-- Custom CSS for this template -->
+    <link href="/static/css/custom.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/prettify.css" />
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/prettify.js"></script>
+<script type="text/javascript" src="/static/js/jquery.multiselect.js"></script>
+<script type="text/javascript">
+$(function(){
+  $("select").multiselect();
+});
+</script>
+</head>
+<body id="test" onload="prettyPrint();">
+
+{% include 'navbar.html' %}
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+
+<div class="jumbotron">
+<h2>Job Model</h2>
+ Job models clarify performance expectations for any given supervisee role in the organization. When building your job models, you can be as broad or specific as you would like, depending on the role you will be assigning to your supervisee.  You can use the job model to specify what types of experiences your agency can provide, or to determine what task list items are encompassed in specific job performances/tasks. <br /><br />
+ <strong> Complete each section of the job model with objective, measurable performances. When completing the BACB skills required section of the job model, clicking a section (e.g., Section 1 – Measurement) will select all skills under Measurement. Alternatively, you can choose individual skills by clicking the box next to those skills. Scroll to bottom of page for a completed example. </strong>
+<div class="container">
+<div class="col-md-8">
+<form method='POST' action=''> {% csrf_token %}
+  <table border="0" cellpadding="15" class="table">
+      <tbody>
+    <tr>
+    <td valign="top">Position: </td>
+        <td valign="top"><input type="text" name="position" id="id_position" size="88">
+        </td>
+    </tr>
+    <tr>
+    <td valign="top">Supervisor: </td>
+        <td valign="top"><input type="text" name="supervisor" id="id_supervisor" size="88">
+        </td>
+    </tr>
+    <tr>
+    <td valign="top">Job Mission/Purpose: </td>
+        <td valign="top"><input type="text" name="job_mission" id="id_job_mission" size="88">
+    </td>
+    </tr>
+    <tr>
+        <td valign="top"><strong><br />Job Responsibility/Performance</strong></td>
+        <td valign="top"><strong><br />BACB Skills Required</strong></td>
+    </tr>
+      <tr>
+        <td valign="top">1. <textarea name="job_responsibility_1" id="id_job_responsibility_1" cols="35" rows="5"></textarea></td>
+        <td><br />
+  <select name="example-optgroup" multiple="multiple" size="5">
+  <optgroup label="Section I - Measurement">
+    <option value="A_01" id="A_01" name="multiselect_0"> A-01 Measure frequency (i.e., count).</option>
+    <option value="A_02" id="A_01" name="A_02"> A-02 Measure rate (i.e., count per unit time). </option>
+    <!-- <option value="A-03"  id="id_skills1_a03" name="skills1_a03"> A-03 Measure duration.</option>
+    <option value="A-04"  id="id_skills1_a04" name="skills1_a04"> A-04 Measure latency.</option>
+    <option value="A-05"  id="id_skills1_a05" name="skills1_a05"> A-05 Measure interresponse time (IRT).</option>
+    <option value="A-06"  id="id_skills1_a06" name="skills1_a06"> A-06 Measure percent of occurrence. </option>
+    <option value="A-07"  id="id_skills1_a07" name="skills1_a07"> A-07 Measure trials to criterion. </option>
+    <option value="A-08"  id="id_skills1_a08" name="skills1_a08"> A-08 Assess and interpret interobserver agreement.</option>
+    <option value="A-09"  id="id_skills1_a01" name="skills1_a01"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
+    <option value="A-10"  id="id_skills1_a01" name="skills1_a01"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
+    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
+    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
+    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
+    <option value="A-14"> A-14 Design and implement choice measures. </option>
+  </optgroup> 
+  <optgroup label="Section I - Experimental Design">
+    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
+    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
+    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
+    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
+    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
+    <option value="B-06"> B-06 Use changing criterion designs. </option>
+    <option value="B-07"> B-07 Use multiple baseline designs. </option>
+    <option value="B-08"> B-08 Use multiple probe designs. </option>
+    <option value="B-09"> B-09 Use combinations of design elements. </option>
+    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
+    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
+  </optgroup>
+  <optgroup label="Section I - Behavior-Change Considerations">
+    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
+    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
+    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
+  </optgroup>
+  <optgroup label="Section I - Fundamental Elements of Behavior Change">
+    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
+    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
+    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
+    <option value="D-04"> D-04 Use modeling and imitation training.</option>
+    <option value="D-05"> D-05 Use shaping.</option>
+    <option value="D-06"> D-06 Use chaining.</option>
+    <option value="D-07"> D-07 Conduct task analyses. </option>
+    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
+    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
+    <option value="D-10"> D-10 Use echoic training. </option>
+    <option value="D-11"> D-11 Use mand training. </option>
+    <option value="D-12"> D-12 Use tact training. </option>
+    <option value="D-13"> D-13 Use intraverbal training.</option>
+    <option value="D-14"> D-14 Use listener training. </option>
+    <option value="D-15"> D-15 Identify punishers. </option>
+    <option value="D-16"> D-16 Use positive and negative punishment. </option>
+    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
+    <option value="D-18"> D-18 Use extinction. </option>
+    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
+    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
+    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
+  </optgroup>
+  <optgroup label="Section I - Specific Behavior-Change Procedures">
+    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
+    <option value="E-02"> E-02 Use discrimination training procedures.</option>
+    <option value="E-03"> E-03 Use instructions and rules. </option>
+    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
+    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
+    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
+    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
+    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
+    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
+    <option value="E-10"> E-10 Use the Premack principle.</option>
+    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
+    <option value="E-12"> E-12 Use errorless learning procedures.</option>
+    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
+  </optgroup>
+    <optgroup label="Section I - Behavior-Change Systems">
+    <option value="F-01"> F-01 Use self-management strategies. </option>
+    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
+    <option value="F-03"> F-03 Use Direct Instruction. </option>
+    <option value="F-04"> F-04 Use precision teaching.</option>
+    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
+    <option value="F-06"> F-06 Use incidental teaching.</option>
+    <option value="F-07"> F-07 Use functional communication training.</option>
+    <option value="F-08"> F-08 Use augmentative communication systems. </option>
+  </optgroup>
+    </optgroup>
+    <optgroup label="Section II - Identification of the Problem">
+    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
+    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
+    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
+    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
+    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
+    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
+    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
+    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
+  </optgroup>
+  <optgroup label="Section II - Measurement">
+    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
+    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
+    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
+    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
+    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
+  </optgroup>
+    <optgroup label="Section II - Assessment">
+    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
+    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
+    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
+    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
+    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
+    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
+    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
+  </optgroup>
+    <optgroup label="Section II - Intervention">
+    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
+    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
+    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
+    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
+    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
+    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
+    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
+    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
+    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
+    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
+    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
+    <option value="J-12"> J-12 Program for maintenance. </option>
+    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
+    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
+    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
+  </optgroup>
+    <optgroup label="Section II - Implementation, Management, and Supervision">
+    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
+    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
+    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
+    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
+    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
+    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
+    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
+    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
+    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
+    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
+  </optgroup>
+  </select>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">2. <textarea name="job_responsibility_2" id="id_job_responsibility_2" cols="35" rows="5"></textarea></td>
+        <td valign="top"><br />
+  <select name="example-optgroup" multiple="multiple" size="5">
+  <optgroup label="Section I - Measurement">
+    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
+    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
+    <option value="A-03"> A-03 Measure duration.</option>
+    <option value="A-04"> A-04 Measure latency.</option>
+    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
+    <option value="A-06"> A-06 Measure percent of occurrence. </option>
+    <option value="A-07"> A-07 Measure trials to criterion. </option>
+    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
+    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
+    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
+    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
+    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
+    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
+    <option value="A-14"> A-14 Design and implement choice measures. </option>
+  </optgroup>
+  <optgroup label="Section I - Experimental Design">
+    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
+    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
+    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
+    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
+    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
+    <option value="B-06"> B-06 Use changing criterion designs. </option>
+    <option value="B-07"> B-07 Use multiple baseline designs. </option>
+    <option value="B-08"> B-08 Use multiple probe designs. </option>
+    <option value="B-09"> B-09 Use combinations of design elements. </option>
+    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
+    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
+  </optgroup>
+  <optgroup label="Section I - Behavior-Change Considerations">
+    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
+    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
+    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
+  </optgroup>
+  <optgroup label="Section I - Fundamental Elements of Behavior Change">
+    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
+    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
+    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
+    <option value="D-04"> D-04 Use modeling and imitation training.</option>
+    <option value="D-05"> D-05 Use shaping.</option>
+    <option value="D-06"> D-06 Use chaining.</option>
+    <option value="D-07"> D-07 Conduct task analyses. </option>
+    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
+    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
+    <option value="D-10"> D-10 Use echoic training. </option>
+    <option value="D-11"> D-11 Use mand training. </option>
+    <option value="D-12"> D-12 Use tact training. </option>
+    <option value="D-13"> D-13 Use intraverbal training.</option>
+    <option value="D-14"> D-14 Use listener training. </option>
+    <option value="D-15"> D-15 Identify punishers. </option>
+    <option value="D-16"> D-16 Use positive and negative punishment. </option>
+    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
+    <option value="D-18"> D-18 Use extinction. </option>
+    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
+    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
+    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
+  </optgroup>
+  <optgroup label="Section I - Specific Behavior-Change Procedures">
+    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
+    <option value="E-02"> E-02 Use discrimination training procedures.</option>
+    <option value="E-03"> E-03 Use instructions and rules. </option>
+    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
+    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
+    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
+    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
+    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
+    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
+    <option value="E-10"> E-10 Use the Premack principle.</option>
+    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
+    <option value="E-12"> E-12 Use errorless learning procedures.</option>
+    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
+  </optgroup>
+    <optgroup label="Section I - Behavior-Change Systems">
+    <option value="F-01"> F-01 Use self-management strategies. </option>
+    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
+    <option value="F-03"> F-03 Use Direct Instruction. </option>
+    <option value="F-04"> F-04 Use precision teaching.</option>
+    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
+    <option value="F-06"> F-06 Use incidental teaching.</option>
+    <option value="F-07"> F-07 Use functional communication training.</option>
+    <option value="F-08"> F-08 Use augmentative communication systems. </option>
+  </optgroup>
+    </optgroup>
+    <optgroup label="Section II - Identification of the Problem">
+    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
+    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
+    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
+    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
+    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
+    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
+    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
+    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
+  </optgroup>
+  <optgroup label="Section II - Measurement">
+    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
+    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
+    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
+    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
+    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
+  </optgroup>
+    <optgroup label="Section II - Assessment">
+    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
+    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
+    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
+    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
+    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
+    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
+    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
+  </optgroup>
+    <optgroup label="Section II - Intervention">
+    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
+    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
+    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
+    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
+    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
+    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
+    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
+    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
+    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
+    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
+    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
+    <option value="J-12"> J-12 Program for maintenance. </option>
+    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
+    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
+    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
+  </optgroup>
+    <optgroup label="Section II - Implementation, Management, and Supervision">
+    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
+    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
+    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
+    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
+    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
+    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
+    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
+    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
+    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
+    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
+  </optgroup>
+  </select></td>
+      </tr>
+      <tr>
+        <td valign="top">3. <textarea name="job_responsibility_3" id="id_job_responsibility_3" cols="35" rows="5"></textarea></td>
+        <td valign="top"><br />
+  <select name="example-optgroup" multiple="multiple" size="5">
+  <optgroup label="Section I - Measurement">
+    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
+    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
+    <option value="A-03"> A-03 Measure duration.</option>
+    <option value="A-04"> A-04 Measure latency.</option>
+    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
+    <option value="A-06"> A-06 Measure percent of occurrence. </option>
+    <option value="A-07"> A-07 Measure trials to criterion. </option>
+    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
+    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
+    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
+    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
+    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
+    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
+    <option value="A-14"> A-14 Design and implement choice measures. </option>
+  </optgroup>
+  <optgroup label="Section I - Experimental Design">
+    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
+    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
+    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
+    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
+    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
+    <option value="B-06"> B-06 Use changing criterion designs. </option>
+    <option value="B-07"> B-07 Use multiple baseline designs. </option>
+    <option value="B-08"> B-08 Use multiple probe designs. </option>
+    <option value="B-09"> B-09 Use combinations of design elements. </option>
+    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
+    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
+  </optgroup>
+  <optgroup label="Section I - Behavior-Change Considerations">
+    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
+    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
+    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
+  </optgroup>
+  <optgroup label="Section I - Fundamental Elements of Behavior Change">
+    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
+    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
+    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
+    <option value="D-04"> D-04 Use modeling and imitation training.</option>
+    <option value="D-05"> D-05 Use shaping.</option>
+    <option value="D-06"> D-06 Use chaining.</option>
+    <option value="D-07"> D-07 Conduct task analyses. </option>
+    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
+    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
+    <option value="D-10"> D-10 Use echoic training. </option>
+    <option value="D-11"> D-11 Use mand training. </option>
+    <option value="D-12"> D-12 Use tact training. </option>
+    <option value="D-13"> D-13 Use intraverbal training.</option>
+    <option value="D-14"> D-14 Use listener training. </option>
+    <option value="D-15"> D-15 Identify punishers. </option>
+    <option value="D-16"> D-16 Use positive and negative punishment. </option>
+    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
+    <option value="D-18"> D-18 Use extinction. </option>
+    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
+    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
+    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
+  </optgroup>
+  <optgroup label="Section I - Specific Behavior-Change Procedures">
+    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
+    <option value="E-02"> E-02 Use discrimination training procedures.</option>
+    <option value="E-03"> E-03 Use instructions and rules. </option>
+    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
+    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
+    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
+    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
+    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
+    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
+    <option value="E-10"> E-10 Use the Premack principle.</option>
+    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
+    <option value="E-12"> E-12 Use errorless learning procedures.</option>
+    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
+  </optgroup>
+    <optgroup label="Section I - Behavior-Change Systems">
+    <option value="F-01"> F-01 Use self-management strategies. </option>
+    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
+    <option value="F-03"> F-03 Use Direct Instruction. </option>
+    <option value="F-04"> F-04 Use precision teaching.</option>
+    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
+    <option value="F-06"> F-06 Use incidental teaching.</option>
+    <option value="F-07"> F-07 Use functional communication training.</option>
+    <option value="F-08"> F-08 Use augmentative communication systems. </option>
+  </optgroup>
+    </optgroup>
+    <optgroup label="Section II - Identification of the Problem">
+    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
+    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
+    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
+    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
+    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
+    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
+    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
+    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
+  </optgroup>
+  <optgroup label="Section II - Measurement">
+    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
+    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
+    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
+    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
+    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
+  </optgroup>
+    <optgroup label="Section II - Assessment">
+    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
+    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
+    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
+    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
+    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
+    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
+    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
+  </optgroup>
+    <optgroup label="Section II - Intervention">
+    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
+    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
+    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
+    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
+    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
+    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
+    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
+    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
+    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
+    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
+    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
+    <option value="J-12"> J-12 Program for maintenance. </option>
+    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
+    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
+    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
+  </optgroup>
+    <optgroup label="Section II - Implementation, Management, and Supervision">
+    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
+    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
+    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
+    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
+    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
+    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
+    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
+    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
+    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
+    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
+  </optgroup>
+  </select></td>
+      </tr>
+      <tr>
+        <td valign="top">4. <textarea name="job_responsibility_4" id="id_job_responsibility_4" cols="35" rows="5"></textarea></td>
+        <td valign="top"><br />
+  <select name="example-optgroup" multiple="multiple" size="5">
+  <optgroup label="Section I - Measurement">
+    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
+    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
+    <option value="A-03"> A-03 Measure duration.</option>
+    <option value="A-04"> A-04 Measure latency.</option>
+    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
+    <option value="A-06"> A-06 Measure percent of occurrence. </option>
+    <option value="A-07"> A-07 Measure trials to criterion. </option>
+    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
+    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
+    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
+    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
+    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
+    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
+    <option value="A-14"> A-14 Design and implement choice measures. </option>
+  </optgroup>
+  <optgroup label="Section I - Experimental Design">
+    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
+    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
+    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
+    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
+    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
+    <option value="B-06"> B-06 Use changing criterion designs. </option>
+    <option value="B-07"> B-07 Use multiple baseline designs. </option>
+    <option value="B-08"> B-08 Use multiple probe designs. </option>
+    <option value="B-09"> B-09 Use combinations of design elements. </option>
+    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
+    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
+  </optgroup>
+  <optgroup label="Section I - Behavior-Change Considerations">
+    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
+    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
+    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
+  </optgroup>
+  <optgroup label="Section I - Fundamental Elements of Behavior Change">
+    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
+    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
+    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
+    <option value="D-04"> D-04 Use modeling and imitation training.</option>
+    <option value="D-05"> D-05 Use shaping.</option>
+    <option value="D-06"> D-06 Use chaining.</option>
+    <option value="D-07"> D-07 Conduct task analyses. </option>
+    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
+    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
+    <option value="D-10"> D-10 Use echoic training. </option>
+    <option value="D-11"> D-11 Use mand training. </option>
+    <option value="D-12"> D-12 Use tact training. </option>
+    <option value="D-13"> D-13 Use intraverbal training.</option>
+    <option value="D-14"> D-14 Use listener training. </option>
+    <option value="D-15"> D-15 Identify punishers. </option>
+    <option value="D-16"> D-16 Use positive and negative punishment. </option>
+    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
+    <option value="D-18"> D-18 Use extinction. </option>
+    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
+    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
+    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
+  </optgroup>
+  <optgroup label="Section I - Specific Behavior-Change Procedures">
+    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
+    <option value="E-02"> E-02 Use discrimination training procedures.</option>
+    <option value="E-03"> E-03 Use instructions and rules. </option>
+    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
+    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
+    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
+    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
+    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
+    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
+    <option value="E-10"> E-10 Use the Premack principle.</option>
+    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
+    <option value="E-12"> E-12 Use errorless learning procedures.</option>
+    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
+  </optgroup>
+    <optgroup label="Section I - Behavior-Change Systems">
+    <option value="F-01"> F-01 Use self-management strategies. </option>
+    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
+    <option value="F-03"> F-03 Use Direct Instruction. </option>
+    <option value="F-04"> F-04 Use precision teaching.</option>
+    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
+    <option value="F-06"> F-06 Use incidental teaching.</option>
+    <option value="F-07"> F-07 Use functional communication training.</option>
+    <option value="F-08"> F-08 Use augmentative communication systems. </option>
+  </optgroup>
+    </optgroup>
+    <optgroup label="Section II - Identification of the Problem">
+    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
+    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
+    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
+    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
+    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
+    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
+    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
+    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
+  </optgroup>
+  <optgroup label="Section II - Measurement">
+    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
+    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
+    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
+    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
+    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
+  </optgroup>
+    <optgroup label="Section II - Assessment">
+    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
+    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
+    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
+    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
+    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
+    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
+    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
+  </optgroup>
+    <optgroup label="Section II - Intervention">
+    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
+    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
+    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
+    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
+    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
+    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
+    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
+    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
+    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
+    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
+    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
+    <option value="J-12"> J-12 Program for maintenance. </option>
+    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
+    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
+    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
+  </optgroup>
+    <optgroup label="Section II - Implementation, Management, and Supervision">
+    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
+    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
+    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
+    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
+    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
+    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
+    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
+    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
+    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
+    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option>
+  </optgroup>
+  </select></td>
+      </tr>
+      <tr>
+        <td valign="top">5. <textarea name="job_responsibility_5" id="id_job_responsibility_5" cols="35" rows="5"></textarea></td>
+        <td valign="top"><br />
+  <select name="example-optgroup" multiple="multiple" size="5">
+  <optgroup label="Section I - Measurement">
+    <option value="A-01"> A-01 Measure frequency (i.e., count).</option>
+    <option value="A-02"> A-02 Measure rate (i.e., count per unit time). </option>
+    <option value="A-03"> A-03 Measure duration.</option>
+    <option value="A-04"> A-04 Measure latency.</option>
+    <option value="A-05"> A-05 Measure interresponse time (IRT).</option>
+    <option value="A-06"> A-06 Measure percent of occurrence. </option>
+    <option value="A-07"> A-07 Measure trials to criterion. </option>
+    <option value="A-08"> A-08 Assess and interpret interobserver agreement.</option>
+    <option value="A-09"> A-09 Evaluate the accuracy and reliability of measurement procedures.</option>
+    <option value="A-10"> A-10 Design, plot, and interpret data using equal-interval graphs.</option>
+    <option value="A-11"> A-11 Design, plot, and interpret data using a cumulative record to display data. </option>
+    <option value="A-12"> A-12 Design and implement continuous measurement procedures (e.g., event recording). </option>
+    <option value="A-13"> A-13 Design and implement discontinuous measurement procedures (e.g., partial & whole interval, momentary time sampling). </option>
+    <option value="A-14"> A-14 Design and implement choice measures. </option>
+  </optgroup>
+  <optgroup label="Section I - Experimental Design">
+    <option value="B-01"> B-01 Use the dimensions of applied behavior analysis (Baer, Wolf, & Risley, 1968) to evaluate whether interventions are behavior analytic in nature.</option>
+    <option value="B-02"> B-02 Review and interpret articles from the behavior-analytic literature. </option>
+    <option value="B-03"> B-03 Systematically arrange independent variables to demonstrate their effects on dependent variables. </option>
+    <option value="B-04"> B-04 Use withdrawal/reversal designs.</option>
+    <option value="B-05"> B-05 Use alternating treatments (i.e., multielement) designs. </option>
+    <option value="B-06"> B-06 Use changing criterion designs. </option>
+    <option value="B-07"> B-07 Use multiple baseline designs. </option>
+    <option value="B-08"> B-08 Use multiple probe designs. </option>
+    <option value="B-09"> B-09 Use combinations of design elements. </option>
+    <option value="B-10"> B-10 Conduct a component analysis to determine the effective components of an intervention package. </option>
+    <option value="B-11"> B-11 Conduct a parametric analysis to determine the effective values of an independent variable. </option>
+  </optgroup>
+  <optgroup label="Section I - Behavior-Change Considerations">
+    <option value="C-01"> C-01 State and plan for the possible unwanted effects of reinforcement.</option>
+    <option value="C-02"> C-02 State and plan for the possible unwanted effects of punishment. </option>
+    <option value="C-03"> C-03 State and plan for the possible unwanted effects of extinction. </option>
+  </optgroup>
+  <optgroup label="Section I - Fundamental Elements of Behavior Change">
+    <option value="D-01"> D-01 Use positive and negative reinforcement.</option>
+    <option value="D-02"> D-02 Use appropriate parameters and schedules of reinforcement. </option>
+    <option value="D-03"> D-03 Use prompts and prompt fading. </option>
+    <option value="D-04"> D-04 Use modeling and imitation training.</option>
+    <option value="D-05"> D-05 Use shaping.</option>
+    <option value="D-06"> D-06 Use chaining.</option>
+    <option value="D-07"> D-07 Conduct task analyses. </option>
+    <option value="D-08"> D-08 Use discrete-trial and free-operant arrangements.</option>
+    <option value="D-09"> D-09 Use the verbal operants as a basis for language assessment. </option>
+    <option value="D-10"> D-10 Use echoic training. </option>
+    <option value="D-11"> D-11 Use mand training. </option>
+    <option value="D-12"> D-12 Use tact training. </option>
+    <option value="D-13"> D-13 Use intraverbal training.</option>
+    <option value="D-14"> D-14 Use listener training. </option>
+    <option value="D-15"> D-15 Identify punishers. </option>
+    <option value="D-16"> D-16 Use positive and negative punishment. </option>
+    <option value="D-17"> D-17 Use appropriate parameters and schedules of punishment. </option>
+    <option value="D-18"> D-18 Use extinction. </option>
+    <option value="D-19"> D-19 Use combinations of reinforcement with punishment and extinction. </option>
+    <option value="D-20"> D-20 Use response-independent (time-based) schedules of reinforcement (i.e., noncontingent reinforcement). </option>
+    <option value="D-21"> D-21 Use differential reinforcement (e.g., DRO, DRA, DRI, DRL, DRH). </option>
+  </optgroup>
+  <optgroup label="Section I - Specific Behavior-Change Procedures">
+    <option value="E-01"> E-01 Use interventions based on manipulation of antecedents, such as motivating operations and discriminative stimuli. </option>
+    <option value="E-02"> E-02 Use discrimination training procedures.</option>
+    <option value="E-03"> E-03 Use instructions and rules. </option>
+    <option value="E-04"> E-04 Use contingency contracting (i.e., behavioral contracts). </option>
+    <option value="E-05"> E-05 Use independent, interdependent, and dependent group contingencies.</option>
+    <option value="E-06"> E-06 Use stimulus equivalence procedures. </option>
+    <option value="E-07"> E-07 Plan for behavioral contrast effects. </option>
+    <option value="E-08"> E-08 Use the matching law and recognize factors influencing choice. </option>
+    <option value="E-09"> E-09 Arrange high-probability request sequences. </option>
+    <option value="E-10"> E-10 Use the Premack principle.</option>
+    <option value="E-11"> E-11 Use pairing procedures to establish new conditioned reinforcers and punishers.</option>
+    <option value="E-12"> E-12 Use errorless learning procedures.</option>
+    <option value="E-13"> E-13 Use matching-to-sample procedures.</option>
+  </optgroup>
+    <optgroup label="Section I - Behavior-Change Systems">
+    <option value="F-01"> F-01 Use self-management strategies. </option>
+    <option value="F-02"> F-02 Use token economies and other conditioned reinforcement systems. </option>
+    <option value="F-03"> F-03 Use Direct Instruction. </option>
+    <option value="F-04"> F-04 Use precision teaching.</option>
+    <option value="F-05"> F-05 Use personalized systems of instruction (PSI). </option>
+    <option value="F-06"> F-06 Use incidental teaching.</option>
+    <option value="F-07"> F-07 Use functional communication training.</option>
+    <option value="F-08"> F-08 Use augmentative communication systems. </option>
+  </optgroup>
+    </optgroup>
+    <optgroup label="Section II - Identification of the Problem">
+    <option value="G-01"> G-01 Review records and available data at the outset of the case. </option>
+    <option value="G-02"> G-02 Consider biological/medical variables that may be affecting the client. </option>
+    <option value="G-03"> G-03 Conduct a preliminary assessment of the client in order to identify the referral problem. </option>
+    <option value="G-04"> G-04 Explain behavioral concepts using nontechnical language.</option>
+    <option value="G-05"> G-05 Describe and explain behavior, including private events, in behavior-analytic (nonmentalistic) terms. </option>
+    <option value="G-06"> G-06 Provide behavior-analytic services in collaboration with others who support and/or provide services to one’s clients. </option>
+    <option value="G-07"> G-07 Practice within one’s limits of professional competence in applied behavior analysis, and obtain consultation, supervision, and training, or make referrals as necessary. </option>
+    <option value="G-08"> G-08 Identify and make environmental changes that reduce the need for behavior analysis services. </option>
+  </optgroup>
+  <optgroup label="Section II - Measurement">
+    <option value="H-01"> H-01 Select a measurement system to obtain representative data given the dimensions of the behavior and the logistics of observing and recording. </option>
+    <option value="H-02"> H-02 Select a schedule of observation and recording periods.</option>
+    <option value="H-03"> H-03 Select a data display that effectively communicates relevant quantitative relations. </option>
+    <option value="H-04"> H-04 Evaluate changes in level, trend, and variability. </option>
+    <option value="H-05"> H-05 Evaluate temporal relations between observed variables (within & between sessions, time series). </option>
+  </optgroup>
+    <optgroup label="Section II - Assessment">
+    <option value="I-01"> I-01 Define behavior in observable and measurable terms.</option>
+    <option value="I-02"> I-02 Define environmental variables in observable and measurable terms. </option>
+    <option value="I-03"> I-03 Design and implement individualized behavioral assessment procedures. </option>
+    <option value="I-04"> I-04 Design and implement the full range of functional assessment procedures.</option>
+    <option value="I-05"> I-05 Organize, analyze, and interpret observed data.</option>
+    <option value="I-06"> I-06 Make recommendations regarding behaviors that must be established, maintained, increased, or decreased.</option>
+    <option value="I-07"> I-07 Design and conduct preference assessments to identify putative reinforcers. </option>
+  </optgroup>
+    <optgroup label="Section II - Intervention">
+    <option value="J-01"> J-01 State intervention goals in observable and measurable terms. </option>
+    <option value="J-02"> J-02 Identify potential interventions based on assessment results and the best available scientific evidence. </option>
+    <option value="J-03"> J-03 Select intervention strategies based on task analysis. </option>
+    <option value="J-04"> J-04 Select intervention strategies based on client preferences. </option>
+    <option value="J-05"> J-05 Select intervention strategies based on the client’s current repertoires. </option>
+    <option value="J-06"> J-06 Select intervention strategies based on supporting environments. </option>
+    <option value="J-07"> J-07 Select intervention strategies based on environmental and resource constraints. </option>
+    <option value="J-08"> J-08 Select intervention strategies based on the social validity of the intervention. </option>
+    <option value="J-09"> J-09 Identify and address practical and ethical considerations when using experimental designs to demonstrate treatment effectiveness. </option>
+    <option value="J-10"> J-10 When a behavior is to be decreased, select an acceptable alternative behavior to be established or increased. </option>
+    <option value="J-11"> J-11 Program for stimulus and response generalization. </option>
+    <option value="J-12"> J-12 Program for maintenance. </option>
+    <option value="J-13"> J-13 Select behavioral cusps as goals for intervention when appropriate. </option>
+    <option value="J-14"> J-14 Arrange instructional procedures to promote generative learning (i.e., derived relations). </option>
+    <option value="J-15"> J-15 Base decision-making on data displayed in various formats. </option>
+  </optgroup>
+    <optgroup label="Section II - Implementation, Management, and Supervision">
+    <option value="K-01"> K-01 Provide for ongoing documentation of behavioral services.</option>
+    <option value="K-02"> K-02 Identify the contingencies governing the behavior of those responsible for carrying out behavior-change procedures and design interventions accordingly. </option>
+    <option value="K-03"> K-03 Design and use competency-based training for persons who are responsible for carrying out behavioral assessment and behavior-change procedures.</option>
+    <option value="K-04"> K-04 Design and use effective performance monitoring and reinforcement systems. </option>
+    <option value="K-05"> K-05 Design and use systems for monitoring procedural integrity. </option>
+    <option value="K-06"> K-06 Provide supervision for behavior-change agents.</option>
+    <option value="K-07"> K-07 Evaluate the effectiveness of the behavioral program.</option>
+    <option value="K-08"> K-08 Establish support for behavior-analytic services from direct and indirect consumers.</option>
+    <option value="K-09"> K-09 Secure the support of others to maintain the client’s behavioral repertoires in their natural environments.</option>
+    <option value="K-10"> K-10 Arrange for the orderly termination of services when they are no longer required.</option> -->
+  </optgroup>
+  </select></td>
+      </tr>
+    </tbody>
+  </table>
+<br />
+<p align="center"><input type='submit' class='btn btn-success'></p>
+</form>
+</div>
+</div>
+<h3>Printable job model templates and examples</h3>
+<table class="table table-hover">
+<tbody>
+<tr>
+  <td><img src="/static/media/word.png" height="25px" width="25px"></td>
+  <td><a href="/static/media/job-model-template.docx" target="_blank">Downloadable Word template</a></td>
+  <td><img src="/static/media/word.png" height="25px" width="25px"></td>
+  <td><a href="/static/media/pats-job-model.docx" target="_blank">Job Model Example</td>
+</tr>
+</tbody>
+</table>
+
+<br />
+<br />
+</div>
+
+
+{% block content %}
+<!-- <h1>Heading</h1> -->
+
+{% endblock %}

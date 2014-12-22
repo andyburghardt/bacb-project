@@ -13,6 +13,9 @@ from .models import ExperienceSupervision
 from .models import SupervisionFeedback
 from .models import MyDataSheets
 from .models import UserProfile
+from .models import DevelopmentGoals
+from .models import SuperviseeValidation
+from .models import SuperviseeValidation2
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -31,6 +34,11 @@ class SignUpForm(forms.ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
+
+class DevelopmentGoalsForm(forms.ModelForm):
+    class Meta:
+        model = DevelopmentGoals
+        exclude = ['user']   # Will be taken from the request
 
 class StoryboardForm(forms.ModelForm):
     class Meta:
@@ -151,7 +159,137 @@ class MyForm(forms.ModelForm):
         model = MyModel
         # form.fields['myuser'].queryset = User.objects.filter(groups__name='Supervisees')
 
+PERFORMANCE0 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+
+PERFORMANCE1 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE2 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE3 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE4 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE5 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE6 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE7 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE8 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE9 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE10 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+
+PERFORMANCE11 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE12 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE13 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE14 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE15 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+PERFORMANCE16 = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+(u'NA', u'NA'),
+)
+
+
+EVAL = (
+(u'S', u'S'),
+(u'NI', u'NI'),
+(u'U', u'U'),
+)
+
 class ExperienceSupervisionForm(forms.ModelForm):
+    arrives_on_time = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE0)
+    maintains_professional = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE1)
+    clients_consumers = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE2)
+    other_service_providers = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE3)
+    coworkers = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE4)
+    maintains_appropriate_attire = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE5)
+    initiates_professional_improvement = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE6)
+    accepts_supervisory_feedback = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE7)
+    seeks_supervision = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE8)
+    timely_submission_reports = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE9)
+    communicates_effectively = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE10)
+    written = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE11)
+    oral = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE12)
+    demonstrates_sensitivity = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE13)
+    personal_limitations = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE14)
+    professional_limitations = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE15)
+    behavior_analytic_skills = forms.ChoiceField(widget=forms.RadioSelect, choices=PERFORMANCE16)
+    overall_evaluation = forms.ChoiceField(widget=forms.RadioSelect, choices=EVAL)
     class Meta:
         model = ExperienceSupervision
         exclude = ['user']   # Will be taken from the request
@@ -171,4 +309,25 @@ class MyDataSheetsForm(forms.ModelForm):
         fields = ('files', 'description')
         exclude = ['user']   # Will be taken from the request
 
+class ValidationForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(ValidationForm, self).__init__(*args, **kwargs)
+    class Meta:
+        model = SuperviseeValidation
+        fields = ('Supervisees', 'files1', 'files2', 'files3', 'files4')
+        exclude = ['user']   # Will be taken from the request
 
+VALIDATED = (
+(u'YES', u'YES'),
+(u'NO', u'NO'),
+)
+
+class Validation2Form(forms.ModelForm):
+    validated1 = forms.ChoiceField(widget=forms.RadioSelect, choices=VALIDATED)
+    validated2 = forms.ChoiceField(widget=forms.RadioSelect, choices=VALIDATED)
+    validated3 = forms.ChoiceField(widget=forms.RadioSelect, choices=VALIDATED)
+    validated4 = forms.ChoiceField(widget=forms.RadioSelect, choices=VALIDATED)
+    class Meta:
+        model = SuperviseeValidation2
+        fields = ('Supervisees', 'actions1', 'deadline1', 'validated1', 'actions2', 'deadline2', 'validated2', 'actions3', 'deadline3', 'validated3', 'actions4', 'deadline4', 'validated4')
+        exclude = ['user']   # Will be taken from the request

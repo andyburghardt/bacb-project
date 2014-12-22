@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+<h2>My Data Sheets</h2>
+Upload any data collection sheets you have developed for use in supervisee training, feedback, and performance monitoring. 
+<hr />
+
+
+<form method='POST' action='' enctype="multipart/form-data"> {% csrf_token %}
+
+<div class="container">
+<div class="col-md-6">
+<table  width="400" class="table">
+	<tr><td colspan="2"><em>*A title is required to upload a data sheet</em></td>
+	</tr>
+    <tr> 
+        <td><strong>File</strong>: <input id="id_files" name="files" type="file"> </td>
+        <td><strong>Description</strong>: <br /><input id="id_description" maxlength="480" name="description" type="text"></td>
+    </tr>
+</table>
+<p align="center"><input type='submit' class='btn btn-success'></p>
+</form>
+</div>
+<div class="col-md-6">
+<table class="table">
+    <tr> 
+        <td><strong>Files</strong></td>
+    </tr>
+{% for item in query_results %}
+    <tr> 
+        <td><a href="/static{{ MEDIA_URL }}{{item.files}}">{{ item.description }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}            
+
+{% block content %}
+<!-- <h1>Heading</h1> -->
+
+{% endblock %}
+
+
+

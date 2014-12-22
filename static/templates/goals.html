@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+<h2>Professional Development Goals</h2>
+You will use this form to generate professional development goals, identify action items that will allow you to achieve your goals, assess progress, and determine ways to celebrate your successes.<br /><br />
+Complete each section of the professional development goals form using the results from current and previous supervisee and self-assessments of your supervision (along with any other performance evaluation data you might have). Identify specific performances/skills that you would like to improve or develop. Set SMART (specific, measurable, achievable, relevant, and time-bound) goals and identify specific actions you will take to help you achieve those goals. It is important to focus on a relatively small number of skills at one time in order to maximize potential for success. 
+<br />
+<br />
+<hr />
+<div class="container">
+<div class="col-md-10">
+<form method='POST' action=''> {% csrf_token %}
+Period covered: <input id="id_period_covered" maxlength="480" name="period_covered" type="text" /><br /><br />
+<table border="0" cellpadding="15" class="table">
+  <tbody>
+    <tr>
+      <td><strong>Goal</strong></td>
+      <td><strong>Actions</strong></td>
+      <td><strong>Deadline</strong></td>
+      <td><strong>Status</strong></td>
+    </tr>
+    <tr>
+      <td>1. <input id="id_goal1" maxlength="480" name="goal1" type="text" /></td>
+      <td><textarea cols="40" id="id_action1" name="action1" rows="10"></textarea></td>
+      <td><input id="id_deadline1" maxlength="480" name="deadline1" type="text" /></td>
+      <td><input id="id_complete1" name="complete1" type="checkbox" /> Complete<br />
+      <input id="id_remove1" name="remove1" type="checkbox" /> Remove <br />
+      <input id="id_carry_over1" name="carry_over1" type="checkbox" /> Carry over</td>
+    </tr>
+    <tr>
+      <td>2. <input id="id_goal2" maxlength="480" name="goal2" type="text" /></td>
+      <td><textarea cols="40" id="id_action2" name="action2" rows="10"></textarea></td>
+      <td><input id="id_deadline2" maxlength="480" name="deadline2" type="text" /></td>
+      <td><input id="id_complete2" name="complete2" type="checkbox" /> Complete<br />
+      <input id="id_remove2" name="remove2" type="checkbox" /> Remove <br />
+      <input id="id_carry_over2" name="carry_over2" type="checkbox" /> Carry over</td>
+    </tr>
+    <tr>
+      <td>3. <input id="id_goal3" maxlength="480" name="goal3" type="text" /></td>
+      <td><textarea cols="40" id="id_action3" name="action3" rows="10"></textarea></td>
+      <td><input id="id_deadline3" maxlength="480" name="deadline3" type="text" /></td>
+      <td><input id="id_complete3" name="complete3" type="checkbox" /> Complete<br />
+      <input id="id_remove3" name="remove3" type="checkbox" /> Remove <br />
+      <input id="id_carry_over3" name="carry_over3" type="checkbox" /> Carry over</td>
+    </tr>
+  </tbody>
+</table>
+<p>Reinforcement Plan</p>
+<table border="0" cellpadding="15" class="table">
+  <tbody>
+    <tr>
+      <td><strong>R+ Criteria</strong></td>
+      <td><strong>Plans</strong></td>
+    </tr>
+    <tr>
+      <td>1. Achieved All Goals</td>
+      <td><textarea cols="40" id="id_completed_all_goals" name="completed_all_goals" rows="10"></textarea></td>
+    </tr>
+    <tr>
+      <td>2. Achieved At Least One Goal</td>
+      <td><textarea cols="40" id="id_completed_one_goal" name="completed_one_goal" rows="10"></textarea></td>
+    </tr>
+    <tr>
+      <td>3. Made Progress on All Goals</td>
+      <td><textarea cols="40" id="id_progress_all_goals" name="progress_all_goals" rows="10">
+</textarea></td>
+    </tr>
+    <tr>
+      <td>4. Made Progress on At Least One Goal</td>
+      <td><textarea cols="40" id="id_progress_one_goal" name="progress_one_goal" rows="10">
+</textarea></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<p align="center"><input type='submit' class='btn btn-success'></p>
+{% endblock %}

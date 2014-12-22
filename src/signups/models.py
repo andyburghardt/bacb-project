@@ -24,9 +24,88 @@ class UserProfile(models.Model):
 class MyModel(models.Model):
     Supervisees = models.ForeignKey(User)
 
+class DevelopmentGoals(models.Model):
+    user = models.ForeignKey(User)
+    period_covered = models.CharField(max_length=480, null=True, blank=True)
+    goal1 = models.CharField(max_length=480, null=True, blank=True)
+    action1 = models.TextField()
+    deadline1 = models.CharField(max_length=480, null=True, blank=True)
+    complete1 = models.BooleanField(default=False)
+    remove1 = models.BooleanField(default=False)
+    carry_over1 = models.BooleanField(default=False)
+    goal2 = models.CharField(max_length=480, null=True, blank=True)
+    action2 = models.TextField()
+    deadline2 = models.CharField(max_length=480, null=True, blank=True)
+    complete2 = models.BooleanField(default=False)
+    remove2 = models.BooleanField(default=False)
+    carry_over2 = models.BooleanField(default=False)
+    goal3 = models.CharField(max_length=480, null=True, blank=True)
+    action3 = models.TextField()
+    deadline3 = models.CharField(max_length=480, null=True, blank=True)
+    complete3 = models.BooleanField(default=False)
+    remove3 = models.BooleanField(default=False)
+    carry_over3 = models.BooleanField(default=False)
+    completed_all_goals = models.TextField()
+    completed_one_goal = models.TextField()
+    progress_all_goals = models.TextField()
+    progress_one_goal = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.user
+
 class ExperienceSupervision(models.Model):
-    Supervisees = models.ForeignKey(User)
+    user = models.ForeignKey(User)
+    Supervisees = models.ForeignKey(User, related_name='supervisee_exp')
+    meeting_dates = models.CharField(max_length=480, null=True, blank=True)
+    individual_format = models.BooleanField(default=False)
+    group_format = models.BooleanField(default=False)
+    start_period = models.CharField(max_length=240, null=True, blank=True)
+    end_period = models.CharField(max_length=240, null=True, blank=True)
+    independent_experience_hours = models.CharField(max_length=240, null=True, blank=True)
+    individual_supervision_hours = models.CharField(max_length=240, null=True, blank=True)
+    small_group_supervision = models.CharField(max_length=240, null=True, blank=True)
+    BACB_task_list_skills = models.BooleanField(default=False)
+    BACB_task_list_task_numbers = models.CharField(max_length=480, null=True, blank=True)
+    specific_clients = models.BooleanField(default=False)
+    client_privacy = models.BooleanField(default=False)
+    video_observation = models.BooleanField(default=False)
+    inperson_observation = models.BooleanField(default=False)
+    supervision_inperson = models.BooleanField(default=False)
+    supervision_remote = models.BooleanField(default=False)
+    readings = models.BooleanField(default=False)
+    reading_text = models.CharField(max_length=480, null=True, blank=True)
+    arrives_on_time = models.CharField(max_length=2, null=True, blank=True)
+    maintains_professional  = models.CharField(max_length=2, null=True, blank=True)
+    clients_consumers = models.CharField(max_length=2, null=True, blank=True)
+    other_service_providers = models.CharField(max_length=2, null=True, blank=True)
+    coworkers = models.CharField(max_length=2, null=True, blank=True)
+    maintains_appropriate_attire = models.CharField(max_length=2, null=True, blank=True)
+    initiates_professional_improvement = models.CharField(max_length=2, null=True, blank=True)
+    accepts_supervisory_feedback = models.CharField(max_length=2, null=True, blank=True)
+    seeks_supervision = models.CharField(max_length=2, null=True, blank=True)
+    timely_submission_reports = models.CharField(max_length=2, null=True, blank=True)
+    communicates_effectively = models.CharField(max_length=2, null=True, blank=True)
+    written = models.CharField(max_length=2, null=True, blank=True)
+    oral = models.CharField(max_length=2, null=True, blank=True)
+    demonstrates_sensitivity = models.CharField(max_length=2, null=True, blank=True)
+    personal_limitations = models.CharField(max_length=2, null=True, blank=True)
+    professional_limitations = models.CharField(max_length=2, null=True, blank=True)
+    behavior_analytic_skills = models.CharField(max_length=2, null=True, blank=True)
+    overall_evaluation = models.CharField(max_length=2, null=True, blank=True)
+    supervisor_will = models.CharField(max_length=480, null=True, blank=True)
+    supervisee_will = models.CharField(max_length=480, null=True, blank=True)
+    supervisee_signature = models.CharField(max_length=480, null=True, blank=True)
+    date1 = models.CharField(max_length=240, null=True, blank=True)
+    supervisor_signature = models.CharField(max_length=480, null=True, blank=True)
+    date2 = models.CharField(max_length=240, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     # Supervisors = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.user
 
 #def home(request):
 
@@ -1022,3 +1101,36 @@ class MyDataSheets(models.Model):
     def __unicode__(self):
         return self.user
 
+class SuperviseeValidation(models.Model):
+    user = models.ForeignKey(User)
+    Supervisees = models.ForeignKey(User, related_name='supervisee_validation')
+    files1 = models.FileField(upload_to=get_upload_file_name, blank=True)
+    files2 = models.FileField(upload_to=get_upload_file_name, blank=True)
+    files3 = models.FileField(upload_to=get_upload_file_name, blank=True)
+    files4 = models.FileField(upload_to=get_upload_file_name, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.user
+
+class SuperviseeValidation2(models.Model):
+    user = models.ForeignKey(User)
+    Supervisees = models.ForeignKey(User, related_name='supervisee_validation2')
+    actions1 = models.TextField()
+    deadline1 = models.CharField(max_length=480, null=True, blank=True)
+    validated1 = models.CharField(max_length=3, null=True, blank=True)
+    actions2 = models.TextField()
+    deadline2 = models.CharField(max_length=480, null=True, blank=True)
+    validated2 = models.CharField(max_length=3, null=True, blank=True)    
+    actions3 = models.TextField()
+    deadline3 = models.CharField(max_length=480, null=True, blank=True)
+    validated3 = models.CharField(max_length=3, null=True, blank=True)
+    actions4 = models.TextField()
+    deadline4 = models.CharField(max_length=480, null=True, blank=True)
+    validated4 = models.CharField(max_length=3, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.user

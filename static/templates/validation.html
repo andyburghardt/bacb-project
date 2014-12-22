@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+<h2>Supervisee Self-Assessment Validation</h2>
+After your supervisee completes his or her self-assessment of skills, you can access it and verify the evidence provided for each skill in which the supervisee has marked being proficient.<br /><br />
+Choose which supervisee’s assessment you will review. Verify each skill the supervisee self-assessed as “Can Do without Coaching” or “Can Coach Others” by either reviewing any documentation provided or by conducting a direct observation of the skills. Once you have verified through a documentation review or observation session, mark the assessment as validated.
+<br />
+<hr />
+<br />
+
+<form method='POST' action='' enctype="multipart/form-data"> {% csrf_token %}
+<div class="container">
+<div class="col-md-6">
+<table class="table">
+<p>Supervisee: {{ form.Supervisees }}</p>
+<br />
+<br />
+A-08 - Assess and interpret interobserver agreement.
+<ol>
+<li>I have read about it but have not done it or have had no exposure to it</li>
+<li>I have done it at least one and can do it with some coaching</li>
+<li>I have done it a few times and can do it without coaching</li>
+<li><strong>I have done it several times and can coach others</strong></li>
+</ol>
+<table class="table">
+<tbody>
+<tr>
+<td><strong>I need to be observed 
+  <input type="checkbox" name="checkbox2" id="checkbox2" disabled="disabled">
+</strong></td>
+<td><strong>I have documentation <input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" checked="checked"></strong></td>
+</tr>
+<tr>
+<td valign="top">Actions: <textarea cols="40" id="id_actions1" name="actions1" rows="10"></textarea><br />Deadline: <input id="id_deadline1" maxlength="480" name="deadline1" type="text"></td>
+<td valign="top"><p>Validation File: </p>
+  <p><a href="/static/media/IOA Practice Worksheet .docx">IOA Practice Worksheet </a></p></td>
+</tr>
+<tr>
+<td colspan="2"><strong>Skill Validated? &nbsp;&nbsp;Yes
+          <input id="id_validated1_0" name="validated1" type="radio" value="YES">
+&nbsp;&nbsp;No
+<input id="id_validated1_1" name="validated1" type="radio" value="NO">
+</tr>
+<tr>
+<td colspan="2">If no, skill needs to be reassigned to difference competence level and trained/monitored</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<br />
+B-09 - Use combinations of design elements.
+<ol>
+<li>I have read about it but have not done it or have had no exposure to it</li>
+<li><strong>I have done it at least one and can do it with some coaching</strong></li>
+<li>I have done it a few times and can do it without coaching</li>
+<li>I have done it several times and can coach others</li>
+</ol>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>I need to be observed <input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" checked="checked"></strong></td>
+      <td><strong>I have documentation 
+        <input type="checkbox" name="checkbox3" id="checkbox3" disabled="disabled">
+      </strong></td>
+    </tr>
+    <tr>
+      <td valign="top">Actions: <textarea cols="40" id="id_actions2" name="actions2" rows="10"></textarea><br />Deadline: <input id="id_deadline2" maxlength="480" name="deadline2" type="text"></td>
+      <td valign="top">Validation File: </td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Skill Validated? &nbsp;&nbsp;Yes
+          <input id="id_validated2_0" name="validated2" type="radio" value="YES">
+&nbsp;&nbsp;No
+<input id="id_validated2_1" name="validated2" type="radio" value="NO">
+      </strong></td>
+    </tr>
+    <tr>
+      <td colspan="2">If no, skill needs to be reassigned to difference competence level and trained/monitored</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<br />
+F-03 - Use Direct Instruction.
+<ol>
+<li>I have read about it but have not done it or have had no exposure to it</li>
+<li>I have done it at least one and can do it with some coaching</li>
+<li><strong>I have done it a few times and can do it without coaching</strong></li>
+<li>I have done it several times and can coach others</li>
+</ol>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>I need to be observed <input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" checked="checked"></strong></td>
+      <td><strong>I have documentation 
+        <input type="checkbox" name="checkbox4" id="checkbox4" disabled="disabled">
+      </strong></td>
+    </tr>
+    <tr>
+      <td valign="top">Actions: <textarea cols="40" id="id_actions3" name="actions3" rows="10"></textarea><br />Deadline: <input id="id_deadline3" maxlength="480" name="deadline3" type="text"></td>
+      <td valign="top">Validation File: </td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Skill Validated? &nbsp;&nbsp;Yes
+          <input id="id_validated3_0" name="validated3" type="radio" value="YES">
+&nbsp;&nbsp;No
+<input id="id_validated3_1" name="validated3" type="radio" value="NO">
+      </strong></td>
+    </tr>
+    <tr>
+      <td colspan="2">If no, skill needs to be reassigned to difference competence level and trained/monitored</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<br />
+FK-10 - behavior, response, response class
+<ol>
+<li><strong>I have read about it but have not done it or have had no exposure to it</strong></li>
+<li>I have done it at least one and can do it with some coaching</li>
+<li>I have done it a few times and can do it without coaching</li>
+<li>I have done it several times and can coach others</li>
+</ol>
+<table class="table">
+  <tbody>
+    <tr>
+      <td><strong>I need to be observed <input type="checkbox" name="checkbox" id="checkbox" disabled="disabled" checked="checked"></strong></td>
+      <td><strong>I have documentation 
+        <input type="checkbox" name="checkbox4" id="checkbox4" disabled="disabled">
+      </strong></td>
+    </tr>
+    <tr>
+      <td valign="top">Actions: <textarea cols="40" id="id_actions4" name="actions4" rows="10"></textarea><br />Deadline: <input id="id_deadline4" maxlength="480" name="deadline4" type="text"></td>
+      <td valign="top">Validation File: </td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Skill Validated? &nbsp;&nbsp;Yes
+          <input id="id_validated4_0" name="validated4" type="radio" value="YES">
+&nbsp;&nbsp;No
+<input id="id_validated4_1" name="validated4" type="radio" value="NO">
+      </strong></td>
+    </tr>
+    <tr>
+      <td colspan="2">If no, skill needs to be reassigned to difference competence level and trained/monitored</td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<br />
+<p align="center"><input type='submit' class='btn btn-success'></p>
+</form>
+</div>
+{% endblock %}            
+
+{% block content %}
+<!-- <h1>Heading</h1> -->
+
+{% endblock %}
+
+
+

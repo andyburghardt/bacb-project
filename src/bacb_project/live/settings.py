@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ozer1to188zhk3iqu)0d#850yu+3h8q((t-hax*xdzjh8c&vpk'
+SECRET_KEY = '@c(6v#b4d6&ptw_-jfrcd57@pc@go*0^h4yf6pxx3z*66om(ob'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'bacb.urls'
+ROOT_URLCONF = 'bacb3.urls'
 
-WSGI_APPLICATION = 'bacb.wsgi.application'
+WSGI_APPLICATION = 'bacb3.wsgi.application'
 
 
 # Database
@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'bacb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bacb_db',
+        'NAME': 'bacb3_db',
         'USER': 'eup_dbowner',
         'PASSWORD': '3Xt3nd3d!pr0gRams',
     }
@@ -90,12 +90,11 @@ STATIC_URL = '/static/'
 
 if not DEBUG:
     MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/aburghardt/webapps/static/'
-    MEDIA_ROOT = '/home/aburghardt/webapps/static/media/'
+    STATIC_ROOT = '/home/aburghardt/webapps/bacb3_static/'
+    MEDIA_ROOT = '/home/aburghardt/webapps/bacb3_static/media/'
     STATICFILES_DIRS = (
-        '/home/aburghardt/webapps/static/static/',
+        '/home/aburghardt/webapps/bacb3_static/static/',
     )
     TEMPLATE_DIRS = (
-        '/home/aburghardt/webapps/static/templates',
+        '/home/aburghardt/webapps/bacb3_static/templates',
     )
-
